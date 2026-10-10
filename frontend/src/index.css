@@ -1,0 +1,99 @@
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --ok: #16a34a;
+  --error: #dc2626;
+
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'header header'
+    'menu main';
+  height: 100vh;
+}
+
+.app-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.api-status {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.api-status--ok {
+  color: var(--ok);
+}
+
+.api-status--error {
+  color: var(--error);
+}
+
+.app-menu {
+  grid-area: menu;
+  padding: 12px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+}
+
+.app-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app-menu button {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+}
+
+.app-menu button:disabled {
+  color: var(--text-muted);
+}
+
+.app-main {
+  grid-area: main;
+  min-height: 0;
+}
+
+.graph {
+  width: 100%;
+  height: 100%;
+}
