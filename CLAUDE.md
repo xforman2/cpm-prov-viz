@@ -11,13 +11,43 @@ looks come second.
 
 ## Status
 
-Early stage, nothing is built yet. The architecture below is **planned**. When something
-becomes real, update this file with the actual commands and paths.
+The project skeleton exists. The parser, the graph contract and the real UI are not built yet.
 
-## Planned architecture
+## Structure
 
 ```
-PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► frontend (JS/TS)
+src/
+  CpmProvViz.Domain/           PROV/CPM model, no dependencies
+  CpmProvViz.Application/      use cases (load, normalise, CPM checks, map to graph contract) → Domain
+  CpmProvViz.Infrastructure/   PROV-JSON reading, file and remote loading → Application
+  CpmProvViz.Api/              ASP.NET Core minimal API → Application, Infrastructure
+  CpmProvViz.ServiceDefaults/  shared Aspire setup (health checks, telemetry)
+  CpmProvViz.AppHost/          Aspire AppHost: runs the API and the frontend together
+tests/                         xUnit projects for Domain and Application
+frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs
+CpmProvViz.slnx
+```
+
+Keep the Clean Architecture dependency direction: Domain depends on nothing, and nothing in
+Domain or Application references ASP.NET Core, files or HTTP.
+
+## Commands
+
+```fish
+dotnet run --project src/CpmProvViz.AppHost   # API + frontend + Aspire dashboard
+dotnet build CpmProvViz.slnx
+dotnet test CpmProvViz.slnx
+npm --prefix frontend run build               # type-check + production build
+npm --prefix frontend run lint
+```
+
+The frontend calls the API through the Vite proxy (`/api/*`). The AppHost passes the API address
+in as `API_HTTPS` / `API_HTTP`.
+
+## Architecture
+
+```
+PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► frontend (React + TypeScript)
                 normalise, CPM checks        contract      ELK layout → Cytoscape.js render
 ```
 
@@ -27,9 +57,9 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
   because server-side fetching avoids CORS.
 - **Graph JSON contract:** the single source of truth between backend and frontend. It will be
   specified in `docs/graph-contract.md`. Change the contract doc first, then both sides.
-- **Frontend:** Cytoscape.js for rendering and interaction. Bundles are compound nodes and can be
-  collapsed. elkjs (Layered, `INCLUDE_CHILDREN`) does the layout in a Web Worker. Details are
-  shown in HTML side panels, not inside nodes.
+- **Frontend:** React for the menus and panels, Cytoscape.js for rendering and interaction.
+  Bundles are compound nodes and can be collapsed. elkjs (Layered, `INCLUDE_CHILDREN`) does the
+  layout in a Web Worker. Details are shown in HTML side panels, not inside nodes.
 - **Scaling strategy:** bundles are collapsed by default and expanded on click or zoom. Layout is
   computed per bundle and cached, which is safe because CPM bundles are immutable. Agent edges
   don't constrain the layering. React Flow was rejected because it became unusable at about
