@@ -1,3 +1,13 @@
 # Personal Claude Code files (not shared)
 .claude/settings.local.json
 CLAUDE.local.md
+
+# .NET
+bin/
+obj/
+*.user
+.vs/
+
+# Node
+node_modules/
+dist/

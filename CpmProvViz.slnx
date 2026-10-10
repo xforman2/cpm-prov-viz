@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CpmProvViz.Api/CpmProvViz.Api.csproj" />
+    <Project Path="src/CpmProvViz.AppHost/CpmProvViz.AppHost.csproj" />
+    <Project Path="src/CpmProvViz.Application/CpmProvViz.Application.csproj" />
+    <Project Path="src/CpmProvViz.Domain/CpmProvViz.Domain.csproj" />
+    <Project Path="src/CpmProvViz.Infrastructure/CpmProvViz.Infrastructure.csproj" />
+    <Project Path="src/CpmProvViz.ServiceDefaults/CpmProvViz.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CpmProvViz.Application.Tests/CpmProvViz.Application.Tests.csproj" />
+    <Project Path="tests/CpmProvViz.Domain.Tests/CpmProvViz.Domain.Tests.csproj" />
+  </Folder>
+</Solution>

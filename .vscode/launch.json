@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "App (AppHost)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/CpmProvViz.AppHost/bin/Debug/net10.0/CpmProvViz.AppHost.dll",
+      "cwd": "${workspaceFolder}/src/CpmProvViz.AppHost",
+      "launchSettingsFilePath": "${workspaceFolder}/src/CpmProvViz.AppHost/Properties/launchSettings.json",
+      "launchSettingsProfile": "http",
+      "console": "internalConsole",
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "Login to the dashboard at (https?://\\S+)"
+      }
+    },
+    {
+      "name": "Attach to API",
+      "type": "coreclr",
+      "request": "attach",
+      "processName": "CpmProvViz.Api"
+    }
+  ]
+}

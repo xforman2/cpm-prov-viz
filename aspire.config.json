@@ -1,0 +1,5 @@
+{
+  "appHost": {
+    "path": "src/CpmProvViz.AppHost/CpmProvViz.AppHost.csproj"
+  }
+}

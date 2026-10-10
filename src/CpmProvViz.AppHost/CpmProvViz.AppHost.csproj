@@ -1,0 +1,20 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.6.1">
+
+  <ItemGroup>
+    <ProjectReference Include="..\CpmProvViz.Api\CpmProvViz.Api.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AspireUseCliBundle>false</AspireUseCliBundle>
+    <UserSecretsId>00cdcb0d-1e7e-498f-bcb8-4682d3e836c2</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.6.1" />
+  </ItemGroup>
+
+</Project>
