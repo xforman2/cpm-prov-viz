@@ -34,7 +34,7 @@ Domain or Application references ASP.NET Core, files or HTTP.
 ## Commands
 
 ```fish
-dotnet run --project src/CpmProvViz.AppHost   # API + frontend + Aspire dashboard
+dotnet run --project src/CpmProvViz.AppHost --launch-profile http   # API + frontend + dashboard
 dotnet build CpmProvViz.slnx
 dotnet test CpmProvViz.slnx
 npm --prefix frontend run build               # type-check + production build
