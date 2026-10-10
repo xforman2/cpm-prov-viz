@@ -69,6 +69,7 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
 
 - **All work is tracked in GitHub issues** (`gh issue list`, `gh issue view <n>`). Every change
   belongs to an issue. If there is none, ask before creating one.
+- **Issue titles are lowercase only**, e.g. `project scaffolding`, `swagger`.
 - **Branches:**
   - `main` holds released versions only.
   - `development` is the integration branch and the default branch.
