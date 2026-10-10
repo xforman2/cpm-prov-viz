@@ -44,6 +44,9 @@ npm --prefix frontend run lint
 The frontend calls the API through the Vite proxy (`/api/*`). The AppHost passes the API address
 in as `API_HTTPS` / `API_HTTP`.
 
+In Development, Swagger UI runs at http://localhost:5024/swagger, built from the OpenAPI document
+at `/openapi/v1.json`. Neither is available outside Development.
+
 ## Architecture
 
 ```

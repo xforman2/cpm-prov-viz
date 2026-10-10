@@ -12,6 +12,7 @@ app.UseExceptionHandler();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "CpmProvViz API v1"));
 }
 
 var api = app.MapGroup("/api");
@@ -19,7 +20,8 @@ var api = app.MapGroup("/api");
 api.MapGet("info", () => new ApiInfo(
         "CpmProvViz.Api",
         typeof(Program).Assembly.GetName().Version?.ToString(3) ?? "unknown"))
-    .WithName("GetApiInfo");
+    .WithName("GetApiInfo")
+    .WithSummary("Returns the API name and version.");
 
 app.MapDefaultEndpoints();
 
