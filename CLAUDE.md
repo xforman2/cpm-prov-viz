@@ -11,7 +11,8 @@ looks come second.
 
 ## Status
 
-The project skeleton exists. The parser, the graph contract and the real UI are not built yet.
+The graph contract (`docs/graph-contract.md`) and a first PROV-JSON reader behind `POST /api/graph`
+exist. CPM interpretation, parse notes and the real UI are not built yet.
 
 ## Structure
 
@@ -23,8 +24,9 @@ src/
   CpmProvViz.Api/              ASP.NET Core minimal API → Application, Infrastructure
   CpmProvViz.ServiceDefaults/  shared Aspire setup (health checks, telemetry)
   CpmProvViz.AppHost/          Aspire AppHost: runs the API and the frontend together
-tests/                         xUnit projects for Domain and Application
+tests/                         xUnit projects; CpmProvViz.Api.Tests tests at the HTTP seam
 testdata/                      PROV-JSON test documents (EMBRC example: `testdata/embrc/README.md`)
+                               and contract fixtures (`testdata/contract/`)
 frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs
 CpmProvViz.slnx
 ```
@@ -59,7 +61,7 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
   input and runs CPM checks: connector pairs, `cpm:referencedBundleId`, traversal information
   vs domain-specific information. It returns the graph JSON. It may also fetch bundles from
   remote provenance services, because server-side fetching avoids CORS.
-- **Graph JSON contract:** the single source of truth between backend and frontend. It will be
+- **Graph JSON contract:** the single source of truth between backend and frontend. It is
   specified in `docs/graph-contract.md`. Change the contract doc first, then both sides.
 - **Frontend:** React for the menus and panels, Cytoscape.js for rendering and interaction.
   Bundles are compound nodes and can be collapsed. elkjs (Layered, `INCLUDE_CHILDREN`) does the

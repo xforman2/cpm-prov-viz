@@ -1,0 +1,279 @@
+{
+  "prefixes": {
+    "ex": "http://example.org/",
+    "cpm": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/"
+  },
+  "bundles": [
+    {
+      "key": "b1",
+      "id": "ex:samplingBundle",
+      "iri": "http://example.org/samplingBundle",
+      "prefixes": {
+        "lab": "http://example.org/lab/"
+      }
+    },
+    {
+      "key": "b2",
+      "id": "ex:processingBundle",
+      "iri": "http://example.org/processingBundle",
+      "prefixes": {}
+    }
+  ],
+  "elements": [
+    {
+      "key": "e1",
+      "id": "ex:samplingBundle",
+      "iri": "http://example.org/samplingBundle",
+      "kind": "entity",
+      "bundle": null,
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "prov:Bundle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e2",
+      "id": "ex:processingBundle",
+      "iri": "http://example.org/processingBundle",
+      "kind": "entity",
+      "bundle": null,
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "prov:Bundle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e3",
+      "id": "ex:marineStation",
+      "iri": "http://example.org/marineStation",
+      "kind": "agent",
+      "bundle": null,
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "prov:Organization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e4",
+      "id": "ex:storedSample",
+      "iri": "http://example.org/storedSample",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:forwardConnector"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e5",
+      "id": "lab:waterSample",
+      "iri": "http://example.org/lab/waterSample",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:label",
+          "iri": "http://www.w3.org/ns/prov#label",
+          "values": [
+            {
+              "value": "Water sample"
+            }
+          ]
+        },
+        {
+          "name": "lab:depthInMetres",
+          "iri": "http://example.org/lab/depthInMetres",
+          "values": [
+            {
+              "value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e6",
+      "id": "ex:sampling",
+      "iri": "http://example.org/sampling",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:mainActivity"
+            }
+          ]
+        },
+        {
+          "name": "prov:startTime",
+          "iri": "http://www.w3.org/ns/prov#startTime",
+          "values": [
+            {
+              "value": "2021-01-01T09:00:00Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e7",
+      "id": "ex:storedSample",
+      "iri": "http://example.org/storedSample",
+      "kind": "entity",
+      "bundle": "b2",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:backwardConnector"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedBundleId",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedBundleId",
+          "values": [
+            {
+              "value": "ex:samplingBundle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e8",
+      "id": "ex:processing",
+      "iri": "http://example.org/processing",
+      "kind": "activity",
+      "bundle": "b2",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:mainActivity"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "key": "r1",
+      "type": "wasAttributedTo",
+      "id": null,
+      "iri": null,
+      "bundle": null,
+      "source": "e1",
+      "target": "e3",
+      "attributes": []
+    },
+    {
+      "key": "r2",
+      "type": "wasAttributedTo",
+      "id": null,
+      "iri": null,
+      "bundle": null,
+      "source": "e2",
+      "target": "e3",
+      "attributes": []
+    },
+    {
+      "key": "r3",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e4",
+      "target": "e6",
+      "attributes": [
+        {
+          "name": "prov:time",
+          "iri": "http://www.w3.org/ns/prov#time",
+          "values": [
+            {
+              "value": "2021-01-01T10:00:00Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r4",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e5",
+      "target": "e6",
+      "attributes": []
+    },
+    {
+      "key": "r5",
+      "type": "specializationOf",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e5",
+      "target": "e4",
+      "attributes": []
+    },
+    {
+      "key": "r6",
+      "type": "used",
+      "id": "ex:u1",
+      "iri": "http://example.org/u1",
+      "bundle": "b2",
+      "source": "e8",
+      "target": "e7",
+      "attributes": [
+        {
+          "name": "prov:role",
+          "iri": "http://www.w3.org/ns/prov#role",
+          "values": [
+            {
+              "value": "input"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "parseNotes": [],
+  "validationFindings": []
+}

@@ -8,6 +8,7 @@
     <Project Path="src/CpmProvViz.ServiceDefaults/CpmProvViz.ServiceDefaults.csproj" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/CpmProvViz.Api.Tests/CpmProvViz.Api.Tests.csproj" />
     <Project Path="tests/CpmProvViz.Application.Tests/CpmProvViz.Application.Tests.csproj" />
     <Project Path="tests/CpmProvViz.Domain.Tests/CpmProvViz.Domain.Tests.csproj" />
   </Folder>

@@ -1,0 +1,939 @@
+{
+  "prefixes": {},
+  "bundles": [
+    {
+      "key": "b1",
+      "id": "storage:16d36e10-62e0-49f7-af62-b4ec589cfa28",
+      "iri": "http://localhost:8080/api/v1/organizations/6fb292aa-ee38-48ae-998f-079ad9d01e7c/documents/16d36e10-62e0-49f7-af62-b4ec589cfa28",
+      "prefixes": {
+        "schema": "https://schema.org/",
+        "cpm": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/",
+        "blank": "https://openprovenance.org/blank/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "orcid": "https://orcid.org/",
+        "obolibrary": "http://purl.obolibrary.org/obo/",
+        "storage": "http://localhost:8080/api/v1/organizations/6fb292aa-ee38-48ae-998f-079ad9d01e7c/documents/",
+        "gen": "gen/",
+        "seadatanet": "https://edmo.seadatanet.org/report/",
+        "dct": "http://purl.org/dc/terms/",
+        "meta": "http://localhost:8080/api/v1/documents/meta/",
+        "prov": "http://www.w3.org/ns/prov#",
+        "sosa": "http://www.w3.org/ns/sosa/"
+      }
+    }
+  ],
+  "elements": [
+    {
+      "key": "e1",
+      "id": "blank:ProcessedSampleCon",
+      "iri": "https://openprovenance.org/blank/ProcessedSampleCon",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:forwardConnector"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e2",
+      "id": "blank:StoredSampleCon_r1",
+      "iri": "https://openprovenance.org/blank/StoredSampleCon_r1",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "cpm:hashAlg",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/hashAlg",
+          "values": [
+            {
+              "value": "SHA256"
+            }
+          ]
+        },
+        {
+          "name": "cpm:provenanceServiceUri",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/provenanceServiceUri",
+          "values": [
+            {
+              "value": "http://localhost:8082/api/"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:backwardConnector"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedMetaBundleId",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedMetaBundleId",
+          "values": [
+            {
+              "value": "meta:ca76d97e-b329-4df5-8bc8-9765aaa532fd"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedBundleHashValue",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedBundleHashValue",
+          "values": [
+            {
+              "value": "69bbc4eb6d73f8678b032691dfdd7270386442858b6b9a4ca18a65652a911ee8"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedBundleId",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedBundleId",
+          "values": [
+            {
+              "value": "storage:dc8efed0-0035-4029-9065-8c46667151db"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedBundleSpecV",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedBundleSpecV",
+          "values": [
+            {
+              "value": "DIS-23494-2:2025"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedMetaBundleSpecV",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedMetaBundleSpecV",
+          "values": [
+            {
+              "value": "DIS-23494-2:2025"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e3",
+      "id": "blank:ProcessedSampleConSpec",
+      "iri": "https://openprovenance.org/blank/ProcessedSampleConSpec",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "cpm:hashAlg",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/hashAlg",
+          "values": [
+            {
+              "value": "SHA256"
+            }
+          ]
+        },
+        {
+          "name": "cpm:provenanceServiceUri",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/provenanceServiceUri",
+          "values": [
+            {
+              "value": "http://localhost:8082/api/"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:specForwardConnector"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedMetaBundleId",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedMetaBundleId",
+          "values": [
+            {
+              "value": "meta:416c414b-e40f-42d0-bef9-dfaaad360c62"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedBundleHashValue",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedBundleHashValue",
+          "values": [
+            {
+              "value": "72234ce5e88eaf2c829ad3bfaa3cae148c4e325f3a5edcf763c185f3c0ba4353"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedBundleId",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedBundleId",
+          "values": [
+            {
+              "value": "storage:951cc66b-8987-42ad-b104-333d9eb6a63a"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedBundleSpecV",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedBundleSpecV",
+          "values": [
+            {
+              "value": "DIS-23494-2:2025"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedMetaBundleSpecV",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedMetaBundleSpecV",
+          "values": [
+            {
+              "value": "DIS-23494-2:2025"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e4",
+      "id": "blank:NCBI_txid1874687",
+      "iri": "https://openprovenance.org/blank/NCBI_txid1874687",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "marine plaknton metagenome"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:DefinedTerm"
+            }
+          ]
+        },
+        {
+          "name": "schema:termCode",
+          "iri": "https://schema.org/termCode",
+          "values": [
+            {
+              "value": "NCBI:txid1874687"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e5",
+      "id": "gen:5017bc3edda5006a4c29737b48585fefdfd4ef740bed03ab10730ec86e4153d7",
+      "iri": "gen/5017bc3edda5006a4c29737b48585fefdfd4ef740bed03ab10730ec86e4153d7",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "the first set of images taken by the flowcam are stored in /Users/NMSlab/flowcam/20210101/BigProject/raw"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Dataset"
+            },
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e6",
+      "id": "blank:BigProject_belgium_water_10m_1000um_r1",
+      "iri": "https://openprovenance.org/blank/BigProject_belgium_water_10m_1000um_r1",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "BigProject_belgium_water_10m_1000um_r1"
+            }
+          ]
+        },
+        {
+          "name": "schema:keywords",
+          "iri": "https://schema.org/keywords",
+          "values": [
+            {
+              "value": "obolibrary:ENVO_00002150"
+            },
+            {
+              "value": "blank:NCBI_txid1874687"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "Water sample collected from 10m depth and filtered at 1000um"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "sosa:Sample"
+            },
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e7",
+      "id": "obolibrary:ENVO_00002150",
+      "iri": "http://purl.obolibrary.org/obo/ENVO_00002150",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "coastal sea water"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:DefinedTerm"
+            }
+          ]
+        },
+        {
+          "name": "schema:termCode",
+          "iri": "https://schema.org/termCode",
+          "values": [
+            {
+              "value": "ENVO_00002150"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e8",
+      "id": "gen:a237c6fdc6c44c8dcda8bd87bd58b4690dcf34a0cc5732a1636bb1183f448575",
+      "iri": "gen/a237c6fdc6c44c8dcda8bd87bd58b4690dcf34a0cc5732a1636bb1183f448575",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "Nice Marine Station"
+            }
+          ]
+        },
+        {
+          "name": "schema:address",
+          "iri": "https://schema.org/address",
+          "values": [
+            {
+              "value": "NiceMarineStation Rd, Ostend, Belgium"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Place"
+            },
+            {
+              "value": "prov:Location"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e9",
+      "id": "blank:NMS_flowcam_2010",
+      "iri": "https://openprovenance.org/blank/NMS_flowcam_2010",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "FlowCam Micro from CoolLabInstruments Corp., 2010"
+            }
+          ]
+        },
+        {
+          "name": "schema:identifier",
+          "iri": "https://schema.org/identifier",
+          "values": [
+            {
+              "value": "NMS_flowcam_2010"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "https://vocab.nerc.ac.uk/collection/L05/current/LAB27"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "see file flowcam-settings.txt for software and hardware settings"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e10",
+      "id": "blank:FlowCam_seawater_sop",
+      "iri": "https://openprovenance.org/blank/FlowCam_seawater_sop",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "FlowCam_seawater_sop"
+            }
+          ]
+        },
+        {
+          "name": "schema:accessibilitySummary",
+          "iri": "https://schema.org/accessibilitySummary",
+          "values": [
+            {
+              "value": "see file FlowCam_seawaterSOP.pdf which is part of this data package"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "Instructions for using FlowCam with seawater, including camera settings"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            },
+            {
+              "value": "schema:CreativeWork"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e11",
+      "id": "blank:VisualSpreadsheet_FlowCam",
+      "iri": "https://openprovenance.org/blank/VisualSpreadsheet_FlowCam",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "VisualSpreadsheet FlowCam Micro software"
+            }
+          ]
+        },
+        {
+          "name": "schema:accessibilitySummary",
+          "iri": "https://schema.org/accessibilitySummary",
+          "values": [
+            {
+              "value": "see file flowcam-settings.txt which is part of the data package"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "The software that comes with this FlowCam, bought in 2010"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:SoftwareApplication"
+            },
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e12",
+      "id": "blank:Processing",
+      "iri": "https://openprovenance.org/blank/Processing",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "dct:hasPart",
+          "iri": "http://purl.org/dc/terms/hasPart",
+          "values": [
+            {
+              "value": "blank:MaterialProcessing"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:mainActivity"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedMetaBundleId",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedMetaBundleId",
+          "values": [
+            {
+              "value": "meta:371569ec-f85c-4ca5-86f5-f68dba53d5d7"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedMetaBundleSpecV",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedMetaBundleSpecV",
+          "values": [
+            {
+              "value": "DIS-23494-2:2025"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e13",
+      "id": "blank:MaterialProcessing",
+      "iri": "https://openprovenance.org/blank/MaterialProcessing",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:startTime",
+          "iri": "http://www.w3.org/ns/prov#startTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:endTime",
+          "iri": "http://www.w3.org/ns/prov#endTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:location",
+          "iri": "http://www.w3.org/ns/prov#location",
+          "values": [
+            {
+              "value": "gen:a237c6fdc6c44c8dcda8bd87bd58b4690dcf34a0cc5732a1636bb1183f448575"
+            }
+          ]
+        },
+        {
+          "name": "schema:result",
+          "iri": "https://schema.org/result",
+          "values": [
+            {
+              "value": "gen:5017bc3edda5006a4c29737b48585fefdfd4ef740bed03ab10730ec86e4153d7"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "Material Processing; FlowCam imaging"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Action"
+            }
+          ]
+        },
+        {
+          "name": "schema:object",
+          "iri": "https://schema.org/object",
+          "values": [
+            {
+              "value": "blank:BigProject_belgium_water_10m_1000um_r1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e14",
+      "id": "blank:NiceMarineStation",
+      "iri": "https://openprovenance.org/blank/NiceMarineStation",
+      "kind": "agent",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:senderAgent"
+            },
+            {
+              "value": "cpm:receiverAgent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e15",
+      "id": "seadatanet:00000",
+      "iri": "https://edmo.seadatanet.org/report/00000",
+      "kind": "agent",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "Nice Marine Station"
+            }
+          ]
+        },
+        {
+          "name": "schema:email",
+          "iri": "https://schema.org/email",
+          "values": [
+            {
+              "value": "info@nicemarinestation.eu"
+            }
+          ]
+        },
+        {
+          "name": "schema:identifier",
+          "iri": "https://schema.org/identifier",
+          "values": [
+            {
+              "value": "seadatanet:00000"
+            }
+          ]
+        },
+        {
+          "name": "schema:mainEntityOfPage",
+          "iri": "https://schema.org/mainEntityOfPage",
+          "values": [
+            {
+              "value": "https://NiceMarineStation.eu"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Organization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e16",
+      "id": "orcid:0000-0001-0001-0002",
+      "iri": "https://orcid.org/0000-0001-0001-0002",
+      "kind": "agent",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "J. Gerschwin"
+            }
+          ]
+        },
+        {
+          "name": "schema:email",
+          "iri": "https://schema.org/email",
+          "values": [
+            {
+              "value": "jg@somewhere.com"
+            }
+          ]
+        },
+        {
+          "name": "schema:identifier",
+          "iri": "https://schema.org/identifier",
+          "values": [
+            {
+              "value": "orcid:0000-0001-0001-0002"
+            }
+          ]
+        },
+        {
+          "name": "schema:affiliation",
+          "iri": "https://schema.org/affiliation",
+          "values": [
+            {
+              "value": "seadatanet:00000"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Person"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "key": "r1",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e5",
+      "target": "e13",
+      "attributes": []
+    },
+    {
+      "key": "r2",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e1",
+      "target": "e12",
+      "attributes": []
+    },
+    {
+      "key": "r3",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e12",
+      "target": "e2",
+      "attributes": []
+    },
+    {
+      "key": "r4",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e13",
+      "target": "e9",
+      "attributes": []
+    },
+    {
+      "key": "r5",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e13",
+      "target": "e10",
+      "attributes": []
+    },
+    {
+      "key": "r6",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e13",
+      "target": "e6",
+      "attributes": []
+    },
+    {
+      "key": "r7",
+      "type": "wasDerivedFrom",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e1",
+      "target": "e2",
+      "attributes": []
+    },
+    {
+      "key": "r8",
+      "type": "wasAttributedTo",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e2",
+      "target": "e14",
+      "attributes": []
+    },
+    {
+      "key": "r9",
+      "type": "wasAttributedTo",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e3",
+      "target": "e14",
+      "attributes": []
+    },
+    {
+      "key": "r10",
+      "type": "wasAssociatedWith",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e13",
+      "target": "e16",
+      "attributes": [
+        {
+          "name": "prov:role",
+          "iri": "http://www.w3.org/ns/prov#role",
+          "values": [
+            {
+              "value": "lab technician"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r11",
+      "type": "specializationOf",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e6",
+      "target": "e2",
+      "attributes": []
+    },
+    {
+      "key": "r12",
+      "type": "specializationOf",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e5",
+      "target": "e1",
+      "attributes": []
+    },
+    {
+      "key": "r13",
+      "type": "specializationOf",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e3",
+      "target": "e1",
+      "attributes": []
+    }
+  ],
+  "parseNotes": [],
+  "validationFindings": []
+}

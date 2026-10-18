@@ -1,0 +1,12 @@
+using CpmProvViz.Domain.Prov;
+
+namespace CpmProvViz.Application;
+
+/// <summary>Reads a serialised PROV document into the PROV document model.</summary>
+public interface IProvDocumentReader
+{
+    /// <exception cref="UnreadableDocumentException">
+    /// The input is not in the reader's format or not shaped like a PROV document.
+    /// </exception>
+    Task<ProvDocument> ReadAsync(Stream input, CancellationToken cancellationToken);
+}
