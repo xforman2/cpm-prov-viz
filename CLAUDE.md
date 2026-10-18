@@ -24,6 +24,7 @@ src/
   CpmProvViz.ServiceDefaults/  shared Aspire setup (health checks, telemetry)
   CpmProvViz.AppHost/          Aspire AppHost: runs the API and the frontend together
 tests/                         xUnit projects for Domain and Application
+testdata/                      PROV-JSON test documents (EMBRC example: `testdata/embrc/README.md`)
 frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs
 CpmProvViz.slnx
 ```
@@ -55,9 +56,9 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
 ```
 
 - **Parser / backend (C#, .NET 10):** reads PROV-JSON (PROV-N later, maybe). It normalises the
-  input and runs CPM checks: connector pairs, `cpm:referencedBundleId`, traversal vs domain
-  part. It returns the graph JSON. It may also fetch bundles from remote provenance services,
-  because server-side fetching avoids CORS.
+  input and runs CPM checks: connector pairs, `cpm:referencedBundleId`, traversal information
+  vs domain-specific information. It returns the graph JSON. It may also fetch bundles from
+  remote provenance services, because server-side fetching avoids CORS.
 - **Graph JSON contract:** the single source of truth between backend and frontend. It will be
   specified in `docs/graph-contract.md`. Change the contract doc first, then both sides.
 - **Frontend:** React for the menus and panels, Cytoscape.js for rendering and interaction.

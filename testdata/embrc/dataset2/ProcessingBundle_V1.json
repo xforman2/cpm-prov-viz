@@ -1,0 +1,413 @@
+{
+  "bundle": {
+    "storage:16d36e10-62e0-49f7-af62-b4ec589cfa28": {
+      "prefix": {
+        "schema": "https://schema.org/",
+        "cpm": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/",
+        "blank": "https://openprovenance.org/blank/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "orcid": "https://orcid.org/",
+        "obolibrary": "http://purl.obolibrary.org/obo/",
+        "storage": "http://localhost:8080/api/v1/organizations/6fb292aa-ee38-48ae-998f-079ad9d01e7c/documents/",
+        "gen": "gen/",
+        "seadatanet": "https://edmo.seadatanet.org/report/",
+        "dct": "http://purl.org/dc/terms/",
+        "meta": "http://localhost:8080/api/v1/documents/meta/",
+        "prov": "http://www.w3.org/ns/prov#",
+        "sosa": "http://www.w3.org/ns/sosa/"
+      },
+      "entity": {
+        "blank:ProcessedSampleCon": {
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "cpm:forwardConnector"
+            }
+          ]
+        },
+        "blank:StoredSampleCon_r1": {
+          "cpm:hashAlg": [
+            "SHA256"
+          ],
+          "cpm:provenanceServiceUri": [
+            "http://localhost:8082/api/"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "cpm:backwardConnector"
+            }
+          ],
+          "cpm:referencedMetaBundleId": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "meta:ca76d97e-b329-4df5-8bc8-9765aaa532fd"
+            }
+          ],
+          "cpm:referencedBundleHashValue": [
+            "69bbc4eb6d73f8678b032691dfdd7270386442858b6b9a4ca18a65652a911ee8"
+          ],
+          "cpm:referencedBundleId": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "storage:dc8efed0-0035-4029-9065-8c46667151db"
+            }
+          ],
+          "cpm:referencedBundleSpecV": "DIS-23494-2:2025",
+          "cpm:referencedMetaBundleSpecV": "DIS-23494-2:2025"
+        },
+        "blank:ProcessedSampleConSpec": {
+          "cpm:hashAlg": [
+            "SHA256"
+          ],
+          "cpm:provenanceServiceUri": [
+            "http://localhost:8082/api/"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "cpm:specForwardConnector"
+            }
+          ],
+          "cpm:referencedMetaBundleId": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "meta:416c414b-e40f-42d0-bef9-dfaaad360c62"
+            }
+          ],
+          "cpm:referencedBundleHashValue": [
+            "72234ce5e88eaf2c829ad3bfaa3cae148c4e325f3a5edcf763c185f3c0ba4353"
+          ],
+          "cpm:referencedBundleId": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "storage:951cc66b-8987-42ad-b104-333d9eb6a63a"
+            }
+          ],
+          "cpm:referencedBundleSpecV": "DIS-23494-2:2025",
+          "cpm:referencedMetaBundleSpecV": "DIS-23494-2:2025"
+        },
+        "blank:NCBI_txid1874687": {
+          "schema:name": [
+            "marine plaknton metagenome"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:DefinedTerm"
+            }
+          ],
+          "schema:termCode": [
+            "NCBI:txid1874687"
+          ]
+        },
+
+        "gen:5017bc3edda5006a4c29737b48585fefdfd4ef740bed03ab10730ec86e4153d7": {
+          "schema:description": [
+            "the first set of images taken by the flowcam are stored in /Users/NMSlab/flowcam/20210101/BigProject/raw"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:Dataset"
+            },
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:Thing"
+            }
+          ]
+        },
+
+        "blank:BigProject_belgium_water_10m_1000um_r1": {
+          "schema:name": [
+            "BigProject_belgium_water_10m_1000um_r1"
+          ],
+          "schema:keywords": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "obolibrary:ENVO_00002150"
+            },
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "blank:NCBI_txid1874687"
+            }
+          ],
+          "schema:description": [
+            "Water sample collected from 10m depth and filtered at 1000um"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "sosa:Sample"
+            },
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:Thing"
+            }
+          ]
+        },
+        "obolibrary:ENVO_00002150": {
+          "schema:name": [
+            "coastal sea water"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:DefinedTerm"
+            }
+          ],
+          "schema:termCode": [
+            "ENVO_00002150"
+          ]
+        },
+        "gen:a237c6fdc6c44c8dcda8bd87bd58b4690dcf34a0cc5732a1636bb1183f448575": {
+          "schema:name": [
+            "Nice Marine Station"
+          ],
+          "schema:address": [
+            "NiceMarineStation Rd, Ostend, Belgium"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:Place"
+            },
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "prov:Location"
+            }
+          ]
+        },
+        "blank:NMS_flowcam_2010": {
+          "schema:name": [
+            "FlowCam Micro from CoolLabInstruments Corp., 2010"
+          ],
+          "schema:identifier": [
+            "NMS_flowcam_2010"
+          ],
+          "dct:type": [
+            "https://vocab.nerc.ac.uk/collection/L05/current/LAB27"
+          ],
+          "schema:description": [
+            "see file flowcam-settings.txt for software and hardware settings"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:Thing"
+            }
+          ]
+        },
+
+        "blank:FlowCam_seawater_sop": {
+          "schema:name": [
+            "FlowCam_seawater_sop"
+          ],
+          "schema:accessibilitySummary": [
+            "see file FlowCam_seawaterSOP.pdf which is part of this data package"
+          ],
+          "schema:description": [
+            "Instructions for using FlowCam with seawater, including camera settings"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:Thing"
+            },
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:CreativeWork"
+            }
+          ]
+        },
+        "blank:VisualSpreadsheet_FlowCam": {
+          "schema:name": [
+            "VisualSpreadsheet FlowCam Micro software"
+          ],
+          "schema:accessibilitySummary": [
+            "see file flowcam-settings.txt which is part of the data package"
+          ],
+          "schema:description": [
+            "The software that comes with this FlowCam, bought in 2010"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:SoftwareApplication"
+            },
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:Thing"
+            }
+          ]
+        }
+      },
+      "activity": {
+        "blank:Processing": {
+          "dct:hasPart": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "blank:MaterialProcessing"
+            }
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "cpm:mainActivity"
+            }
+          ],
+          "cpm:referencedMetaBundleId": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "meta:371569ec-f85c-4ca5-86f5-f68dba53d5d7"
+            }
+          ],
+          "cpm:referencedMetaBundleSpecV": "DIS-23494-2:2025"
+        },
+        "blank:MaterialProcessing": {
+          "prov:startTime": "2021-01-01T00:00:00.000+01:00",
+          "prov:endTime": "2021-01-01T00:00:00.000+01:00",
+          "prov:location": [
+            "gen:a237c6fdc6c44c8dcda8bd87bd58b4690dcf34a0cc5732a1636bb1183f448575"
+          ],
+          "schema:result": [
+            "gen:5017bc3edda5006a4c29737b48585fefdfd4ef740bed03ab10730ec86e4153d7"
+          ],
+          "dct:type": [
+            "Material Processing; FlowCam imaging"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:Action"
+            }
+          ],
+          "schema:object": [
+            "blank:BigProject_belgium_water_10m_1000um_r1"
+          ]
+        }
+      },
+      "agent": {
+        "blank:NiceMarineStation": {
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "cpm:senderAgent"
+            },
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "cpm:receiverAgent"
+            }
+          ]
+        },
+        "seadatanet:00000": {
+          "schema:name": [
+            "Nice Marine Station"
+          ],
+          "schema:email": [
+            "info@nicemarinestation.eu"
+          ],
+          "schema:identifier": [
+            "seadatanet:00000"
+          ],
+          "schema:mainEntityOfPage": [
+            "https://NiceMarineStation.eu"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:Organization"
+            }
+          ]
+        },
+        "orcid:0000-0001-0001-0002": {
+          "schema:name": [
+            "J. Gerschwin"
+          ],
+          "schema:email": [
+            "jg@somewhere.com"
+          ],
+          "schema:identifier": [
+            "orcid:0000-0001-0001-0002"
+          ],
+          "schema:affiliation": [
+            "seadatanet:00000"
+          ],
+          "prov:type": [
+            {
+              "type": "prov:QUALIFIED_NAME",
+              "$": "schema:Person"
+            }
+          ]
+        }
+      },
+      "used": {
+        "_:n105": {
+          "prov:activity": "blank:Processing",
+          "prov:entity": "blank:StoredSampleCon_r1"
+        },
+        "_:n112": {
+          "prov:activity": "blank:MaterialProcessing",
+          "prov:entity": "blank:NMS_flowcam_2010"
+        },
+        "_:n111": {
+          "prov:activity": "blank:MaterialProcessing",
+          "prov:entity": "blank:FlowCam_seawater_sop"
+        },
+        "_:n113": {
+          "prov:activity": "blank:MaterialProcessing",
+          "prov:entity": "blank:BigProject_belgium_water_10m_1000um_r1"
+        }
+      },
+      "wasAssociatedWith": {
+        "_:n115": {
+          "prov:activity": "blank:MaterialProcessing",
+          "prov:agent": "orcid:0000-0001-0001-0002",
+          "prov:role": [
+            "lab technician"
+          ]
+        }
+      },
+      "wasAttributedTo": {
+        "_:n107": {
+          "prov:entity": "blank:StoredSampleCon_r1",
+          "prov:agent": "blank:NiceMarineStation"
+        },
+        "_:n109": {
+          "prov:entity": "blank:ProcessedSampleConSpec",
+          "prov:agent": "blank:NiceMarineStation"
+        }
+      },
+      "specializationOf": {
+        "_:n116": {
+          "prov:specificEntity": "blank:BigProject_belgium_water_10m_1000um_r1",
+          "prov:generalEntity": "blank:StoredSampleCon_r1"
+        },
+        "_:n117": {
+          "prov:specificEntity": "gen:5017bc3edda5006a4c29737b48585fefdfd4ef740bed03ab10730ec86e4153d7",
+          "prov:generalEntity": "blank:ProcessedSampleCon"
+        },
+        "_:n110": {
+          "prov:specificEntity": "blank:ProcessedSampleConSpec",
+          "prov:generalEntity": "blank:ProcessedSampleCon"
+        }
+      },
+      "wasDerivedFrom": {
+        "_:n108": {
+          "prov:generatedEntity": "blank:ProcessedSampleCon",
+          "prov:usedEntity": "blank:StoredSampleCon_r1"
+        }
+      },
+      "wasGeneratedBy": {
+        "_:n114": {
+          "prov:entity": "gen:5017bc3edda5006a4c29737b48585fefdfd4ef740bed03ab10730ec86e4153d7",
+          "prov:activity": "blank:MaterialProcessing"
+        },
+        "_:n106": {
+          "prov:entity": "blank:ProcessedSampleCon",
+          "prov:activity": "blank:Processing"
+        }
+      }
+    }
+  }
+}
