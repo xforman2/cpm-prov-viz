@@ -6,7 +6,7 @@ using Attribute = CpmProvViz.Domain.Prov.Attribute;
 namespace CpmProvViz.Infrastructure.ProvJson;
 
 /// <summary>
-/// Reads PROV-JSON (W3C Member Submission, 2013). See docs/reference/prov-json-and-cpm.md, part A.
+/// Reads PROV-JSON (W3C Member Submission, 2013).
 /// </summary>
 public sealed class ProvJsonReader : IProvDocumentReader
 {

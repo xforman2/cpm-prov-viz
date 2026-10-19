@@ -6,9 +6,6 @@ of truth between the two sides: change this document first, then both sides.
 The contract describes meaning only (kinds, relations, attributes, parse notes). It says nothing
 about styling.
 
-Terms follow `GLOSSARY.md`. The PROV-JSON facts behind the rules below are cited in
-`docs/reference/prov-json-and-cpm.md`.
-
 ## Endpoint
 
 `POST /api/graph` with the raw PROV-JSON document as the request body (`application/json`).
