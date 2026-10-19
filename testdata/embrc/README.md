@@ -69,6 +69,3 @@ which references Sampling `_V0` directly. It skips Processing. Its backward conn
 `blank:ProcessedSampleCon` `wasDerivedFrom` it. Sampling `_V1` has the matching redundant forward
 connector: `blank:ProcessedSampleCon` `wasDerivedFrom` `blank:StoredSampleCon_r1`, and it is
 specialised by `blank:ProcessedSampleConSpec`.
-
-See `docs/reference/prov-json-and-cpm.md` (section B.6) for the CPM rules on connectors and
-redundant connectors.
