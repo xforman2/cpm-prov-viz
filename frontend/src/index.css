@@ -51,7 +51,7 @@ body {
   color: var(--text-muted);
 }
 
-.api-status--ok {
+.api-status--success {
   color: var(--ok);
 }
 

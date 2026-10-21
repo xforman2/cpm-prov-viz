@@ -6,17 +6,15 @@ const unreachableMessage = 'The API cannot be reached. Check that it is running.
 // Sends a PROV-JSON document to the API and returns its graph. Throws an Error whose message can be
 // shown to the user: the API's own explanation when it rejects the document, otherwise a note that
 // the API can't be reached.
-export async function readGraph(file: Blob, signal?: AbortSignal): Promise<Graph> {
+export async function readGraph(file: Blob): Promise<Graph> {
   let response: Response
   try {
     response = await fetch('/api/graph', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: file,
-      signal,
     })
   } catch (error) {
-    if (signal?.aborted) throw error
     throw new Error(unreachableMessage, { cause: error })
   }
 

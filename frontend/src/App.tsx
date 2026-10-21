@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
-import type { ApiStatus } from './ApiStatus'
-import type { DocumentStatus } from './DocumentStatus'
+import { useState } from 'react'
 import type { OpenDocument } from './OpenDocument'
-import { readGraph } from './api/graph'
-import { fetchApiInfo } from './api/info'
+import { useApiInfo } from './api/useApiInfo'
+import { useReadGraph } from './api/useReadGraph'
 import { GraphView } from './components/GraphView'
 import { OpenFileButton } from './components/OpenFileButton'
 import { toCytoscapeElements } from './graph/toCytoscapeElements'
@@ -11,38 +9,16 @@ import { toCytoscapeElements } from './graph/toCytoscapeElements'
 const reservedMenuItems = ['Bundles', 'View', 'Validation']
 
 export default function App() {
-  const [apiStatus, setApiStatus] = useState<ApiStatus>({ state: 'loading' })
+  const apiInfo = useApiInfo()
+  const readGraph = useReadGraph()
   const [openDocument, setOpenDocument] = useState<OpenDocument | null>(null)
-  const [documentStatus, setDocumentStatus] = useState<DocumentStatus>({ state: 'none' })
-  const openRequest = useRef<AbortController | null>(null)
 
-  useEffect(() => {
-    const controller = new AbortController()
-    fetchApiInfo(controller.signal)
-      .then((info) => setApiStatus({ state: 'ok', info }))
-      .catch(() => {
-        if (!controller.signal.aborted) setApiStatus({ state: 'error' })
-      })
-    return () => controller.abort()
-  }, [])
-
-  useEffect(() => () => openRequest.current?.abort(), [])
-
-  const openFile = async (file: File) => {
-    openRequest.current?.abort()
-    const controller = new AbortController()
-    openRequest.current = controller
-    setDocumentStatus({ state: 'loading', fileName: file.name })
-    try {
-      const graph = await readGraph(file, controller.signal)
-      setOpenDocument({ fileName: file.name, elements: toCytoscapeElements(graph) })
-      setDocumentStatus({ state: 'none' })
-    } catch (error) {
-      if (controller.signal.aborted) return
-      const message = error instanceof Error ? error.message : String(error)
-      setDocumentStatus({ state: 'error', fileName: file.name, message })
-    }
-  }
+  const openFile = (file: File) =>
+    readGraph.mutate(file, {
+      // Callbacks passed to mutate run for the latest call only, so a slow earlier file can't
+      // replace the graph of a newer one.
+      onSuccess: (graph) => setOpenDocument({ fileName: file.name, elements: toCytoscapeElements(graph) }),
+    })
 
   return (
     <div className="app">
@@ -51,10 +27,10 @@ export default function App() {
           CPM Provenance Viewer
           {openDocument && <span className="app-document"> · {openDocument.fileName}</span>}
         </h1>
-        <span className={`api-status api-status--${apiStatus.state}`}>
-          {apiStatus.state === 'ok' && `API ${apiStatus.info.version}`}
-          {apiStatus.state === 'loading' && 'Connecting to API…'}
-          {apiStatus.state === 'error' && 'API unavailable'}
+        <span className={`api-status api-status--${apiInfo.status}`}>
+          {apiInfo.isSuccess && `API ${apiInfo.data.version}`}
+          {apiInfo.isPending && 'Connecting to API…'}
+          {apiInfo.isError && 'API unavailable'}
         </span>
       </header>
       <nav className="app-menu" aria-label="Main menu">
@@ -77,20 +53,20 @@ export default function App() {
         </ul>
       </nav>
       <main className="app-main">
-        {documentStatus.state === 'loading' && (
+        {readGraph.isPending && (
           <p className="document-status" role="status">
-            Opening {documentStatus.fileName}…
+            Opening {readGraph.variables.name}…
           </p>
         )}
-        {documentStatus.state === 'error' && (
+        {readGraph.isError && (
           <p className="document-status document-status--error" role="alert">
-            {documentStatus.fileName} could not be opened. {documentStatus.message}
+            {readGraph.variables.name} could not be opened. {readGraph.error.message}
           </p>
         )}
         {openDocument ? (
           <GraphView elements={openDocument.elements} />
         ) : (
-          documentStatus.state === 'none' && (
+          readGraph.isIdle && (
             <p className="empty-state">Open a PROV-JSON document from the Document menu.</p>
           )
         )}

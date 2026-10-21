@@ -93,7 +93,8 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
   specified by `GraphDto` and the `…Dto` records it holds (`src/CpmProvViz.Application/Graph/Contract/`)
   and their XML comments, which the OpenAPI document publishes. Change the records first, then
   the frontend.
-- **Frontend:** React for the menus and panels, Cytoscape.js for rendering and interaction.
+- **Frontend:** React for the menus and panels, TanStack Query for the API calls, Cytoscape.js for
+  rendering and interaction.
   Bundles are compound nodes and can be collapsed. elkjs (Layered, `INCLUDE_CHILDREN`) does the
   layout in a Web Worker. Details are shown in HTML side panels, not inside nodes.
 - **Scaling strategy:** bundles are collapsed by default and expanded on click or zoom. Layout is
