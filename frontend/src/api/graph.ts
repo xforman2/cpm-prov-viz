@@ -1,3 +1,4 @@
+import { useMutation } from '@tanstack/react-query'
 import type { Graph } from './contract/Graph'
 import type { ProblemDetails } from './ProblemDetails'
 
@@ -31,4 +32,10 @@ export async function readGraph(file: Blob): Promise<Graph> {
   throw new Error(
     [problem.title, problem.detail].filter(Boolean).join(' ') || `The API answered with ${response.status}.`,
   )
+}
+
+// Sends a picked PROV-JSON file to the API. A mutation, not a query: each pick is a one-off POST and
+// the API keeps nothing, so there is nothing to cache.
+export function useReadGraph() {
+  return useMutation({ mutationFn: (file: File) => readGraph(file) })
 }

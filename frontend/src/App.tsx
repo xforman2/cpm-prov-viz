@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import type { OpenDocument } from './OpenDocument'
-import { useApiInfo } from './api/useApiInfo'
-import { useReadGraph } from './api/useReadGraph'
+import { useReadGraph } from './api/graph'
+import { useApiInfo } from './api/info'
 import { GraphView } from './components/GraphView'
 import { OpenFileButton } from './components/OpenFileButton'
-import { toCytoscapeElements } from './graph/toCytoscapeElements'
+import { toCytoscapeElements } from './graph/cytoscape'
 
 const reservedMenuItems = ['Bundles', 'View', 'Validation']
 

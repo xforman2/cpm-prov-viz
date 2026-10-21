@@ -47,6 +47,8 @@ another.
 
 The one-type-per-file rule holds in the frontend too: every TypeScript type and interface, component
 props included, lives in its own file named after it, e.g. `frontend/src/api/contract/GraphElement.ts`.
+Each component also gets its own file named after it. Functions are grouped by topic instead: one
+module per topic, e.g. `frontend/src/api/graph.ts` holds `readGraph` and its hook `useReadGraph`.
 
 Application is split by feature. `<Feature>/Contract/` holds the DTOs the feature's use cases
 return, `<Feature>/<Action>/` holds one use case with its interface and request record, and
