@@ -1,9 +1,5 @@
-import type { Graph } from './contract'
-
-interface ProblemDetails {
-  title?: string
-  detail?: string
-}
+import type { Graph } from './contract/Graph'
+import type { ProblemDetails } from './ProblemDetails'
 
 const unreachableMessage = 'The API cannot be reached. Check that it is running.'
 

@@ -44,6 +44,9 @@ own input record (`ReadGraphRequest`) and returns its own output DTO (`GraphDto`
 output never share a type. Every type, DTOs included, lives in its own file, even when one holds
 another.
 
+The one-type-per-file rule holds in the frontend too: every TypeScript type and interface, component
+props included, lives in its own file named after it, e.g. `frontend/src/api/contract/GraphElement.ts`.
+
 Application is split by feature. `<Feature>/Contract/` holds the DTOs the feature's use cases
 return, `<Feature>/<Action>/` holds one use case with its interface and request record, and
 `Ports/` holds the interfaces Infrastructure implements and the types in their signatures, e.g.

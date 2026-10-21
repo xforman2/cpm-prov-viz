@@ -1,5 +1,5 @@
 import type { ElementDefinition } from 'cytoscape'
-import type { Graph } from '../api/contract'
+import type { Graph } from '../api/contract/Graph'
 
 const maxLabelLength = 24
 

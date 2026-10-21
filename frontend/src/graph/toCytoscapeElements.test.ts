@@ -1,6 +1,6 @@
 import type { ElementDefinition } from 'cytoscape'
 import { describe, expect, it } from 'vitest'
-import type { Graph } from '../api/contract'
+import type { Graph } from '../api/contract/Graph'
 import samplingV0 from '../../../testdata/contract/embrc/dataset1/SamplingBundle_V0.json'
 import processingV1 from '../../../testdata/contract/embrc/dataset2/ProcessingBundle_V1.json'
 import twoBundles from '../../../testdata/contract/handmade/two-bundles.json'

@@ -1,22 +1,12 @@
-import type { ElementDefinition } from 'cytoscape'
 import { useEffect, useRef, useState } from 'react'
+import type { ApiStatus } from './ApiStatus'
+import type { DocumentStatus } from './DocumentStatus'
+import type { OpenDocument } from './OpenDocument'
 import { readGraph } from './api/graph'
-import { fetchApiInfo, type ApiInfo } from './api/info'
+import { fetchApiInfo } from './api/info'
 import { GraphView } from './components/GraphView'
 import { OpenFileButton } from './components/OpenFileButton'
 import { toCytoscapeElements } from './graph/toCytoscapeElements'
-
-type ApiStatus = { state: 'loading' } | { state: 'ok'; info: ApiInfo } | { state: 'error' }
-
-type DocumentStatus =
-  | { state: 'none' }
-  | { state: 'loading'; fileName: string }
-  | { state: 'error'; fileName: string; message: string }
-
-interface OpenDocument {
-  fileName: string
-  elements: ElementDefinition[]
-}
 
 const reservedMenuItems = ['Bundles', 'View', 'Validation']
 

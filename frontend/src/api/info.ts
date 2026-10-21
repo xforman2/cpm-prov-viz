@@ -1,7 +1,4 @@
-export interface ApiInfo {
-  name: string
-  version: string
-}
+import type { ApiInfo } from './ApiInfo'
 
 export async function fetchApiInfo(signal?: AbortSignal): Promise<ApiInfo> {
   const response = await fetch('/api/info', { signal })

@@ -1,8 +1,5 @@
 import { useRef, type ChangeEvent } from 'react'
-
-interface OpenFileButtonProps {
-  onOpen: (file: File) => void
-}
+import type { OpenFileButtonProps } from './OpenFileButtonProps'
 
 // A button that opens the browser's file picker for a PROV-JSON document.
 export function OpenFileButton({ onOpen }: OpenFileButtonProps) {
