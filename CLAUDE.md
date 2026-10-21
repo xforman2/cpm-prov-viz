@@ -45,8 +45,9 @@ another.
 
 Application is split by feature. `<Feature>/Contract/` holds the DTOs the feature's use cases
 return, `<Feature>/<Action>/` holds one use case with its interface and request record, and
-`Ports/` holds the interfaces Infrastructure implements, e.g. `Graph/Contract/GraphDto.cs`,
-`Graph/ReadGraph/ReadGraphUseCase.cs`, `Ports/IProvDocumentReader.cs`.
+`Ports/` holds the interfaces Infrastructure implements and the types in their signatures, e.g.
+`Graph/Contract/GraphDto.cs`, `Graph/ReadGraph/ReadGraphUseCase.cs`,
+`Ports/IProvDocumentReader.cs` and the `Ports/UnreadableDocumentException.cs` it throws.
 
 ## Commands
 
