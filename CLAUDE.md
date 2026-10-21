@@ -49,6 +49,10 @@ return, `<Feature>/<Action>/` holds one use case with its interface and request 
 `Graph/Contract/GraphDto.cs`, `Graph/ReadGraph/ReadGraphUseCase.cs`,
 `Ports/IProvDocumentReader.cs` and the `Ports/UnreadableDocumentException.cs` it throws.
 
+Never use local functions (a function declared inside a method). Use private methods, and when
+they share per-call state, a small class created per call that holds it in fields (e.g.
+`GraphBuilder`). Never keep per-call state in fields of a use case or service: they are singletons.
+
 ## Commands
 
 ```fish
