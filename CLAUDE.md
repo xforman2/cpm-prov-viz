@@ -11,8 +11,9 @@ looks come second.
 
 ## Status
 
-The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist. CPM
-interpretation, parse notes and the real UI are not built yet.
+The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist, and the frontend
+opens a file and draws its graph. CPM interpretation, parse notes and the side panel are not built
+yet.
 
 ## Structure
 
@@ -28,7 +29,8 @@ tests/                         xUnit projects; CpmProvViz.Api.Tests tests at the
 testdata/                      PROV-JSON test documents (EMBRC example: `testdata/embrc/README.md`,
                                hand-made ones: `testdata/handmade/`) and contract fixtures
                                (`testdata/contract/`)
-frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs
+frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs; no automated tests,
+                               checked by eye in the running app
 CpmProvViz.slnx
 ```
 
@@ -42,6 +44,16 @@ no mediator. Every use case and every service has an interface (`IReadGraphUseCa
 own input record (`ReadGraphRequest`) and returns its own output DTO (`GraphDto`); input and
 output never share a type. Every type, DTOs included, lives in its own file, even when one holds
 another.
+
+The one-type-per-file rule holds in the frontend too: every TypeScript type and interface, component
+props included, lives in its own file named after it, e.g. `frontend/src/api/contract/GraphElement.ts`.
+Each component also gets its own file named after it. Functions are grouped by topic instead: one
+module per topic, e.g. `frontend/src/api/graph.ts` holds `readGraph` and its hook `useReadGraph`.
+
+Frontend styles: `frontend/src/index.css` holds only the design tokens (CSS custom properties) and
+the reset. Each component keeps its styles in a CSS module next to it (`GraphView.module.css`). The
+Cytoscape stylesheet lives in `frontend/src/graph/style.ts` with its own colours, font and sizes as
+constants: CSS can't reach the canvas, and nothing in the HTML uses them.
 
 Application is split by feature. `<Feature>/Contract/` holds the DTOs the feature's use cases
 return, `<Feature>/<Action>/` holds one use case with its interface and request record, and
@@ -88,7 +100,8 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
   specified by `GraphDto` and the `…Dto` records it holds (`src/CpmProvViz.Application/Graph/Contract/`)
   and their XML comments, which the OpenAPI document publishes. Change the records first, then
   the frontend.
-- **Frontend:** React for the menus and panels, Cytoscape.js for rendering and interaction.
+- **Frontend:** React for the menus and panels, TanStack Query for the API calls, Cytoscape.js for
+  rendering and interaction.
   Bundles are compound nodes and can be collapsed. elkjs (Layered, `INCLUDE_CHILDREN`) does the
   layout in a Web Worker. Details are shown in HTML side panels, not inside nodes.
 - **Scaling strategy:** bundles are collapsed by default and expanded on click or zoom. Layout is

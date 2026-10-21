@@ -1,37 +1,50 @@
-import { useEffect, useState } from 'react'
-import { fetchApiInfo, type ApiInfo } from './api/info'
+import { useState } from 'react'
+import styles from './App.module.css'
+import type { OpenDocument } from './OpenDocument'
+import { useReadGraph } from './api/graph'
+import { useApiInfo } from './api/info'
 import { GraphView } from './components/GraphView'
+import { OpenFileButton } from './components/OpenFileButton'
+import { toCytoscapeElements } from './graph/cytoscape'
 
-type ApiStatus = { state: 'loading' } | { state: 'ok'; info: ApiInfo } | { state: 'error' }
-
-const menuItems = ['Document', 'Bundles', 'View', 'Validation']
+const reservedMenuItems = ['Bundles', 'View', 'Validation']
 
 export default function App() {
-  const [status, setStatus] = useState<ApiStatus>({ state: 'loading' })
+  const apiInfo = useApiInfo()
+  const readGraph = useReadGraph()
+  const [openDocument, setOpenDocument] = useState<OpenDocument | null>(null)
 
-  useEffect(() => {
-    const controller = new AbortController()
-    fetchApiInfo(controller.signal)
-      .then((info) => setStatus({ state: 'ok', info }))
-      .catch(() => {
-        if (!controller.signal.aborted) setStatus({ state: 'error' })
-      })
-    return () => controller.abort()
-  }, [])
+  const openFile = (file: File) =>
+    readGraph.mutate(file, {
+      // Callbacks passed to mutate run for the latest call only, so a slow earlier file can't
+      // replace the graph of a newer one.
+      onSuccess: (graph) => setOpenDocument({ fileName: file.name, elements: toCytoscapeElements(graph) }),
+    })
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>CPM Provenance Viewer</h1>
-        <span className={`api-status api-status--${status.state}`}>
-          {status.state === 'ok' && `API ${status.info.version}`}
-          {status.state === 'loading' && 'Connecting to API…'}
-          {status.state === 'error' && 'API unavailable'}
+    <div className={styles.app}>
+      <header className={styles.header}>
+        <h1 className={styles.title}>
+          CPM Provenance Viewer
+          {openDocument && <span className={styles.fileName}> · {openDocument.fileName}</span>}
+        </h1>
+        <span className={styles.apiStatus} data-status={apiInfo.status}>
+          {apiInfo.isSuccess && `API ${apiInfo.data.version}`}
+          {apiInfo.isPending && 'Connecting to API…'}
+          {apiInfo.isError && 'API unavailable'}
         </span>
       </header>
-      <nav className="app-menu" aria-label="Main menu">
+      <nav className={styles.menu} aria-label="Main menu">
         <ul>
-          {menuItems.map((item) => (
+          <li>
+            <span className={styles.menuHeading}>Document</span>
+            <ul>
+              <li>
+                <OpenFileButton onOpen={openFile} />
+              </li>
+            </ul>
+          </li>
+          {reservedMenuItems.map((item) => (
             <li key={item}>
               <button type="button" disabled>
                 {item}
@@ -40,8 +53,24 @@ export default function App() {
           ))}
         </ul>
       </nav>
-      <main className="app-main">
-        <GraphView />
+      <main className={styles.main}>
+        {readGraph.isPending && (
+          <p className={styles.documentStatus} role="status">
+            Opening {readGraph.variables.name}…
+          </p>
+        )}
+        {readGraph.isError && (
+          <p className={styles.documentError} role="alert">
+            {readGraph.variables.name} could not be opened. {readGraph.error.message}
+          </p>
+        )}
+        {openDocument ? (
+          <GraphView elements={openDocument.elements} />
+        ) : (
+          readGraph.isIdle && (
+            <p className={styles.emptyState}>Open a PROV-JSON document from the Document menu.</p>
+          )
+        )}
       </main>
     </div>
   )
