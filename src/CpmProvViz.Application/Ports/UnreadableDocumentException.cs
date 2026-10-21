@@ -1,4 +1,4 @@
-namespace CpmProvViz.Application;
+namespace CpmProvViz.Application.Ports;
 
 /// <summary>
 /// The input cannot be read as a PROV document at all. Says nothing about whether a readable

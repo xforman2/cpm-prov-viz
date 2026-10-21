@@ -11,8 +11,8 @@ public class ContractDocumentationTests(WebApplicationFactory<Program> factory)
 {
     public static TheoryData<string> ContractSchemas { get; } =
     [
-        "Graph", "GraphBundle", "GraphElement", "GraphRelation", "GraphAttribute", "GraphAttributeValue",
-        "ParseNote", "ValidationFinding",
+        "GraphDto", "GraphBundleDto", "GraphElementDto", "GraphRelationDto", "GraphAttributeDto", "GraphAttributeValueDto",
+        "ParseNoteDto", "ValidationFindingDto",
     ];
 
     [Theory]

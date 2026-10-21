@@ -1,7 +1,8 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using CpmProvViz.Application;
-using CpmProvViz.Application.Graph;
+using CpmProvViz.Application.Graph.Contract;
+using CpmProvViz.Application.Graph.ReadGraph;
+using CpmProvViz.Application.Ports;
 using CpmProvViz.Infrastructure.ProvJson;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,7 +40,7 @@ api.MapPost("graph", async Task<IResult> (
     {
         try
         {
-            return TypedResults.Ok(await readGraph.ExecuteAsync(request.Body, cancellationToken));
+            return TypedResults.Ok(await readGraph.ExecuteAsync(new ReadGraphRequest(request.Body), cancellationToken));
         }
         catch (UnreadableDocumentException e)
         {
@@ -48,7 +49,7 @@ api.MapPost("graph", async Task<IResult> (
         }
     })
     .Accepts<JsonElement>("application/json", "*/*")
-    .Produces<Graph>()
+    .Produces<GraphDto>()
     .ProducesProblem(StatusCodes.Status400BadRequest)
     .WithName("ReadGraph")
     .WithSummary("Reads a PROV-JSON document and returns its graph.")
@@ -64,5 +65,3 @@ api.MapPost("graph", async Task<IResult> (
 app.MapDefaultEndpoints();
 
 app.Run();
-
-record ApiInfo(string Name, string Version);

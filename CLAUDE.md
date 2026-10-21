@@ -38,7 +38,15 @@ Domain or Application references ASP.NET Core, files or HTTP.
 Each use case in Application is its own class named `<Action>UseCase`, with one `ExecuteAsync`
 method and only the dependencies it needs (e.g. `ReadGraphUseCase`). No `…Service` classes and
 no mediator. Every use case and every service has an interface (`IReadGraphUseCase`,
-`IProvDocumentReader`), is registered by it and is injected only through it.
+`IProvDocumentReader`), is registered by it and is injected only through it. A use case takes its
+own input record (`ReadGraphRequest`) and returns its own output DTO (`GraphDto`); input and
+output never share a type. Every type, DTOs included, lives in its own file, even when one holds
+another.
+
+Application is split by feature. `<Feature>/Contract/` holds the DTOs the feature's use cases
+return, `<Feature>/<Action>/` holds one use case with its interface and request record, and
+`Ports/` holds the interfaces Infrastructure implements, e.g. `Graph/Contract/GraphDto.cs`,
+`Graph/ReadGraph/ReadGraphUseCase.cs`, `Ports/IProvDocumentReader.cs`.
 
 ## Commands
 
@@ -68,8 +76,9 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
   vs domain-specific information. It returns the graph JSON. It may also fetch bundles from
   remote provenance services, because server-side fetching avoids CORS.
 - **Graph JSON contract:** the single source of truth between backend and frontend. It is
-  specified by the records in `src/CpmProvViz.Application/Graph/Graph.cs` and their XML comments,
-  which the OpenAPI document publishes. Change the records first, then the frontend.
+  specified by `GraphDto` and the `…Dto` records it holds (`src/CpmProvViz.Application/Graph/Contract/`)
+  and their XML comments, which the OpenAPI document publishes. Change the records first, then
+  the frontend.
 - **Frontend:** React for the menus and panels, Cytoscape.js for rendering and interaction.
   Bundles are compound nodes and can be collapsed. elkjs (Layered, `INCLUDE_CHILDREN`) does the
   layout in a Web Worker. Details are shown in HTML side panels, not inside nodes.

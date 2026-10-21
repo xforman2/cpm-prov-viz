@@ -1,6 +1,6 @@
 using CpmProvViz.Domain.Prov;
 
-namespace CpmProvViz.Application;
+namespace CpmProvViz.Application.Ports;
 
 /// <summary>Reads a serialised PROV document into the PROV document model.</summary>
 public interface IProvDocumentReader
