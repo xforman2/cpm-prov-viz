@@ -22,7 +22,7 @@ export function GraphView({ elements }: GraphViewProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const cy = cytoscape({ container: containerRef.current, elements, style: graphStyle() })
+    const cy = cytoscape({ container: containerRef.current, elements, style: graphStyle })
     const running = cy.layout(layout)
     let laidOut = false
     running.one('layoutstop', () => {

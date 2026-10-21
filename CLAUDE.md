@@ -52,8 +52,8 @@ module per topic, e.g. `frontend/src/api/graph.ts` holds `readGraph` and its hoo
 
 Frontend styles: `frontend/src/index.css` holds only the design tokens (CSS custom properties) and
 the reset. Each component keeps its styles in a CSS module next to it (`GraphView.module.css`). The
-Cytoscape stylesheet lives in `frontend/src/graph/style.ts` and reads every colour and the font from
-the tokens; no colour is written anywhere else.
+Cytoscape stylesheet lives in `frontend/src/graph/style.ts` with its own colours, font and sizes as
+constants: CSS can't reach the canvas, and nothing in the HTML uses them.
 
 Application is split by feature. `<Feature>/Contract/` holds the DTOs the feature's use cases
 return, `<Feature>/<Action>/` holds one use case with its interface and request record, and

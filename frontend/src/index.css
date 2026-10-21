@@ -1,8 +1,6 @@
 /* Global styles only: the design tokens and the reset. Each component keeps its own styles in a
-   CSS module next to it, and the graph reads its colours from these tokens (src/graph/style.ts). */
+   CSS module next to it. The graph has its own colours in src/graph/style.ts. */
 :root {
-  --font-family: Inter, system-ui, sans-serif;
-
   --bg: #f8fafc;
   --surface: #ffffff;
   --border: #e2e8f0;
@@ -11,16 +9,7 @@
   --ok: #16a34a;
   --error: #dc2626;
 
-  --node-border: #cbd5e1;
-  --entity-bg: #fef9c3;
-  --entity-border: #eab308;
-  --activity-bg: #e0e7ff;
-  --activity-border: #6366f1;
-  --agent-bg: #ffedd5;
-  --agent-border: #f97316;
-  --edge: #94a3b8;
-
-  font-family: var(--font-family);
+  font-family: Inter, system-ui, sans-serif;
   color: var(--text);
   background: var(--bg);
 }
