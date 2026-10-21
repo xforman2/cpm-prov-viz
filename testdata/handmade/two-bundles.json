@@ -1,0 +1,60 @@
+{
+  "prefix": {
+    "ex": "http://example.org/",
+    "cpm": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/"
+  },
+  "entity": {
+    "ex:samplingBundle": { "prov:type": { "$": "prov:Bundle", "type": "prov:QUALIFIED_NAME" } },
+    "ex:processingBundle": { "prov:type": { "$": "prov:Bundle", "type": "prov:QUALIFIED_NAME" } }
+  },
+  "agent": {
+    "ex:marineStation": { "prov:type": { "$": "prov:Organization", "type": "prov:QUALIFIED_NAME" } }
+  },
+  "wasAttributedTo": {
+    "_:a1": { "prov:entity": "ex:samplingBundle", "prov:agent": "ex:marineStation" },
+    "_:a2": { "prov:entity": "ex:processingBundle", "prov:agent": "ex:marineStation" }
+  },
+  "bundle": {
+    "ex:samplingBundle": {
+      "prefix": { "lab": "http://example.org/lab/" },
+      "activity": {
+        "ex:sampling": {
+          "prov:type": { "$": "cpm:mainActivity", "type": "prov:QUALIFIED_NAME" },
+          "prov:startTime": "2021-01-01T09:00:00Z"
+        }
+      },
+      "entity": {
+        "ex:storedSample": {
+          "prov:type": [{ "$": "cpm:forwardConnector", "type": "prov:QUALIFIED_NAME" }]
+        },
+        "lab:waterSample": {
+          "prov:label": { "$": "Water sample", "lang": "en" },
+          "lab:depthInMetres": 10
+        }
+      },
+      "wasGeneratedBy": {
+        "_:g1": { "prov:entity": "ex:storedSample", "prov:activity": "ex:sampling", "prov:time": "2021-01-01T10:00:00Z" },
+        "_:g2": { "prov:entity": "lab:waterSample", "prov:activity": "ex:sampling" }
+      },
+      "specializationOf": {
+        "_:s1": { "prov:specificEntity": "lab:waterSample", "prov:generalEntity": "ex:storedSample" }
+      }
+    },
+    "ex:processingBundle": {
+      "activity": {
+        "ex:processing": {
+          "prov:type": { "$": "cpm:mainActivity", "type": "prov:QUALIFIED_NAME" }
+        }
+      },
+      "entity": {
+        "ex:storedSample": {
+          "prov:type": [{ "$": "cpm:backwardConnector", "type": "prov:QUALIFIED_NAME" }],
+          "cpm:referencedBundleId": { "$": "ex:samplingBundle", "type": "prov:QUALIFIED_NAME" }
+        }
+      },
+      "used": {
+        "ex:u1": { "prov:activity": "ex:processing", "prov:entity": "ex:storedSample", "prov:role": "input" }
+      }
+    }
+  }
+}

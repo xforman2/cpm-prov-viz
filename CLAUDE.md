@@ -11,7 +11,8 @@ looks come second.
 
 ## Status
 
-The project skeleton exists. The parser, the graph contract and the real UI are not built yet.
+The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist. CPM
+interpretation, parse notes and the real UI are not built yet.
 
 ## Structure
 
@@ -23,14 +24,38 @@ src/
   CpmProvViz.Api/              ASP.NET Core minimal API → Application, Infrastructure
   CpmProvViz.ServiceDefaults/  shared Aspire setup (health checks, telemetry)
   CpmProvViz.AppHost/          Aspire AppHost: runs the API and the frontend together
-tests/                         xUnit projects for Domain and Application
-testdata/                      PROV-JSON test documents (EMBRC example: `testdata/embrc/README.md`)
+tests/                         xUnit projects; CpmProvViz.Api.Tests tests at the HTTP seam
+testdata/                      PROV-JSON test documents (EMBRC example: `testdata/embrc/README.md`,
+                               hand-made ones: `testdata/handmade/`) and contract fixtures
+                               (`testdata/contract/`)
 frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs
 CpmProvViz.slnx
 ```
 
 Keep the Clean Architecture dependency direction: Domain depends on nothing, and nothing in
 Domain or Application references ASP.NET Core, files or HTTP.
+
+Each use case in Application is its own class named `<Action>UseCase`, with one `ExecuteAsync`
+method and only the dependencies it needs (e.g. `ReadGraphUseCase`). No `…Service` classes and
+no mediator. Every use case and every service has an interface (`IReadGraphUseCase`,
+`IProvDocumentReader`), is registered by it and is injected only through it. A use case takes its
+own input record (`ReadGraphRequest`) and returns its own output DTO (`GraphDto`); input and
+output never share a type. Every type, DTOs included, lives in its own file, even when one holds
+another.
+
+Application is split by feature. `<Feature>/Contract/` holds the DTOs the feature's use cases
+return, `<Feature>/<Action>/` holds one use case with its interface and request record, and
+`Ports/` holds the interfaces Infrastructure implements and the types in their signatures, e.g.
+`Graph/Contract/GraphDto.cs`, `Graph/ReadGraph/ReadGraphUseCase.cs`,
+`Ports/IProvDocumentReader.cs` and the `Ports/UnreadableDocumentException.cs` it throws.
+
+Never use local functions (a function declared inside a method). Use private methods, and when
+they share per-call state, a small class created per call that holds it in fields (e.g.
+`GraphBuilder`). Never keep per-call state in fields of a use case or service: they are singletons.
+
+Each layer registers its own services in a `DependencyInjection` class with one extension method
+(`AddApi`, `AddApplication`, `AddInfrastructure`), and `Program.cs` only calls those. Domain
+registers nothing and stays free of dependencies.
 
 ## Commands
 
@@ -59,8 +84,10 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
   input and runs CPM checks: connector pairs, `cpm:referencedBundleId`, traversal information
   vs domain-specific information. It returns the graph JSON. It may also fetch bundles from
   remote provenance services, because server-side fetching avoids CORS.
-- **Graph JSON contract:** the single source of truth between backend and frontend. It will be
-  specified in `docs/graph-contract.md`. Change the contract doc first, then both sides.
+- **Graph JSON contract:** the single source of truth between backend and frontend. It is
+  specified by `GraphDto` and the `…Dto` records it holds (`src/CpmProvViz.Application/Graph/Contract/`)
+  and their XML comments, which the OpenAPI document publishes. Change the records first, then
+  the frontend.
 - **Frontend:** React for the menus and panels, Cytoscape.js for rendering and interaction.
   Bundles are compound nodes and can be collapsed. elkjs (Layered, `INCLUDE_CHILDREN`) does the
   layout in a Web Worker. Details are shown in HTML side panels, not inside nodes.

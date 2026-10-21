@@ -1,0 +1,2159 @@
+{
+  "prefixes": {},
+  "bundles": [
+    {
+      "key": "b1",
+      "id": "storage:dc8efed0-0035-4029-9065-8c46667151db",
+      "iri": "http://localhost:8080/api/v1/organizations/6fb292aa-ee38-48ae-998f-079ad9d01e7c/documents/dc8efed0-0035-4029-9065-8c46667151db",
+      "prefixes": {
+        "schema": "https://schema.org/",
+        "cpm": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/",
+        "blank": "https://openprovenance.org/blank/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "orcid": "https://orcid.org/",
+        "obolibrary": "http://purl.obolibrary.org/obo/",
+        "storage": "http://localhost:8080/api/v1/organizations/6fb292aa-ee38-48ae-998f-079ad9d01e7c/documents/",
+        "gen": "gen/",
+        "seadatanet": "https://edmo.seadatanet.org/report/",
+        "dct": "http://purl.org/dc/terms/",
+        "marineregions": "http://marineregions.org/mrgid/",
+        "meta": "http://localhost:8080/api/v1/documents/meta/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "sosa": "http://www.w3.org/ns/sosa/"
+      }
+    }
+  ],
+  "elements": [
+    {
+      "key": "e1",
+      "id": "blank:ABSPermit_ircc2345678",
+      "iri": "https://openprovenance.org/blank/ABSPermit_ircc2345678",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "ABS permit"
+            }
+          ]
+        },
+        {
+          "name": "schema:validIn",
+          "iri": "https://schema.org/validIn",
+          "values": [
+            {
+              "value": "marineregions:3293"
+            }
+          ]
+        },
+        {
+          "name": "schema:issuer",
+          "iri": "https://schema.org/issuer",
+          "values": [
+            {
+              "value": "gen:8fefd86e6fd2acc15cd4db7a2ecff042dcde5d323d208c85e7434630d0342588"
+            }
+          ]
+        },
+        {
+          "name": "schema:validFrom",
+          "iri": "https://schema.org/validFrom",
+          "values": [
+            {
+              "value": "2021-01-01"
+            }
+          ]
+        },
+        {
+          "name": "schema:identifier",
+          "iri": "https://schema.org/identifier",
+          "values": [
+            {
+              "value": "ircc2345678"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "Samples of sea water from the Belgian EEZ collected over the period 2021-01-01 to 2022-01-01; processed for environmental DNA for taxonomic classification purposes"
+            }
+          ]
+        },
+        {
+          "name": "schema:validUntil",
+          "iri": "https://schema.org/validUntil",
+          "values": [
+            {
+              "value": "2022-01-01"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Permit"
+            },
+            {
+              "value": "schema:Thing"
+            },
+            {
+              "value": "schema:CreativeWork"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e2",
+      "id": "gen:92b8f2fa96e3b102c47d14fabec8e2a3ded5d27b5996e5a6967c8e39b062b9f5",
+      "iri": "gen/92b8f2fa96e3b102c47d14fabec8e2a3ded5d27b5996e5a6967c8e39b062b9f5",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "Peristaltic pump (including pump heads, appropriate silicone tubes, stainless steel filter holders)"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "Masterflex - EW-07522-20"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e3",
+      "id": "blank:NiceMarineStation_rosette#1",
+      "iri": "https://openprovenance.org/blank/NiceMarineStation_rosette#1",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "NiceMarineStation rosette#1"
+            }
+          ]
+        },
+        {
+          "name": "sosa:isHostedBy",
+          "iri": "http://www.w3.org/ns/sosa/isHostedBy",
+          "values": [
+            {
+              "value": "blank:IMO_1234567"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "Niskin bottles on a Rosette sampler"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e4",
+      "id": "blank:Johnson_Fridge_type_XYZ",
+      "iri": "https://openprovenance.org/blank/Johnson_Fridge_type_XYZ",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "Johnson Fridge type XYZ"
+            }
+          ]
+        },
+        {
+          "name": "sosa:isHostedBy",
+          "iri": "http://www.w3.org/ns/sosa/isHostedBy",
+          "values": [
+            {
+              "value": "blank:IMO_1234567"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "samples fridge"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e5",
+      "id": "blank:NCBI_txid1874687",
+      "iri": "https://openprovenance.org/blank/NCBI_txid1874687",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "marine plaknton metagenome"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:DefinedTerm"
+            }
+          ]
+        },
+        {
+          "name": "schema:termCode",
+          "iri": "https://schema.org/termCode",
+          "values": [
+            {
+              "value": "NCBI:txid1874687"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e6",
+      "id": "blank:BigProject_belgium_water_10m_1000um_r2",
+      "iri": "https://openprovenance.org/blank/BigProject_belgium_water_10m_1000um_r2",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "BigProject_belgium_water_10m_1000um_r2"
+            }
+          ]
+        },
+        {
+          "name": "schema:keywords",
+          "iri": "https://schema.org/keywords",
+          "values": [
+            {
+              "value": "obolibrary:ENVO_00002150"
+            },
+            {
+              "value": "blank:NCBI_txid1874687"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "water sample collected from 10m depth and filtered at 1000um"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "sosa:Sample"
+            },
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e7",
+      "id": "blank:StoredSample_r2_3um",
+      "iri": "https://openprovenance.org/blank/StoredSample_r2_3um",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "sosa:Sample"
+            },
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e8",
+      "id": "blank:BigProject_WaterSamples",
+      "iri": "https://openprovenance.org/blank/BigProject_WaterSamples",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "BigProject_WaterSamples"
+            }
+          ]
+        },
+        {
+          "name": "schema:url",
+          "iri": "https://schema.org/url",
+          "values": [
+            {
+              "value": "https://www.protocols.io/BigProject_WaterSamples.pdf"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "Collecting and pre-filtering (removal of larger particles) of water samples to be used later for FlowCam and eDNA work"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            },
+            {
+              "value": "schema:CreativeWork"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e9",
+      "id": "blank:Johnson_Freezer_type_XYZ",
+      "iri": "https://openprovenance.org/blank/Johnson_Freezer_type_XYZ",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "Johnson Freezer type XYZ"
+            }
+          ]
+        },
+        {
+          "name": "sosa:isHostedBy",
+          "iri": "http://www.w3.org/ns/sosa/isHostedBy",
+          "values": [
+            {
+              "value": "blank:IMO_1234567"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "samples freezer"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e10",
+      "id": "obolibrary:ENVO_00002150",
+      "iri": "http://purl.obolibrary.org/obo/ENVO_00002150",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "coastal sea water"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:DefinedTerm"
+            }
+          ]
+        },
+        {
+          "name": "schema:termCode",
+          "iri": "https://schema.org/termCode",
+          "values": [
+            {
+              "value": "ENVO_00002150"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e11",
+      "id": "blank:IMO_1234567",
+      "iri": "https://openprovenance.org/blank/IMO_1234567",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "RV OurBigShip"
+            }
+          ]
+        },
+        {
+          "name": "schema:identifier",
+          "iri": "https://schema.org/identifier",
+          "values": [
+            {
+              "value": "IMO:1234567"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "https://vocab.nerc.ac.uk/collection/L05/31"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "sosa:Platform"
+            },
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e12",
+      "id": "gen:4a86c49fc31d3ba9b8a8e3c961dc7d1ef6cb59769f75fbd2b92aa36ef71b1fa2",
+      "iri": "gen/4a86c49fc31d3ba9b8a8e3c961dc7d1ef6cb59769f75fbd2b92aa36ef71b1fa2",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "sosa:hasFeatureOfInterest",
+          "iri": "http://www.w3.org/ns/sosa/hasFeatureOfInterest",
+          "values": [
+            {
+              "value": "http://vocab.nerc.ac.uk/collection/A05/current/EV_SALIN"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "sosa:Observation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e13",
+      "id": "marineregions:3293",
+      "iri": "http://marineregions.org/mrgid/3293",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "Belgian EEZ"
+            }
+          ]
+        },
+        {
+          "name": "schema:geo",
+          "iri": "https://schema.org/geo",
+          "values": [
+            {
+              "value": "gen:374da96f393f90611618df5475f7b17158935e3f8eecf9f419d878e8a82ac23c"
+            }
+          ]
+        },
+        {
+          "name": "schema:identifier",
+          "iri": "https://schema.org/identifier",
+          "values": [
+            {
+              "value": "marineregions:3293"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Place"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e14",
+      "id": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64",
+      "iri": "gen/7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "RV OurBigShip on-board lab"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Place"
+            },
+            {
+              "value": "prov:Location"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e15",
+      "id": "blank:BigProject_belgium_water_10m",
+      "iri": "https://openprovenance.org/blank/BigProject_belgium_water_10m",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "BigProject_belgium_water_10m"
+            }
+          ]
+        },
+        {
+          "name": "schema:keywords",
+          "iri": "https://schema.org/keywords",
+          "values": [
+            {
+              "value": "obolibrary:ENVO_00002150"
+            },
+            {
+              "value": "blank:NCBI_txid1874687"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "Water sample to determine plankton community and extract DNA"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "sosa:Sample"
+            },
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e16",
+      "id": "blank:BigProject_belgium_water_10m_1000um_r2_3um",
+      "iri": "https://openprovenance.org/blank/BigProject_belgium_water_10m_1000um_r2_3um",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "BigProject_belgium_water_10m_1000um_r2_3um"
+            }
+          ]
+        },
+        {
+          "name": "schema:keywords",
+          "iri": "https://schema.org/keywords",
+          "values": [
+            {
+              "value": "obolibrary:ENVO_00002150"
+            },
+            {
+              "value": "blank:NCBI_txid1874687"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "water sample collected from 10m depth and filtered at 1000um and again 3um"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "sosa:Sample"
+            },
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e17",
+      "id": "blank:StoredSampleCon_r2_3um",
+      "iri": "https://openprovenance.org/blank/StoredSampleCon_r2_3um",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:forwardConnector"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e18",
+      "id": "gen:374da96f393f90611618df5475f7b17158935e3f8eecf9f419d878e8a82ac23c",
+      "iri": "gen/374da96f393f90611618df5475f7b17158935e3f8eecf9f419d878e8a82ac23c",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:latitude",
+          "iri": "https://schema.org/latitude",
+          "values": [
+            {
+              "value": "51.249995"
+            }
+          ]
+        },
+        {
+          "name": "schema:longitude",
+          "iri": "https://schema.org/longitude",
+          "values": [
+            {
+              "value": "2.85327"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:GeoCoordinates"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e19",
+      "id": "blank:StoredSample_r1",
+      "iri": "https://openprovenance.org/blank/StoredSample_r1",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "sosa:Sample"
+            },
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e20",
+      "id": "blank:BigHappyOrganization_rosette#1",
+      "iri": "https://openprovenance.org/blank/BigHappyOrganization_rosette#1",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": []
+    },
+    {
+      "key": "e21",
+      "id": "gen:7576ad666f53f0a260c8b4959bebe7c720599e170cb4faa9f65a467fe0265178",
+      "iri": "gen/7576ad666f53f0a260c8b4959bebe7c720599e170cb4faa9f65a467fe0265178",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "sosa:hasFeatureOfInterest",
+          "iri": "http://www.w3.org/ns/sosa/hasFeatureOfInterest",
+          "values": [
+            {
+              "value": "http://vocab.nerc.ac.uk/collection/P02/current/TEMP"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "sosa:Observation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e22",
+      "id": "blank:StoredSampleCon_r1",
+      "iri": "https://openprovenance.org/blank/StoredSampleCon_r1",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:forwardConnector"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e23",
+      "id": "blank:CTD_standard_procedure_2",
+      "iri": "https://openprovenance.org/blank/CTD_standard_procedure_2",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "CTD_standard_procedure_2"
+            }
+          ]
+        },
+        {
+          "name": "schema:url",
+          "iri": "https://schema.org/url",
+          "values": [
+            {
+              "value": "https://www.mylab.eu/CTDinstructions.pdf"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "instructions for using the CTD"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            },
+            {
+              "value": "schema:CreativeWork"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e24",
+      "id": "blank:BigProject_belgium_water_10m_1000um_r1",
+      "iri": "https://openprovenance.org/blank/BigProject_belgium_water_10m_1000um_r1",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "BigProject_belgium_water_10m_1000um_r1"
+            }
+          ]
+        },
+        {
+          "name": "schema:keywords",
+          "iri": "https://schema.org/keywords",
+          "values": [
+            {
+              "value": "obolibrary:ENVO_00002150"
+            },
+            {
+              "value": "blank:NCBI_txid1874687"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "water sample collected from 10m depth and filtered at 1000um"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "sosa:Sample"
+            },
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e25",
+      "id": "blank:BigProject_eDNAfiltering",
+      "iri": "https://openprovenance.org/blank/BigProject_eDNAfiltering",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "BigProject_eDNAfiltering"
+            }
+          ]
+        },
+        {
+          "name": "schema:url",
+          "iri": "https://schema.org/url",
+          "values": [
+            {
+              "value": "https://www.protocols.io/BigProject_eDNAfiltering.pdf"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "instructions for water samples filtering - to capture the biological material on the filter membrane which will be used for DNA extraction"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            },
+            {
+              "value": "schema:CreativeWork"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e26",
+      "id": "gen:42936f9ee985b4cd422796235fa7d454c24693f07b97b65b2478f8df1ea6f5b2",
+      "iri": "gen/42936f9ee985b4cd422796235fa7d454c24693f07b97b65b2478f8df1ea6f5b2",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "1000 mesh"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "nylon mesh of 1000 um pore size"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e27",
+      "id": "blank:BigHappyOrganization_CTD#23",
+      "iri": "https://openprovenance.org/blank/BigHappyOrganization_CTD#23",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "BigHappyOrganization CTD#23"
+            }
+          ]
+        },
+        {
+          "name": "sosa:isHostedBy",
+          "iri": "http://www.w3.org/ns/sosa/isHostedBy",
+          "values": [
+            {
+              "value": "blank:IMO_1234567"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "https://vocab.nerc.ac.uk/collection/L05/current/130"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Thing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e28",
+      "id": "gen:190fd43b1968737f3501420a6bfd9b74873e32416c6e14fef26238fbe3b197a2",
+      "iri": "gen/190fd43b1968737f3501420a6bfd9b74873e32416c6e14fef26238fbe3b197a2",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:startTime",
+          "iri": "http://www.w3.org/ns/prov#startTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:endTime",
+          "iri": "http://www.w3.org/ns/prov#endTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "sosa:madeBySampler",
+          "iri": "http://www.w3.org/ns/sosa/madeBySampler",
+          "values": [
+            {
+              "value": "blank:BigHappyOrganization_rosette#1"
+            }
+          ]
+        },
+        {
+          "name": "prov:location",
+          "iri": "http://www.w3.org/ns/prov#location",
+          "values": [
+            {
+              "value": "marineregions:3293"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "Sampling, water sampling from 10m depth"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Action"
+            },
+            {
+              "value": "sosa:Sampling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e29",
+      "id": "gen:67c557a442ca2446b987928fb47c4bbbd59c54395e61f01949d76c06e0106925",
+      "iri": "gen/67c557a442ca2446b987928fb47c4bbbd59c54395e61f01949d76c06e0106925",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:startTime",
+          "iri": "http://www.w3.org/ns/prov#startTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:endTime",
+          "iri": "http://www.w3.org/ns/prov#endTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:location",
+          "iri": "http://www.w3.org/ns/prov#location",
+          "values": [
+            {
+              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "Storing, short term; cold storage subsample 2"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "-20 C"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Action"
+            }
+          ]
+        },
+        {
+          "name": "schema:object",
+          "iri": "https://schema.org/object",
+          "values": [
+            {
+              "value": "blank:BigProject_belgium_water_10m_1000um_r2_3um"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e30",
+      "id": "gen:36294ecf35d15ba81da0bb55dfd8ee07934568e28ec56a51774b3e331ed6fd99",
+      "iri": "gen/36294ecf35d15ba81da0bb55dfd8ee07934568e28ec56a51774b3e331ed6fd99",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:startTime",
+          "iri": "http://www.w3.org/ns/prov#startTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:endTime",
+          "iri": "http://www.w3.org/ns/prov#endTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:location",
+          "iri": "http://www.w3.org/ns/prov#location",
+          "values": [
+            {
+              "value": "marineregions:3293"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "Observing, in-situ measurement of water properties"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Action"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e31",
+      "id": "blank:Sampling",
+      "iri": "https://openprovenance.org/blank/Sampling",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "dct:hasPart",
+          "iri": "http://purl.org/dc/terms/hasPart",
+          "values": [
+            {
+              "value": "gen:09a6f65fe087c3806631e8926fa3cae8e049cfdfa2b0b63fe6de04bc88144e80"
+            },
+            {
+              "value": "gen:fd7e5c8ca79a78538b324f8426a3a6c48fdb58a0a3e2718e185455205b48d7e2"
+            },
+            {
+              "value": "gen:324df37d2e503522d56f379d8856e4d14599331df280bf0d011fe3060871261a"
+            },
+            {
+              "value": "gen:36294ecf35d15ba81da0bb55dfd8ee07934568e28ec56a51774b3e331ed6fd99"
+            },
+            {
+              "value": "gen:67c557a442ca2446b987928fb47c4bbbd59c54395e61f01949d76c06e0106925"
+            },
+            {
+              "value": "gen:190fd43b1968737f3501420a6bfd9b74873e32416c6e14fef26238fbe3b197a2"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "cpm:mainActivity"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedMetaBundleId",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedMetaBundleId",
+          "values": [
+            {
+              "value": "meta:ca76d97e-b329-4df5-8bc8-9765aaa532fd"
+            }
+          ]
+        },
+        {
+          "name": "cpm:referencedMetaBundleSpecV",
+          "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedMetaBundleSpecV",
+          "values": [
+            {
+              "value": "DIS-23494-2:2025"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e32",
+      "id": "gen:fd7e5c8ca79a78538b324f8426a3a6c48fdb58a0a3e2718e185455205b48d7e2",
+      "iri": "gen/fd7e5c8ca79a78538b324f8426a3a6c48fdb58a0a3e2718e185455205b48d7e2",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:startTime",
+          "iri": "http://www.w3.org/ns/prov#startTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:endTime",
+          "iri": "http://www.w3.org/ns/prov#endTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:location",
+          "iri": "http://www.w3.org/ns/prov#location",
+          "values": [
+            {
+              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64"
+            }
+          ]
+        },
+        {
+          "name": "schema:result",
+          "iri": "https://schema.org/result",
+          "values": [
+            {
+              "value": "blank:BigProject_belgium_water_10m_1000um_r2_3um"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "Material processing, fine filtering"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Action"
+            }
+          ]
+        },
+        {
+          "name": "schema:object",
+          "iri": "https://schema.org/object",
+          "values": [
+            {
+              "value": "blank:BigProject_belgium_water_10m_1000um_r2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e33",
+      "id": "gen:09a6f65fe087c3806631e8926fa3cae8e049cfdfa2b0b63fe6de04bc88144e80",
+      "iri": "gen/09a6f65fe087c3806631e8926fa3cae8e049cfdfa2b0b63fe6de04bc88144e80",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:startTime",
+          "iri": "http://www.w3.org/ns/prov#startTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:endTime",
+          "iri": "http://www.w3.org/ns/prov#endTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "schema:additionalType",
+          "iri": "https://schema.org/additionalType",
+          "values": [
+            {
+              "value": "short-term storage"
+            }
+          ]
+        },
+        {
+          "name": "prov:location",
+          "iri": "http://www.w3.org/ns/prov#location",
+          "values": [
+            {
+              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "Storing; cold storage subsample 1"
+            }
+          ]
+        },
+        {
+          "name": "schema:description",
+          "iri": "https://schema.org/description",
+          "values": [
+            {
+              "value": "\u002B4 C"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Action"
+            }
+          ]
+        },
+        {
+          "name": "schema:object",
+          "iri": "https://schema.org/object",
+          "values": [
+            {
+              "value": "blank:BigProject_belgium_water_10m_1000um_r1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e34",
+      "id": "gen:324df37d2e503522d56f379d8856e4d14599331df280bf0d011fe3060871261a",
+      "iri": "gen/324df37d2e503522d56f379d8856e4d14599331df280bf0d011fe3060871261a",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:startTime",
+          "iri": "http://www.w3.org/ns/prov#startTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:endTime",
+          "iri": "http://www.w3.org/ns/prov#endTime",
+          "values": [
+            {
+              "value": "2021-01-01T00:00:00.000\u002B01:00"
+            }
+          ]
+        },
+        {
+          "name": "prov:location",
+          "iri": "http://www.w3.org/ns/prov#location",
+          "values": [
+            {
+              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64"
+            }
+          ]
+        },
+        {
+          "name": "schema:result",
+          "iri": "https://schema.org/result",
+          "values": [
+            {
+              "value": "blank:BigProject_belgium_water_10m_1000um_r1"
+            },
+            {
+              "value": "blank:BigProject_belgium_water_10m_1000um_r2"
+            }
+          ]
+        },
+        {
+          "name": "dct:type",
+          "iri": "http://purl.org/dc/terms/type",
+          "values": [
+            {
+              "value": "Material processing, pre-filtering"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Action"
+            }
+          ]
+        },
+        {
+          "name": "schema:object",
+          "iri": "https://schema.org/object",
+          "values": [
+            {
+              "value": "blank:BigProject_belgium_water_10m"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e35",
+      "id": "orcid:0000-0001-0001-0001",
+      "iri": "https://orcid.org/0000-0001-0001-0001",
+      "kind": "agent",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "Jane Smith"
+            }
+          ]
+        },
+        {
+          "name": "schema:email",
+          "iri": "https://schema.org/email",
+          "values": [
+            {
+              "value": "jane.smith@somewhere.com"
+            }
+          ]
+        },
+        {
+          "name": "schema:identifier",
+          "iri": "https://schema.org/identifier",
+          "values": [
+            {
+              "value": "orcid:0000-0001-0001-0001"
+            }
+          ]
+        },
+        {
+          "name": "schema:affiliation",
+          "iri": "https://schema.org/affiliation",
+          "values": [
+            {
+              "value": "seadatanet:00000"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Person"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e36",
+      "id": "seadatanet:00000",
+      "iri": "https://edmo.seadatanet.org/report/00000",
+      "kind": "agent",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "Nice Marine Station"
+            }
+          ]
+        },
+        {
+          "name": "schema:email",
+          "iri": "https://schema.org/email",
+          "values": [
+            {
+              "value": "info@nicemarinestation.eu"
+            }
+          ]
+        },
+        {
+          "name": "schema:identifier",
+          "iri": "https://schema.org/identifier",
+          "values": [
+            {
+              "value": "seadatanet:00000"
+            }
+          ]
+        },
+        {
+          "name": "schema:mainEntityOfPage",
+          "iri": "https://schema.org/mainEntityOfPage",
+          "values": [
+            {
+              "value": "https://NiceMarineStation.eu"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Organization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e37",
+      "id": "gen:8fefd86e6fd2acc15cd4db7a2ecff042dcde5d323d208c85e7434630d0342588",
+      "iri": "gen/8fefd86e6fd2acc15cd4db7a2ecff042dcde5d323d208c85e7434630d0342588",
+      "kind": "agent",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "Belgium ABS National Focal Point"
+            }
+          ]
+        },
+        {
+          "name": "schema:mainEntityOfPage",
+          "iri": "https://schema.org/mainEntityOfPage",
+          "values": [
+            {
+              "value": "https://absch.cbd.int/en/countries/BE"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Organization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e38",
+      "id": "orcid:0000-0001-0001-0002",
+      "iri": "https://orcid.org/0000-0001-0001-0002",
+      "kind": "agent",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "F. Lee"
+            }
+          ]
+        },
+        {
+          "name": "schema:email",
+          "iri": "https://schema.org/email",
+          "values": [
+            {
+              "value": "f.lee@somewhere.com"
+            }
+          ]
+        },
+        {
+          "name": "schema:identifier",
+          "iri": "https://schema.org/identifier",
+          "values": [
+            {
+              "value": "orcid:0000-0001-0001-0002"
+            }
+          ]
+        },
+        {
+          "name": "schema:affiliation",
+          "iri": "https://schema.org/affiliation",
+          "values": [
+            {
+              "value": "seadatanet:00000"
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "schema:Person"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "key": "r1",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e6",
+      "target": "e34",
+      "attributes": []
+    },
+    {
+      "key": "r2",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e21",
+      "target": "e30",
+      "attributes": []
+    },
+    {
+      "key": "r3",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e24",
+      "target": "e34",
+      "attributes": []
+    },
+    {
+      "key": "r4",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e15",
+      "target": "e28",
+      "attributes": []
+    },
+    {
+      "key": "r5",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e16",
+      "target": "e32",
+      "attributes": []
+    },
+    {
+      "key": "r6",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e22",
+      "target": "e31",
+      "attributes": []
+    },
+    {
+      "key": "r7",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e7",
+      "target": "e29",
+      "attributes": []
+    },
+    {
+      "key": "r8",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e19",
+      "target": "e33",
+      "attributes": []
+    },
+    {
+      "key": "r9",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e17",
+      "target": "e31",
+      "attributes": []
+    },
+    {
+      "key": "r10",
+      "type": "wasGeneratedBy",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e12",
+      "target": "e30",
+      "attributes": []
+    },
+    {
+      "key": "r11",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e34",
+      "target": "e8",
+      "attributes": []
+    },
+    {
+      "key": "r12",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e34",
+      "target": "e26",
+      "attributes": []
+    },
+    {
+      "key": "r13",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e28",
+      "target": "e1",
+      "attributes": []
+    },
+    {
+      "key": "r14",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e33",
+      "target": "e4",
+      "attributes": []
+    },
+    {
+      "key": "r15",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e30",
+      "target": "e23",
+      "attributes": []
+    },
+    {
+      "key": "r16",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e32",
+      "target": "e6",
+      "attributes": []
+    },
+    {
+      "key": "r17",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e32",
+      "target": "e25",
+      "attributes": []
+    },
+    {
+      "key": "r18",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e28",
+      "target": "e8",
+      "attributes": []
+    },
+    {
+      "key": "r19",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e29",
+      "target": "e9",
+      "attributes": []
+    },
+    {
+      "key": "r20",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e33",
+      "target": "e24",
+      "attributes": []
+    },
+    {
+      "key": "r21",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e32",
+      "target": "e2",
+      "attributes": []
+    },
+    {
+      "key": "r22",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e29",
+      "target": "e16",
+      "attributes": []
+    },
+    {
+      "key": "r23",
+      "type": "used",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e34",
+      "target": "e15",
+      "attributes": []
+    },
+    {
+      "key": "r24",
+      "type": "wasAttributedTo",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e1",
+      "target": "e36",
+      "attributes": [
+        {
+          "name": "dcat:hadRole",
+          "iri": "http://www.w3.org/ns/dcat#hadRole",
+          "values": [
+            {
+              "value": "receiving agent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r25",
+      "type": "wasAssociatedWith",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e33",
+      "target": "e38",
+      "attributes": [
+        {
+          "name": "prov:role",
+          "iri": "http://www.w3.org/ns/prov#role",
+          "values": [
+            {
+              "value": "field and laboratory technician"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r26",
+      "type": "wasAssociatedWith",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e30",
+      "target": "e35",
+      "attributes": [
+        {
+          "name": "prov:role",
+          "iri": "http://www.w3.org/ns/prov#role",
+          "values": [
+            {
+              "value": "field and laboratory technician"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r27",
+      "type": "wasAssociatedWith",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e32",
+      "target": "e38",
+      "attributes": [
+        {
+          "name": "prov:role",
+          "iri": "http://www.w3.org/ns/prov#role",
+          "values": [
+            {
+              "value": "field and laboratory technician"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r28",
+      "type": "wasAssociatedWith",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e28",
+      "target": "e35",
+      "attributes": [
+        {
+          "name": "prov:role",
+          "iri": "http://www.w3.org/ns/prov#role",
+          "values": [
+            {
+              "value": "field and laboratory technician"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r29",
+      "type": "wasAssociatedWith",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e34",
+      "target": "e38",
+      "attributes": [
+        {
+          "name": "prov:role",
+          "iri": "http://www.w3.org/ns/prov#role",
+          "values": [
+            {
+              "value": "field and laboratory technician"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r30",
+      "type": "wasAssociatedWith",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e29",
+      "target": "e38",
+      "attributes": [
+        {
+          "name": "prov:role",
+          "iri": "http://www.w3.org/ns/prov#role",
+          "values": [
+            {
+              "value": "field and laboratory technician"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r31",
+      "type": "specializationOf",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e7",
+      "target": "e17",
+      "attributes": []
+    },
+    {
+      "key": "r32",
+      "type": "specializationOf",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e19",
+      "target": "e22",
+      "attributes": []
+    }
+  ],
+  "parseNotes": [],
+  "validationFindings": []
+}
