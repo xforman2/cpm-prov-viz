@@ -3,10 +3,12 @@ import styles from './App.module.css'
 import type { OpenDocument } from './OpenDocument'
 import { useReadGraph } from './api/graph'
 import { useApiInfo } from './api/info'
+import { CollapsiblePanel } from './components/CollapsiblePanel'
 import { DetailsPanel } from './components/DetailsPanel'
 import { GraphView } from './components/GraphView'
 import { OpenFileButton } from './components/OpenFileButton'
 import { toCytoscapeElements } from './graph/cytoscape'
+import { useStoredFlag } from './storage'
 
 export default function App() {
   const apiInfo = useApiInfo()
@@ -15,11 +17,19 @@ export default function App() {
   // Key of the selected element or relation.
   const [selected, setSelected] = useState<string | null>(null)
   const [hideDomainSpecificInformation, setHideDomainSpecificInformation] = useState(false)
+  const [menuOpen, setMenuOpen] = useStoredFlag('cpm-prov-viz.menuOpen', true)
+  const [detailsOpen, setDetailsOpen] = useStoredFlag('cpm-prov-viz.detailsOpen', true)
   const elements = useMemo(
     () => (openDocument ? toCytoscapeElements(openDocument.graph, hideDomainSpecificInformation) : []),
     [openDocument, hideDomainSpecificInformation],
   )
   const hasProvenanceComponent = openDocument?.graph.bundles.some((bundle) => bundle.isProvenanceComponent) ?? false
+
+  // Selecting something shows its details, so a collapsed details panel opens.
+  const select = (key: string | null) => {
+    setSelected(key)
+    if (key !== null && !detailsOpen) setDetailsOpen(true)
+  }
 
   const openFile = (file: File) =>
     readGraph.mutate(file, {
@@ -44,44 +54,52 @@ export default function App() {
           {apiInfo.isError && 'API unavailable'}
         </span>
       </header>
-      <nav className={styles.menu} aria-label="Main menu">
-        <ul>
-          <li>
-            <span className={styles.menuHeading}>Document</span>
-            <ul>
-              <li>
-                <OpenFileButton onOpen={openFile} />
-              </li>
-            </ul>
-          </li>
-          <li>
-            <button type="button" disabled>
-              Bundles
-            </button>
-          </li>
-          <li>
-            <span className={styles.menuHeading}>View</span>
-            <ul>
-              <li>
-                <button
-                  type="button"
-                  aria-pressed={hideDomainSpecificInformation}
-                  disabled={!hasProvenanceComponent}
-                  title={hasProvenanceComponent ? undefined : 'The document has no provenance component.'}
-                  onClick={() => setHideDomainSpecificInformation((hide) => !hide)}
-                >
-                  {hideDomainSpecificInformation ? 'Show' : 'Hide'} domain-specific information
-                </button>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <button type="button" disabled>
-              Validation
-            </button>
-          </li>
-        </ul>
-      </nav>
+      <CollapsiblePanel
+        side="left"
+        name="menu"
+        open={menuOpen}
+        onOpenChange={setMenuOpen}
+        className={styles.menuPanel}
+      >
+        <nav className={styles.menu} aria-label="Main menu">
+          <ul>
+            <li>
+              <span className={styles.menuHeading}>Document</span>
+              <ul>
+                <li>
+                  <OpenFileButton onOpen={openFile} />
+                </li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" disabled>
+                Bundles
+              </button>
+            </li>
+            <li>
+              <span className={styles.menuHeading}>View</span>
+              <ul>
+                <li>
+                  <button
+                    type="button"
+                    aria-pressed={hideDomainSpecificInformation}
+                    disabled={!hasProvenanceComponent}
+                    title={hasProvenanceComponent ? undefined : 'The document has no provenance component.'}
+                    onClick={() => setHideDomainSpecificInformation((hide) => !hide)}
+                  >
+                    {hideDomainSpecificInformation ? 'Show' : 'Hide'} domain-specific information
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <button type="button" disabled>
+                Validation
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </CollapsiblePanel>
       <main className={styles.main}>
         {readGraph.isPending && (
           <p className={styles.documentStatus} role="status">
@@ -95,8 +113,10 @@ export default function App() {
         )}
         {openDocument ? (
           <div className={styles.workspace}>
-            <GraphView elements={elements} selected={selected} onSelect={setSelected} />
-            <DetailsPanel graph={openDocument.graph} selected={selected} onSelect={setSelected} />
+            <GraphView elements={elements} selected={selected} onSelect={select} />
+            <CollapsiblePanel side="right" name="details" open={detailsOpen} onOpenChange={setDetailsOpen}>
+              <DetailsPanel graph={openDocument.graph} selected={selected} onSelect={select} />
+            </CollapsiblePanel>
           </div>
         ) : (
           readGraph.isIdle && (

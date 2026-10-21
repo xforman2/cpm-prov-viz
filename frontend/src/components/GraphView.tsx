@@ -56,6 +56,23 @@ export function GraphView({ elements, selected, onSelect }: GraphViewProps) {
     }
   }, [elements])
 
+  // Cytoscape doesn't notice its container changing size, e.g. when a side panel opens or closes, so
+  // it is told here. It is also panned by however far the container's left edge moved, so the
+  // drawing stays where it was on the screen.
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+    let left = container.getBoundingClientRect().left
+    const observer = new ResizeObserver(() => {
+      const newLeft = container.getBoundingClientRect().left
+      cyRef.current?.resize()
+      cyRef.current?.panBy({ x: left - newLeft, y: 0 })
+      left = newLeft
+    })
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [])
+
   // Mirrors the selection onto the graph. A tap has already selected its element; one picked in the
   // side panel is selected here and brought into view.
   useEffect(() => {
