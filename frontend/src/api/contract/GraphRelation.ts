@@ -1,5 +1,6 @@
 import type { GraphAttribute } from './GraphAttribute'
 import type { GraphParticipant } from './GraphParticipant'
+import type { RelationMembership } from './RelationMembership'
 import type { RelationType } from './RelationType'
 
 export interface GraphRelation {
@@ -12,4 +13,6 @@ export interface GraphRelation {
   target: string | null
   participants: GraphParticipant[]
   attributes: GraphAttribute[]
+  // null outside any provenance component.
+  membership: RelationMembership | null
 }

@@ -11,9 +11,11 @@ looks come second.
 
 ## Status
 
-The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist, and the frontend
-opens a file, draws its graph and shows the selected element or relation in a side panel. CPM
-interpretation and parse notes are not built yet.
+The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist. The backend
+interprets CPM: each element's CPM roles, traversal information vs domain-specific information,
+and which bundles are provenance components. The frontend opens a file, draws its graph with the
+traversal information styled apart, can hide the domain-specific information, and shows the
+selected element or relation in a side panel. Parse notes are not built yet (#18).
 
 ## Structure
 
@@ -64,6 +66,10 @@ return, `<Feature>/<Action>/` holds one use case with its interface and request 
 Never use local functions (a function declared inside a method). Use private methods, and when
 they share per-call state, a small class created per call that holds it in fields (e.g.
 `GraphBuilder`). Never keep per-call state in fields of a use case or service: they are singletons.
+
+Don't use the spread element `..` in C# collection expressions (`[.. items.Select(…)]`): write
+`.ToList()`, `.ToArray()` or `.ToHashSet()` at the end of the query, and `Concat` to join
+sequences. Plain collection expressions such as `[]` and `["a", "b"]` are fine.
 
 Each layer registers its own services in a `DependencyInjection` class with one extension method
 (`AddApi`, `AddApplication`, `AddInfrastructure`), and `Program.cs` only calls those. Domain

@@ -10,13 +10,15 @@
       "iri": "http://example.org/samplingBundle",
       "prefixes": {
         "lab": "http://example.org/lab/"
-      }
+      },
+      "isProvenanceComponent": true
     },
     {
       "key": "b2",
       "id": "ex:processingBundle",
       "iri": "http://example.org/processingBundle",
-      "prefixes": {}
+      "prefixes": {},
+      "isProvenanceComponent": true
     }
   ],
   "elements": [
@@ -41,7 +43,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": null
     },
     {
       "key": "e2",
@@ -64,7 +68,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": null
     },
     {
       "key": "e3",
@@ -87,7 +93,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": null
     },
     {
       "key": "e4",
@@ -110,7 +118,11 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [
+        "forwardConnector"
+      ],
+      "membership": "traversalInformation"
     },
     {
       "key": "e5",
@@ -147,7 +159,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e6",
@@ -184,7 +198,11 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [
+        "mainActivity"
+      ],
+      "membership": "traversalInformation"
     },
     {
       "key": "e7",
@@ -221,7 +239,11 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [
+        "backwardConnector"
+      ],
+      "membership": "traversalInformation"
     },
     {
       "key": "e8",
@@ -244,7 +266,11 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [
+        "mainActivity"
+      ],
+      "membership": "traversalInformation"
     }
   ],
   "relations": [
@@ -257,7 +283,8 @@
       "source": "e1",
       "target": "e3",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": null
     },
     {
       "key": "r2",
@@ -268,7 +295,8 @@
       "source": "e2",
       "target": "e3",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": null
     },
     {
       "key": "r3",
@@ -294,7 +322,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": "traversalInformation"
     },
     {
       "key": "r4",
@@ -305,7 +334,8 @@
       "source": "e5",
       "target": "e6",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "joining"
     },
     {
       "key": "r5",
@@ -316,7 +346,8 @@
       "source": "e5",
       "target": "e4",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "joining"
     },
     {
       "key": "r6",
@@ -342,7 +373,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": "traversalInformation"
     }
   ],
   "parseNotes": [],

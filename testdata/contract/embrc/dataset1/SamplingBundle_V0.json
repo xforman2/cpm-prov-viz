@@ -21,7 +21,8 @@
         "dcat": "http://www.w3.org/ns/dcat#",
         "prov": "http://www.w3.org/ns/prov#",
         "sosa": "http://www.w3.org/ns/sosa/"
-      }
+      },
+      "isProvenanceComponent": true
     }
   ],
   "elements": [
@@ -160,7 +161,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e2",
@@ -211,7 +214,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e3",
@@ -276,7 +281,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e4",
@@ -341,7 +348,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e5",
@@ -392,7 +401,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e6",
@@ -473,7 +484,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e7",
@@ -504,7 +517,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e8",
@@ -577,7 +592,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e9",
@@ -642,7 +659,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e10",
@@ -693,7 +712,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e11",
@@ -766,7 +787,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e12",
@@ -803,7 +826,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e13",
@@ -868,7 +893,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e14",
@@ -913,7 +940,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e15",
@@ -994,7 +1023,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e16",
@@ -1075,7 +1106,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e17",
@@ -1098,7 +1131,11 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [
+        "forwardConnector"
+      ],
+      "membership": "traversalInformation"
     },
     {
       "key": "e18",
@@ -1149,7 +1186,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e19",
@@ -1180,7 +1219,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e20",
@@ -1188,7 +1229,9 @@
       "iri": "https://openprovenance.org/blank/BigHappyOrganization_rosette#1",
       "kind": "entity",
       "bundle": "b1",
-      "attributes": []
+      "attributes": [],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e21",
@@ -1225,7 +1268,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e22",
@@ -1248,7 +1293,11 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [
+        "forwardConnector"
+      ],
+      "membership": "traversalInformation"
     },
     {
       "key": "e23",
@@ -1321,7 +1370,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e24",
@@ -1402,7 +1453,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e25",
@@ -1475,7 +1528,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e26",
@@ -1526,7 +1581,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e27",
@@ -1591,7 +1648,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e28",
@@ -1692,7 +1751,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e29",
@@ -1799,7 +1860,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e30",
@@ -1878,7 +1941,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e31",
@@ -1983,7 +2048,11 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [
+        "mainActivity"
+      ],
+      "membership": "traversalInformation"
     },
     {
       "key": "e32",
@@ -2090,7 +2159,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e33",
@@ -2211,7 +2282,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e34",
@@ -2326,7 +2399,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e35",
@@ -2405,7 +2480,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e36",
@@ -2484,7 +2561,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e37",
@@ -2535,7 +2614,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "e38",
@@ -2614,7 +2695,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": "domainSpecificInformation"
     }
   ],
   "relations": [
@@ -2627,7 +2710,8 @@
       "source": "e6",
       "target": "e34",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r2",
@@ -2638,7 +2722,8 @@
       "source": "e21",
       "target": "e30",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r3",
@@ -2649,7 +2734,8 @@
       "source": "e24",
       "target": "e34",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r4",
@@ -2660,7 +2746,8 @@
       "source": "e15",
       "target": "e28",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r5",
@@ -2671,7 +2758,8 @@
       "source": "e16",
       "target": "e32",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r6",
@@ -2682,7 +2770,8 @@
       "source": "e22",
       "target": "e31",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "traversalInformation"
     },
     {
       "key": "r7",
@@ -2693,7 +2782,8 @@
       "source": "e7",
       "target": "e29",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r8",
@@ -2704,7 +2794,8 @@
       "source": "e19",
       "target": "e33",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r9",
@@ -2715,7 +2806,8 @@
       "source": "e17",
       "target": "e31",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "traversalInformation"
     },
     {
       "key": "r10",
@@ -2726,7 +2818,8 @@
       "source": "e12",
       "target": "e30",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r11",
@@ -2737,7 +2830,8 @@
       "source": "e34",
       "target": "e8",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r12",
@@ -2748,7 +2842,8 @@
       "source": "e34",
       "target": "e26",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r13",
@@ -2759,7 +2854,8 @@
       "source": "e28",
       "target": "e1",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r14",
@@ -2770,7 +2866,8 @@
       "source": "e33",
       "target": "e4",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r15",
@@ -2781,7 +2878,8 @@
       "source": "e30",
       "target": "e23",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r16",
@@ -2792,7 +2890,8 @@
       "source": "e32",
       "target": "e6",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r17",
@@ -2803,7 +2902,8 @@
       "source": "e32",
       "target": "e25",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r18",
@@ -2814,7 +2914,8 @@
       "source": "e28",
       "target": "e8",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r19",
@@ -2825,7 +2926,8 @@
       "source": "e29",
       "target": "e9",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r20",
@@ -2836,7 +2938,8 @@
       "source": "e33",
       "target": "e24",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r21",
@@ -2847,7 +2950,8 @@
       "source": "e32",
       "target": "e2",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r22",
@@ -2858,7 +2962,8 @@
       "source": "e29",
       "target": "e16",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r23",
@@ -2869,7 +2974,8 @@
       "source": "e34",
       "target": "e15",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r24",
@@ -2895,7 +3001,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r25",
@@ -2921,7 +3028,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r26",
@@ -2947,7 +3055,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r27",
@@ -2973,7 +3082,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r28",
@@ -2999,7 +3109,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r29",
@@ -3025,7 +3136,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r30",
@@ -3051,7 +3163,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": "domainSpecificInformation"
     },
     {
       "key": "r31",
@@ -3062,7 +3175,8 @@
       "source": "e7",
       "target": "e17",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "joining"
     },
     {
       "key": "r32",
@@ -3073,7 +3187,8 @@
       "source": "e19",
       "target": "e22",
       "participants": [],
-      "attributes": []
+      "attributes": [],
+      "membership": "joining"
     }
   ],
   "parseNotes": [],

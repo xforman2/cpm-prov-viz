@@ -11,7 +11,8 @@
       "iri": "http://example.org/analysisBundle",
       "prefixes": {
         "lab": "http://example.org/lab/"
-      }
+      },
+      "isProvenanceComponent": false
     }
   ],
   "elements": [
@@ -64,7 +65,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": null
     },
     {
       "key": "e2",
@@ -145,7 +148,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": null
     },
     {
       "key": "e3",
@@ -168,7 +173,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": null
     },
     {
       "key": "e4",
@@ -191,7 +198,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": null
     },
     {
       "key": "e5",
@@ -214,7 +223,9 @@
             }
           ]
         }
-      ]
+      ],
+      "cpmRoles": [],
+      "membership": null
     }
   ],
   "relations": [
@@ -242,7 +253,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": null
     },
     {
       "key": "r2",
@@ -268,7 +280,8 @@
             }
           ]
         }
-      ]
+      ],
+      "membership": null
     },
     {
       "key": "r3",
@@ -304,7 +317,8 @@
           "relation": "r2"
         }
       ],
-      "attributes": []
+      "attributes": [],
+      "membership": null
     },
     {
       "key": "r4",
@@ -324,7 +338,8 @@
           "relation": null
         }
       ],
-      "attributes": []
+      "attributes": [],
+      "membership": null
     }
   ],
   "parseNotes": [],
