@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using CpmProvViz.Application;
 using CpmProvViz.Application.Graph;
 using CpmProvViz.Infrastructure.ProvJson;
@@ -8,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
 builder.Services.AddProblemDetails();
+builder.Services.ConfigureHttpJsonOptions(options =>
+    options.SerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)));
 builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton<IProvDocumentReader, ProvJsonReader>();
@@ -47,7 +50,14 @@ api.MapPost("graph", async Task<IResult> (HttpRequest request, ReadGraph readGra
     .Produces<Graph>()
     .ProducesProblem(StatusCodes.Status400BadRequest)
     .WithName("ReadGraph")
-    .WithSummary("Reads a PROV-JSON document and returns its graph (docs/graph-contract.md).");
+    .WithSummary("Reads a PROV-JSON document and returns its graph.")
+    .WithDescription(
+        "Takes the raw PROV-JSON document as the request body. Nothing is stored. The document is read " +
+        "leniently; it is rejected with 400 only when it is not JSON or not shaped like a PROV-JSON " +
+        "document: its root is not an object; its root has keys but none is a PROV-JSON section " +
+        "(prefix, bundle, entity, activity, agent or a relation section); prefix, bundle, a bundle's " +
+        "content or a known section is not an object; or a prefix maps to something other than a " +
+        "string. An empty object {} is an empty document.");
 
 app.MapDefaultEndpoints();
 

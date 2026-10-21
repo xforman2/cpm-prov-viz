@@ -11,8 +11,8 @@ looks come second.
 
 ## Status
 
-The graph contract (`docs/graph-contract.md`) and a first PROV-JSON reader behind `POST /api/graph`
-exist. CPM interpretation, parse notes and the real UI are not built yet.
+The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist. CPM
+interpretation, parse notes and the real UI are not built yet.
 
 ## Structure
 
@@ -62,7 +62,8 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
   vs domain-specific information. It returns the graph JSON. It may also fetch bundles from
   remote provenance services, because server-side fetching avoids CORS.
 - **Graph JSON contract:** the single source of truth between backend and frontend. It is
-  specified in `docs/graph-contract.md`. Change the contract doc first, then both sides.
+  specified by the records in `src/CpmProvViz.Application/Graph/Graph.cs` and their XML comments,
+  which the OpenAPI document publishes. Change the records first, then the frontend.
 - **Frontend:** React for the menus and panels, Cytoscape.js for rendering and interaction.
   Bundles are compound nodes and can be collapsed. elkjs (Layered, `INCLUDE_CHILDREN`) does the
   layout in a Web Worker. Details are shown in HTML side panels, not inside nodes.

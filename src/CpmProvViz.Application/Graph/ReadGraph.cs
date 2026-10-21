@@ -34,14 +34,14 @@ public sealed class ReadGraph(IProvDocumentReader reader)
                 var key = $"e{elements.Count + 1}";
                 keysByIri.TryAdd(element.Id.Iri, key);
                 elements.Add(new GraphElement(
-                    key, element.Id.Text, element.Id.Iri, KindName(element.Kind), bundle, Attributes(element.Attributes)));
+                    key, element.Id.Text, element.Id.Iri, element.Kind, bundle, Attributes(element.Attributes)));
             }
 
             foreach (var relation in scopeRelations)
             {
                 relations.Add(new GraphRelation(
                     $"r{relations.Count + 1}",
-                    TypeName(relation.Type),
+                    relation.Type,
                     relation.Id?.Text,
                     relation.Id?.Iri,
                     bundle,
@@ -58,19 +58,4 @@ public sealed class ReadGraph(IProvDocumentReader reader)
     private static List<GraphAttribute> Attributes(IReadOnlyList<Attribute> attributes) =>
         [.. attributes.Select(a => new GraphAttribute(
             a.Name.Text, a.Name.Iri, [.. a.Values.Select(v => new GraphAttributeValue(v.Value))]))];
-
-    private static string KindName(ElementKind kind) => kind switch
-    {
-        ElementKind.Entity => "entity",
-        ElementKind.Activity => "activity",
-        ElementKind.Agent => "agent",
-        _ => throw new ArgumentOutOfRangeException(nameof(kind), kind, null),
-    };
-
-    // The contract names a relation type like its PROV-JSON section: wasGeneratedBy, used, …
-    private static string TypeName(RelationType type)
-    {
-        var name = type.ToString();
-        return char.ToLowerInvariant(name[0]) + name[1..];
-    }
 }
