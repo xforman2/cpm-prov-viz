@@ -1,7 +1,8 @@
-import type { ElementDefinition } from 'cytoscape'
+import type { Graph } from '../api/contract/Graph'
 
 export interface GraphViewProps {
-  elements: ElementDefinition[]
+  graph: Graph
+  hideDomainSpecificInformation: boolean
   // Key of the selected element or relation, or null when nothing is selected.
   selected: string | null
   onSelect: (key: string | null) => void

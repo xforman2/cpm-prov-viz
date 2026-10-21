@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import styles from './App.module.css'
 import type { OpenDocument } from './OpenDocument'
 import { useReadGraph } from './api/graph'
@@ -7,7 +7,6 @@ import { CollapsiblePanel } from './components/CollapsiblePanel'
 import { DetailsPanel } from './components/DetailsPanel'
 import { GraphView } from './components/GraphView'
 import { OpenFileButton } from './components/OpenFileButton'
-import { toCytoscapeElements } from './graph/cytoscape'
 import { useStoredFlag } from './storage'
 
 export default function App() {
@@ -19,10 +18,6 @@ export default function App() {
   const [hideDomainSpecificInformation, setHideDomainSpecificInformation] = useState(false)
   const [menuOpen, setMenuOpen] = useStoredFlag('cpm-prov-viz.menuOpen', true)
   const [detailsOpen, setDetailsOpen] = useStoredFlag('cpm-prov-viz.detailsOpen', true)
-  const elements = useMemo(
-    () => (openDocument ? toCytoscapeElements(openDocument.graph, hideDomainSpecificInformation) : []),
-    [openDocument, hideDomainSpecificInformation],
-  )
   const hasProvenanceComponent = openDocument?.graph.bundles.some((bundle) => bundle.isProvenanceComponent) ?? false
 
   // Selecting something shows its details, so a collapsed details panel opens.
@@ -113,7 +108,12 @@ export default function App() {
         )}
         {openDocument ? (
           <div className={styles.workspace}>
-            <GraphView elements={elements} selected={selected} onSelect={select} />
+            <GraphView
+              graph={openDocument.graph}
+              hideDomainSpecificInformation={hideDomainSpecificInformation}
+              selected={selected}
+              onSelect={select}
+            />
             <CollapsiblePanel side="right" name="details" open={detailsOpen} onOpenChange={setDetailsOpen}>
               <DetailsPanel graph={openDocument.graph} selected={selected} onSelect={select} />
             </CollapsiblePanel>
