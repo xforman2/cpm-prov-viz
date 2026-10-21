@@ -29,7 +29,8 @@ tests/                         xUnit projects; CpmProvViz.Api.Tests tests at the
 testdata/                      PROV-JSON test documents (EMBRC example: `testdata/embrc/README.md`,
                                hand-made ones: `testdata/handmade/`) and contract fixtures
                                (`testdata/contract/`)
-frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs
+frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs; no automated tests,
+                               checked by eye in the running app
 CpmProvViz.slnx
 ```
 
@@ -68,7 +69,6 @@ dotnet run --project src/CpmProvViz.AppHost --launch-profile http   # API + fron
 dotnet build CpmProvViz.slnx
 dotnet test CpmProvViz.slnx
 npm --prefix frontend run build               # type-check + production build
-npm --prefix frontend test                    # Vitest, on the contract fixtures in testdata/contract/
 npm --prefix frontend run lint
 ```
 
