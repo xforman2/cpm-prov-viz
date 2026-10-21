@@ -25,8 +25,9 @@ src/
   CpmProvViz.ServiceDefaults/  shared Aspire setup (health checks, telemetry)
   CpmProvViz.AppHost/          Aspire AppHost: runs the API and the frontend together
 tests/                         xUnit projects; CpmProvViz.Api.Tests tests at the HTTP seam
-testdata/                      PROV-JSON test documents (EMBRC example: `testdata/embrc/README.md`)
-                               and contract fixtures (`testdata/contract/`)
+testdata/                      PROV-JSON test documents (EMBRC example: `testdata/embrc/README.md`,
+                               hand-made ones: `testdata/handmade/`) and contract fixtures
+                               (`testdata/contract/`)
 frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs
 CpmProvViz.slnx
 ```

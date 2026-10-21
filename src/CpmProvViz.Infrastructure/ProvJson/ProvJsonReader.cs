@@ -17,7 +17,7 @@ public sealed class ProvJsonReader : IProvDocumentReader
         ("agent", ElementKind.Agent),
     ];
 
-    // The keys of each relation's two main arguments (reference §A.3). Map by key, never by position.
+    // The keys of each relation's two main arguments in PROV-JSON. Map by key, never by position.
     private static readonly (string Section, RelationType Type, string Source, string Target)[] RelationSections =
     [
         ("wasGeneratedBy", RelationType.WasGeneratedBy, "prov:entity", "prov:activity"),
@@ -156,7 +156,7 @@ public sealed class ProvJsonReader : IProvDocumentReader
 
             foreach (var record in section.EnumerateObject())
             {
-                // Blank identifiers carry no semantics and should be ignored (reference §A.4).
+                // Blank identifiers carry no semantics in PROV-JSON and should be ignored.
                 var id = record.Name.StartsWith(BlankIdentifierPrefix, StringComparison.Ordinal)
                     ? null
                     : namespaces.Resolve(record.Name);
@@ -206,7 +206,7 @@ public sealed class ProvJsonReader : IProvDocumentReader
                 continue;
             }
 
-            // A key may hold one value or an array of values (reference §A.5).
+            // A key may hold one value or an array of values.
             IEnumerable<JsonElement> items = attribute.Value.ValueKind == JsonValueKind.Array
                 ? attribute.Value.EnumerateArray()
                 : [attribute.Value];

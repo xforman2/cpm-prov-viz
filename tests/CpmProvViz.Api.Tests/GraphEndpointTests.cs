@@ -304,13 +304,24 @@ public class GraphEndpointTests(WebApplicationFactory<Program> factory)
     [InlineData("""{ "bundle": { "ex:b": { "wasGeneratedBy": true } } }""")]
     public async Task Rejects_input_that_is_not_a_prov_json_document(string input)
     {
-        var response = await factory.Post(input);
+        await AssertBadRequest(await factory.Post(input));
+    }
 
-        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
-        Assert.Equal("application/problem+json", response.Content.Headers.ContentType?.MediaType);
-        var problem = JsonNode.Parse(await response.Content.ReadAsStringAsync())!;
-        Assert.Equal(400, (int?)problem["status"]);
-        Assert.False(string.IsNullOrWhiteSpace((string?)problem["detail"]));
+    [Theory]
+    [InlineData("text/plain")]
+    [InlineData("application/octet-stream")]
+    [InlineData(null)]
+    public async Task Reads_a_document_whatever_its_content_type(string? contentType)
+    {
+        var response = await factory.Post("""{ "entity": { "ex:sample": {} } }""", contentType);
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task Rejects_text_that_is_not_json_whatever_its_content_type()
+    {
+        await AssertBadRequest(await factory.Post("not json", "text/plain"));
     }
 
     [Fact]
@@ -325,6 +336,15 @@ public class GraphEndpointTests(WebApplicationFactory<Program> factory)
     }
 
     private Task<JsonNode> PostGraph(string document) => factory.PostGraph(document);
+
+    private static async Task AssertBadRequest(HttpResponseMessage response)
+    {
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.Equal("application/problem+json", response.Content.Headers.ContentType?.MediaType);
+        var problem = JsonNode.Parse(await response.Content.ReadAsStringAsync())!;
+        Assert.Equal(400, (int?)problem["status"]);
+        Assert.False(string.IsNullOrWhiteSpace((string?)problem["detail"]));
+    }
 
     private static JsonNode Single(JsonNode? array) => Assert.Single(array!.AsArray())!;
 
