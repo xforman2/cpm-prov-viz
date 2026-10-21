@@ -1,21 +1,19 @@
 using System.Text.Json;
-using System.Text.Json.Serialization;
+using CpmProvViz.Api;
+using CpmProvViz.Application;
 using CpmProvViz.Application.Graph.Contract;
 using CpmProvViz.Application.Graph.ReadGraph;
 using CpmProvViz.Application.Ports;
-using CpmProvViz.Infrastructure.ProvJson;
+using CpmProvViz.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
-builder.Services.AddProblemDetails();
-builder.Services.ConfigureHttpJsonOptions(options =>
-    options.SerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)));
-builder.Services.AddOpenApi();
-
-builder.Services.AddSingleton<IProvDocumentReader, ProvJsonReader>();
-builder.Services.AddSingleton<IReadGraphUseCase, ReadGraphUseCase>();
+builder.Services
+    .AddApi()
+    .AddApplication()
+    .AddInfrastructure();
 
 var app = builder.Build();
 

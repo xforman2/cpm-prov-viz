@@ -53,6 +53,10 @@ Never use local functions (a function declared inside a method). Use private met
 they share per-call state, a small class created per call that holds it in fields (e.g.
 `GraphBuilder`). Never keep per-call state in fields of a use case or service: they are singletons.
 
+Each layer registers its own services in a `DependencyInjection` class with one extension method
+(`AddApi`, `AddApplication`, `AddInfrastructure`), and `Program.cs` only calls those. Domain
+registers nothing and stays free of dependencies.
+
 ## Commands
 
 ```fish
