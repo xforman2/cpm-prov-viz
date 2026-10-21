@@ -3,10 +3,9 @@ using Attribute = CpmProvViz.Domain.Prov.Attribute;
 
 namespace CpmProvViz.Application.Graph;
 
-/// <summary>Reads a PROV document and maps it to the graph contract.</summary>
-public sealed class ReadGraph(IProvDocumentReader reader)
+/// <inheritdoc />
+public sealed class ReadGraphUseCase(IProvDocumentReader reader) : IReadGraphUseCase
 {
-    /// <exception cref="UnreadableDocumentException">The input cannot be read as a PROV document.</exception>
     public async Task<Graph> ExecuteAsync(Stream input, CancellationToken cancellationToken)
     {
         var document = await reader.ReadAsync(input, cancellationToken);

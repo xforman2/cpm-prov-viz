@@ -35,6 +35,11 @@ CpmProvViz.slnx
 Keep the Clean Architecture dependency direction: Domain depends on nothing, and nothing in
 Domain or Application references ASP.NET Core, files or HTTP.
 
+Each use case in Application is its own class named `<Action>UseCase`, with one `ExecuteAsync`
+method and only the dependencies it needs (e.g. `ReadGraphUseCase`). No `…Service` classes and
+no mediator. Every use case and every service has an interface (`IReadGraphUseCase`,
+`IProvDocumentReader`), is registered by it and is injected only through it.
+
 ## Commands
 
 ```fish

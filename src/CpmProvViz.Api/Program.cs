@@ -14,7 +14,7 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 builder.Services.AddOpenApi();
 
 builder.Services.AddSingleton<IProvDocumentReader, ProvJsonReader>();
-builder.Services.AddSingleton<ReadGraph>();
+builder.Services.AddSingleton<IReadGraphUseCase, ReadGraphUseCase>();
 
 var app = builder.Build();
 
@@ -34,7 +34,8 @@ api.MapGet("info", () => new ApiInfo(
     .WithName("GetApiInfo")
     .WithSummary("Returns the API name and version.");
 
-api.MapPost("graph", async Task<IResult> (HttpRequest request, ReadGraph readGraph, CancellationToken cancellationToken) =>
+api.MapPost("graph", async Task<IResult> (
+        HttpRequest request, IReadGraphUseCase readGraph, CancellationToken cancellationToken) =>
     {
         try
         {
