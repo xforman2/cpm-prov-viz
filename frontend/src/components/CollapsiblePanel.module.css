@@ -1,0 +1,63 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-height: 0;
+  background: var(--surface);
+}
+
+.panel[data-side='left'] {
+  border-right: 1px solid var(--border);
+}
+
+.panel[data-side='right'] {
+  border-left: 1px solid var(--border);
+}
+
+/* The button sits on the panel's inner edge, the one facing the graph. */
+.bar {
+  display: flex;
+  padding: 6px;
+}
+
+.panel[data-side='left'] .bar {
+  justify-content: flex-end;
+}
+
+.panel[data-side='right'] .bar {
+  justify-content: flex-start;
+}
+
+.toggle {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.content[hidden] {
+  display: none;
+}

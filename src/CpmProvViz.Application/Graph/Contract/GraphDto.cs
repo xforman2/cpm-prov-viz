@@ -23,7 +23,7 @@ namespace CpmProvViz.Application.Graph.Contract;
 /// <param name="Bundles">One entry per bundle in the document. Bundles never nest.</param>
 /// <param name="Elements">One entry per entity, activity and agent, from every bundle and from the top level of the document.</param>
 /// <param name="Relations">One entry per relation record, from every bundle and from the top level of the document.</param>
-/// <param name="ParseNotes">Remarks from reading the document leniently. Always empty for now.</param>
+/// <param name="ParseNotes">Remarks from reading the document leniently. Lenient reading with parse notes is not planned, so this list is always empty.</param>
 /// <param name="ValidationFindings">Violations of PROV-DM or CPM rules. The validators are not built yet, so this list is always empty.</param>
 public sealed record GraphDto(
     IReadOnlyDictionary<string, string> Prefixes,

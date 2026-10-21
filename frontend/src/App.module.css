@@ -1,6 +1,6 @@
 .app {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     'header header'
@@ -42,11 +42,13 @@
   color: var(--error);
 }
 
-.menu {
+.menuPanel {
   grid-area: menu;
-  padding: 12px;
-  background: var(--surface);
-  border-right: 1px solid var(--border);
+}
+
+.menu {
+  width: 200px;
+  padding: 0 12px 12px;
 }
 
 .menu ul {

@@ -15,7 +15,7 @@ The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist. 
 interprets CPM: each element's CPM roles, traversal information vs domain-specific information,
 and which bundles are provenance components. The frontend opens a file, draws its graph with the
 traversal information styled apart, can hide the domain-specific information, and shows the
-selected element or relation in a side panel. Parse notes are not built yet (#18).
+selected element or relation in a side panel. The menu and the side panel collapse to thin strips.
 
 ## Structure
 
