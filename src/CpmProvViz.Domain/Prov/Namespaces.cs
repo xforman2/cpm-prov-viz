@@ -9,6 +9,9 @@ public sealed class Namespaces(IReadOnlyDictionary<string, string> declared, Nam
     public const string Prov = "http://www.w3.org/ns/prov#";
     public const string Xsd = "http://www.w3.org/2001/XMLSchema#";
 
+    /// <summary>The older XML Schema namespace, which some tools still write for <c>xsd</c>.</summary>
+    public const string XsdLegacy = "http://www.w3.org/2000/10/XMLSchema#";
+
     private const string DefaultPrefix = "default";
 
     public IReadOnlyDictionary<string, string> Declared { get; } = declared;

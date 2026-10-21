@@ -10,6 +10,10 @@ namespace CpmProvViz.Application.Graph.ReadGraph;
 /// </summary>
 internal sealed class GraphBuilder
 {
+    private const string BundleKeyPrefix = "b";
+    private const string ElementKeyPrefix = "e";
+    private const string RelationKeyPrefix = "r";
+
     private readonly List<GraphBundleDto> bundles = [];
     private readonly List<GraphElementDto> elements = [];
     private readonly List<GraphRelationDto> relations = [];
@@ -21,7 +25,7 @@ internal sealed class GraphBuilder
     /// <summary>Adds a bundle and its statements.</summary>
     public void AddBundle(Bundle bundle)
     {
-        var key = $"b{bundles.Count + 1}";
+        var key = Key(BundleKeyPrefix, bundles.Count);
         bundles.Add(new GraphBundleDto(key, bundle.Id.Text, bundle.Id.Iri, bundle.Prefixes));
         AddStatements(bundle.Elements, bundle.Relations, key);
     }
@@ -34,33 +38,84 @@ internal sealed class GraphBuilder
     private void AddStatements(
         IReadOnlyList<Element> scopeElements, IReadOnlyList<Relation> scopeRelations, string? bundleKey)
     {
-        var keysByIri = new Dictionary<string, string>();
+        var elementKeys = KeysByIri(scopeElements.Select(e => e.Id), ElementKeyPrefix, elements.Count);
+        var relationKeys = KeysByIri(scopeRelations.Select(r => r.Id), RelationKeyPrefix, relations.Count);
         foreach (var element in scopeElements)
         {
-            var key = $"e{elements.Count + 1}";
-            keysByIri.TryAdd(element.Id.Iri, key);
             elements.Add(new GraphElementDto(
-                key, element.Id.Text, element.Id.Iri, element.Kind, bundleKey, Attributes(element.Attributes)));
+                Key(ElementKeyPrefix, elements.Count),
+                element.Id.Text,
+                element.Id.Iri,
+                element.Kind,
+                bundleKey,
+                Attributes(element.Attributes, elementKeys)));
         }
 
         foreach (var relation in scopeRelations)
         {
             relations.Add(new GraphRelationDto(
-                $"r{relations.Count + 1}",
+                Key(RelationKeyPrefix, relations.Count),
                 relation.Type,
                 relation.Id?.Text,
                 relation.Id?.Iri,
                 bundleKey,
-                ElementKey(keysByIri, relation.Source),
-                ElementKey(keysByIri, relation.Target),
-                Attributes(relation.Attributes)));
+                KeyOf(elementKeys, relation.Source),
+                KeyOf(elementKeys, relation.Target),
+                [.. relation.Participants.Select(p => Participant(p, elementKeys, relationKeys))],
+                Attributes(relation.Attributes, elementKeys)));
         }
     }
 
-    private static string? ElementKey(IReadOnlyDictionary<string, string> keysByIri, QualifiedName? name) =>
+    // The key of the statement that comes after the given number of already keyed ones.
+    private static string Key(string prefix, int keyed) => $"{prefix}{keyed + 1}";
+
+    // Maps each identifier's IRI to the key its statement will get, the first one when it repeats.
+    private static Dictionary<string, string> KeysByIri(IEnumerable<QualifiedName?> ids, string prefix, int keyed)
+    {
+        var keys = new Dictionary<string, string>();
+        foreach (var id in ids)
+        {
+            if (id is not null)
+            {
+                keys.TryAdd(id.Iri, Key(prefix, keyed));
+            }
+
+            keyed++;
+        }
+
+        return keys;
+    }
+
+    private static string? KeyOf(IReadOnlyDictionary<string, string> keysByIri, QualifiedName? name) =>
         name is not null && keysByIri.TryGetValue(name.Iri, out var key) ? key : null;
 
-    private static List<GraphAttributeDto> Attributes(IReadOnlyList<Attribute> attributes) =>
+    // A participant names an element, or else a relation, as prov:generation and prov:usage do.
+    private static GraphParticipantDto Participant(
+        Participant participant,
+        IReadOnlyDictionary<string, string> elementKeys,
+        IReadOnlyDictionary<string, string> relationKeys)
+    {
+        var element = KeyOf(elementKeys, participant.Id);
+        return new GraphParticipantDto(
+            participant.Name.Text,
+            participant.Name.Iri,
+            participant.Id.Text,
+            participant.Id.Iri,
+            element,
+            element is null ? KeyOf(relationKeys, participant.Id) : null);
+    }
+
+    private static List<GraphAttributeDto> Attributes(
+        IReadOnlyList<Attribute> attributes, IReadOnlyDictionary<string, string> elementKeys) =>
         [.. attributes.Select(a => new GraphAttributeDto(
-            a.Name.Text, a.Name.Iri, [.. a.Values.Select(v => new GraphAttributeValueDto(v.Value))]))];
+            a.Name.Text, a.Name.Iri, [.. a.Values.Select(v => Value(v, elementKeys))]))];
+
+    private static GraphAttributeValueDto Value(AttributeValue value, IReadOnlyDictionary<string, string> elementKeys) =>
+        new(
+            value.Value,
+            value.Datatype?.Text,
+            value.Datatype?.Iri,
+            value.Language,
+            value.QualifiedName?.Iri,
+            KeyOf(elementKeys, value.QualifiedName));
 }

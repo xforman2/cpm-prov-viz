@@ -1,7 +1,6 @@
 import type { ElementDefinition } from 'cytoscape'
 import type { Graph } from '../api/contract/Graph'
-
-const maxLabelLength = 24
+import { elementLabel, shortenIdentifier } from './labels'
 
 // Turns the graph contract into Cytoscape elements. Pure, so it can be tested without a renderer.
 export function toCytoscapeElements(graph: Graph): ElementDefinition[] {
@@ -9,9 +8,11 @@ export function toCytoscapeElements(graph: Graph): ElementDefinition[] {
     group: 'nodes',
     data: { id: bundle.key, label: shortenIdentifier(bundle.id) },
     classes: 'bundle',
+    // A bundle is only a group: clicking it selects nothing.
+    selectable: false,
   }))
   const elementNodes: ElementDefinition[] = graph.elements.map((element) => {
-    const data = { id: element.key, label: shortenIdentifier(element.id) }
+    const data = { id: element.key, label: elementLabel(element) }
     return {
       group: 'nodes',
       data: element.bundle === null ? data : { ...data, parent: element.bundle },
@@ -30,8 +31,3 @@ export function toCytoscapeElements(graph: Graph): ElementDefinition[] {
   return [...bundleNodes, ...elementNodes, ...relationEdges]
 }
 
-// The local part of a qualified name (after the first ':'), cut short with an ellipsis when long.
-function shortenIdentifier(id: string): string {
-  const localPart = id.slice(id.indexOf(':') + 1)
-  return localPart.length <= maxLabelLength ? localPart : `${localPart.slice(0, maxLabelLength - 1)}…`
-}

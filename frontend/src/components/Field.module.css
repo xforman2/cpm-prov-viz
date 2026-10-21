@@ -1,0 +1,20 @@
+.field {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.field:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.content {
+  margin: 2px 0 0;
+  font-size: 13px;
+  /* IRIs and hashes are long and have no spaces. */
+  overflow-wrap: anywhere;
+}

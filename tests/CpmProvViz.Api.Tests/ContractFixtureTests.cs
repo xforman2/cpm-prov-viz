@@ -19,6 +19,7 @@ public class ContractFixtureTests(WebApplicationFactory<Program> factory)
         "embrc/dataset1/SamplingBundle_V0.json",
         "embrc/dataset2/ProcessingBundle_V1.json",
         "handmade/two-bundles.json",
+        "handmade/values-and-participants.json",
     ];
 
     [Theory]

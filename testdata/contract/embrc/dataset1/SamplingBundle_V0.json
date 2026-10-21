@@ -37,7 +37,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "ABS permit"
+              "value": "ABS permit",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -46,7 +51,12 @@
           "iri": "https://schema.org/validIn",
           "values": [
             {
-              "value": "marineregions:3293"
+              "value": "marineregions:3293",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -55,7 +65,12 @@
           "iri": "https://schema.org/issuer",
           "values": [
             {
-              "value": "gen:8fefd86e6fd2acc15cd4db7a2ecff042dcde5d323d208c85e7434630d0342588"
+              "value": "gen:8fefd86e6fd2acc15cd4db7a2ecff042dcde5d323d208c85e7434630d0342588",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -64,7 +79,12 @@
           "iri": "https://schema.org/validFrom",
           "values": [
             {
-              "value": "2021-01-01"
+              "value": "2021-01-01",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -73,7 +93,12 @@
           "iri": "https://schema.org/identifier",
           "values": [
             {
-              "value": "ircc2345678"
+              "value": "ircc2345678",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -82,7 +107,12 @@
           "iri": "https://schema.org/description",
           "values": [
             {
-              "value": "Samples of sea water from the Belgian EEZ collected over the period 2021-01-01 to 2022-01-01; processed for environmental DNA for taxonomic classification purposes"
+              "value": "Samples of sea water from the Belgian EEZ collected over the period 2021-01-01 to 2022-01-01; processed for environmental DNA for taxonomic classification purposes",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -91,7 +121,12 @@
           "iri": "https://schema.org/validUntil",
           "values": [
             {
-              "value": "2022-01-01"
+              "value": "2022-01-01",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -100,13 +135,28 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Permit"
+              "value": "schema:Permit",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Permit",
+              "element": null
             },
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             },
             {
-              "value": "schema:CreativeWork"
+              "value": "schema:CreativeWork",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/CreativeWork",
+              "element": null
             }
           ]
         }
@@ -124,7 +174,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "Peristaltic pump (including pump heads, appropriate silicone tubes, stainless steel filter holders)"
+              "value": "Peristaltic pump (including pump heads, appropriate silicone tubes, stainless steel filter holders)",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -133,7 +188,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "Masterflex - EW-07522-20"
+              "value": "Masterflex - EW-07522-20",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -142,7 +202,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -160,7 +225,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "NiceMarineStation rosette#1"
+              "value": "NiceMarineStation rosette#1",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -169,7 +239,12 @@
           "iri": "http://www.w3.org/ns/sosa/isHostedBy",
           "values": [
             {
-              "value": "blank:IMO_1234567"
+              "value": "blank:IMO_1234567",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -178,7 +253,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "Niskin bottles on a Rosette sampler"
+              "value": "Niskin bottles on a Rosette sampler",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -187,7 +267,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -205,7 +290,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "Johnson Fridge type XYZ"
+              "value": "Johnson Fridge type XYZ",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -214,7 +304,12 @@
           "iri": "http://www.w3.org/ns/sosa/isHostedBy",
           "values": [
             {
-              "value": "blank:IMO_1234567"
+              "value": "blank:IMO_1234567",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -223,7 +318,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "samples fridge"
+              "value": "samples fridge",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -232,7 +332,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -250,7 +355,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "marine plaknton metagenome"
+              "value": "marine plaknton metagenome",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -259,7 +369,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:DefinedTerm"
+              "value": "schema:DefinedTerm",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/DefinedTerm",
+              "element": null
             }
           ]
         },
@@ -268,7 +383,12 @@
           "iri": "https://schema.org/termCode",
           "values": [
             {
-              "value": "NCBI:txid1874687"
+              "value": "NCBI:txid1874687",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -286,7 +406,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "BigProject_belgium_water_10m_1000um_r2"
+              "value": "BigProject_belgium_water_10m_1000um_r2",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -295,10 +420,20 @@
           "iri": "https://schema.org/keywords",
           "values": [
             {
-              "value": "obolibrary:ENVO_00002150"
+              "value": "obolibrary:ENVO_00002150",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://purl.obolibrary.org/obo/ENVO_00002150",
+              "element": "e10"
             },
             {
-              "value": "blank:NCBI_txid1874687"
+              "value": "blank:NCBI_txid1874687",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://openprovenance.org/blank/NCBI_txid1874687",
+              "element": "e5"
             }
           ]
         },
@@ -307,7 +442,12 @@
           "iri": "https://schema.org/description",
           "values": [
             {
-              "value": "water sample collected from 10m depth and filtered at 1000um"
+              "value": "water sample collected from 10m depth and filtered at 1000um",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -316,10 +456,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "sosa:Sample"
+              "value": "sosa:Sample",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/sosa/Sample",
+              "element": null
             },
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -337,10 +487,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "sosa:Sample"
+              "value": "sosa:Sample",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/sosa/Sample",
+              "element": null
             },
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -358,7 +518,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "BigProject_WaterSamples"
+              "value": "BigProject_WaterSamples",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -367,7 +532,12 @@
           "iri": "https://schema.org/url",
           "values": [
             {
-              "value": "https://www.protocols.io/BigProject_WaterSamples.pdf"
+              "value": "https://www.protocols.io/BigProject_WaterSamples.pdf",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -376,7 +546,12 @@
           "iri": "https://schema.org/description",
           "values": [
             {
-              "value": "Collecting and pre-filtering (removal of larger particles) of water samples to be used later for FlowCam and eDNA work"
+              "value": "Collecting and pre-filtering (removal of larger particles) of water samples to be used later for FlowCam and eDNA work",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -385,10 +560,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             },
             {
-              "value": "schema:CreativeWork"
+              "value": "schema:CreativeWork",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/CreativeWork",
+              "element": null
             }
           ]
         }
@@ -406,7 +591,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "Johnson Freezer type XYZ"
+              "value": "Johnson Freezer type XYZ",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -415,7 +605,12 @@
           "iri": "http://www.w3.org/ns/sosa/isHostedBy",
           "values": [
             {
-              "value": "blank:IMO_1234567"
+              "value": "blank:IMO_1234567",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -424,7 +619,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "samples freezer"
+              "value": "samples freezer",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -433,7 +633,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -451,7 +656,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "coastal sea water"
+              "value": "coastal sea water",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -460,7 +670,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:DefinedTerm"
+              "value": "schema:DefinedTerm",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/DefinedTerm",
+              "element": null
             }
           ]
         },
@@ -469,7 +684,12 @@
           "iri": "https://schema.org/termCode",
           "values": [
             {
-              "value": "ENVO_00002150"
+              "value": "ENVO_00002150",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -487,7 +707,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "RV OurBigShip"
+              "value": "RV OurBigShip",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -496,7 +721,12 @@
           "iri": "https://schema.org/identifier",
           "values": [
             {
-              "value": "IMO:1234567"
+              "value": "IMO:1234567",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -505,7 +735,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "https://vocab.nerc.ac.uk/collection/L05/31"
+              "value": "https://vocab.nerc.ac.uk/collection/L05/31",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -514,10 +749,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "sosa:Platform"
+              "value": "sosa:Platform",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/sosa/Platform",
+              "element": null
             },
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -535,7 +780,12 @@
           "iri": "http://www.w3.org/ns/sosa/hasFeatureOfInterest",
           "values": [
             {
-              "value": "http://vocab.nerc.ac.uk/collection/A05/current/EV_SALIN"
+              "value": "http://vocab.nerc.ac.uk/collection/A05/current/EV_SALIN",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -544,7 +794,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "sosa:Observation"
+              "value": "sosa:Observation",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/sosa/Observation",
+              "element": null
             }
           ]
         }
@@ -562,7 +817,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "Belgian EEZ"
+              "value": "Belgian EEZ",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -571,7 +831,12 @@
           "iri": "https://schema.org/geo",
           "values": [
             {
-              "value": "gen:374da96f393f90611618df5475f7b17158935e3f8eecf9f419d878e8a82ac23c"
+              "value": "gen:374da96f393f90611618df5475f7b17158935e3f8eecf9f419d878e8a82ac23c",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -580,7 +845,12 @@
           "iri": "https://schema.org/identifier",
           "values": [
             {
-              "value": "marineregions:3293"
+              "value": "marineregions:3293",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -589,7 +859,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Place"
+              "value": "schema:Place",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Place",
+              "element": null
             }
           ]
         }
@@ -607,7 +882,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "RV OurBigShip on-board lab"
+              "value": "RV OurBigShip on-board lab",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -616,10 +896,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Place"
+              "value": "schema:Place",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Place",
+              "element": null
             },
             {
-              "value": "prov:Location"
+              "value": "prov:Location",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/prov#Location",
+              "element": null
             }
           ]
         }
@@ -637,7 +927,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "BigProject_belgium_water_10m"
+              "value": "BigProject_belgium_water_10m",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -646,10 +941,20 @@
           "iri": "https://schema.org/keywords",
           "values": [
             {
-              "value": "obolibrary:ENVO_00002150"
+              "value": "obolibrary:ENVO_00002150",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://purl.obolibrary.org/obo/ENVO_00002150",
+              "element": "e10"
             },
             {
-              "value": "blank:NCBI_txid1874687"
+              "value": "blank:NCBI_txid1874687",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://openprovenance.org/blank/NCBI_txid1874687",
+              "element": "e5"
             }
           ]
         },
@@ -658,7 +963,12 @@
           "iri": "https://schema.org/description",
           "values": [
             {
-              "value": "Water sample to determine plankton community and extract DNA"
+              "value": "Water sample to determine plankton community and extract DNA",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -667,10 +977,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "sosa:Sample"
+              "value": "sosa:Sample",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/sosa/Sample",
+              "element": null
             },
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -688,7 +1008,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "BigProject_belgium_water_10m_1000um_r2_3um"
+              "value": "BigProject_belgium_water_10m_1000um_r2_3um",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -697,10 +1022,20 @@
           "iri": "https://schema.org/keywords",
           "values": [
             {
-              "value": "obolibrary:ENVO_00002150"
+              "value": "obolibrary:ENVO_00002150",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://purl.obolibrary.org/obo/ENVO_00002150",
+              "element": "e10"
             },
             {
-              "value": "blank:NCBI_txid1874687"
+              "value": "blank:NCBI_txid1874687",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://openprovenance.org/blank/NCBI_txid1874687",
+              "element": "e5"
             }
           ]
         },
@@ -709,7 +1044,12 @@
           "iri": "https://schema.org/description",
           "values": [
             {
-              "value": "water sample collected from 10m depth and filtered at 1000um and again 3um"
+              "value": "water sample collected from 10m depth and filtered at 1000um and again 3um",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -718,10 +1058,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "sosa:Sample"
+              "value": "sosa:Sample",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/sosa/Sample",
+              "element": null
             },
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -739,7 +1089,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "cpm:forwardConnector"
+              "value": "cpm:forwardConnector",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/forwardConnector",
+              "element": null
             }
           ]
         }
@@ -757,7 +1112,12 @@
           "iri": "https://schema.org/latitude",
           "values": [
             {
-              "value": "51.249995"
+              "value": "51.249995",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -766,7 +1126,12 @@
           "iri": "https://schema.org/longitude",
           "values": [
             {
-              "value": "2.85327"
+              "value": "2.85327",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -775,7 +1140,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:GeoCoordinates"
+              "value": "schema:GeoCoordinates",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/GeoCoordinates",
+              "element": null
             }
           ]
         }
@@ -793,10 +1163,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "sosa:Sample"
+              "value": "sosa:Sample",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/sosa/Sample",
+              "element": null
             },
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -822,7 +1202,12 @@
           "iri": "http://www.w3.org/ns/sosa/hasFeatureOfInterest",
           "values": [
             {
-              "value": "http://vocab.nerc.ac.uk/collection/P02/current/TEMP"
+              "value": "http://vocab.nerc.ac.uk/collection/P02/current/TEMP",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -831,7 +1216,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "sosa:Observation"
+              "value": "sosa:Observation",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/sosa/Observation",
+              "element": null
             }
           ]
         }
@@ -849,7 +1239,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "cpm:forwardConnector"
+              "value": "cpm:forwardConnector",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/forwardConnector",
+              "element": null
             }
           ]
         }
@@ -867,7 +1262,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "CTD_standard_procedure_2"
+              "value": "CTD_standard_procedure_2",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -876,7 +1276,12 @@
           "iri": "https://schema.org/url",
           "values": [
             {
-              "value": "https://www.mylab.eu/CTDinstructions.pdf"
+              "value": "https://www.mylab.eu/CTDinstructions.pdf",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -885,7 +1290,12 @@
           "iri": "https://schema.org/description",
           "values": [
             {
-              "value": "instructions for using the CTD"
+              "value": "instructions for using the CTD",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -894,10 +1304,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             },
             {
-              "value": "schema:CreativeWork"
+              "value": "schema:CreativeWork",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/CreativeWork",
+              "element": null
             }
           ]
         }
@@ -915,7 +1335,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "BigProject_belgium_water_10m_1000um_r1"
+              "value": "BigProject_belgium_water_10m_1000um_r1",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -924,10 +1349,20 @@
           "iri": "https://schema.org/keywords",
           "values": [
             {
-              "value": "obolibrary:ENVO_00002150"
+              "value": "obolibrary:ENVO_00002150",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://purl.obolibrary.org/obo/ENVO_00002150",
+              "element": "e10"
             },
             {
-              "value": "blank:NCBI_txid1874687"
+              "value": "blank:NCBI_txid1874687",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://openprovenance.org/blank/NCBI_txid1874687",
+              "element": "e5"
             }
           ]
         },
@@ -936,7 +1371,12 @@
           "iri": "https://schema.org/description",
           "values": [
             {
-              "value": "water sample collected from 10m depth and filtered at 1000um"
+              "value": "water sample collected from 10m depth and filtered at 1000um",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -945,10 +1385,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "sosa:Sample"
+              "value": "sosa:Sample",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/sosa/Sample",
+              "element": null
             },
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -966,7 +1416,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "BigProject_eDNAfiltering"
+              "value": "BigProject_eDNAfiltering",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -975,7 +1430,12 @@
           "iri": "https://schema.org/url",
           "values": [
             {
-              "value": "https://www.protocols.io/BigProject_eDNAfiltering.pdf"
+              "value": "https://www.protocols.io/BigProject_eDNAfiltering.pdf",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -984,7 +1444,12 @@
           "iri": "https://schema.org/description",
           "values": [
             {
-              "value": "instructions for water samples filtering - to capture the biological material on the filter membrane which will be used for DNA extraction"
+              "value": "instructions for water samples filtering - to capture the biological material on the filter membrane which will be used for DNA extraction",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -993,10 +1458,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             },
             {
-              "value": "schema:CreativeWork"
+              "value": "schema:CreativeWork",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/CreativeWork",
+              "element": null
             }
           ]
         }
@@ -1014,7 +1489,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "1000 mesh"
+              "value": "1000 mesh",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1023,7 +1503,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "nylon mesh of 1000 um pore size"
+              "value": "nylon mesh of 1000 um pore size",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1032,7 +1517,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -1050,7 +1540,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "BigHappyOrganization CTD#23"
+              "value": "BigHappyOrganization CTD#23",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1059,7 +1554,12 @@
           "iri": "http://www.w3.org/ns/sosa/isHostedBy",
           "values": [
             {
-              "value": "blank:IMO_1234567"
+              "value": "blank:IMO_1234567",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1068,7 +1568,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "https://vocab.nerc.ac.uk/collection/L05/current/130"
+              "value": "https://vocab.nerc.ac.uk/collection/L05/current/130",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1077,7 +1582,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Thing"
+              "value": "schema:Thing",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Thing",
+              "element": null
             }
           ]
         }
@@ -1095,7 +1605,12 @@
           "iri": "http://www.w3.org/ns/prov#startTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1104,7 +1619,12 @@
           "iri": "http://www.w3.org/ns/prov#endTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1113,7 +1633,12 @@
           "iri": "http://www.w3.org/ns/sosa/madeBySampler",
           "values": [
             {
-              "value": "blank:BigHappyOrganization_rosette#1"
+              "value": "blank:BigHappyOrganization_rosette#1",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1122,7 +1647,12 @@
           "iri": "http://www.w3.org/ns/prov#location",
           "values": [
             {
-              "value": "marineregions:3293"
+              "value": "marineregions:3293",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1131,7 +1661,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "Sampling, water sampling from 10m depth"
+              "value": "Sampling, water sampling from 10m depth",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1140,10 +1675,20 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Action"
+              "value": "schema:Action",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Action",
+              "element": null
             },
             {
-              "value": "sosa:Sampling"
+              "value": "sosa:Sampling",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/sosa/Sampling",
+              "element": null
             }
           ]
         }
@@ -1161,7 +1706,12 @@
           "iri": "http://www.w3.org/ns/prov#startTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1170,7 +1720,12 @@
           "iri": "http://www.w3.org/ns/prov#endTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1179,7 +1734,12 @@
           "iri": "http://www.w3.org/ns/prov#location",
           "values": [
             {
-              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64"
+              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1188,7 +1748,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "Storing, short term; cold storage subsample 2"
+              "value": "Storing, short term; cold storage subsample 2",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1197,7 +1762,12 @@
           "iri": "https://schema.org/description",
           "values": [
             {
-              "value": "-20 C"
+              "value": "-20 C",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1206,7 +1776,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Action"
+              "value": "schema:Action",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Action",
+              "element": null
             }
           ]
         },
@@ -1215,7 +1790,12 @@
           "iri": "https://schema.org/object",
           "values": [
             {
-              "value": "blank:BigProject_belgium_water_10m_1000um_r2_3um"
+              "value": "blank:BigProject_belgium_water_10m_1000um_r2_3um",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -1233,7 +1813,12 @@
           "iri": "http://www.w3.org/ns/prov#startTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1242,7 +1827,12 @@
           "iri": "http://www.w3.org/ns/prov#endTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1251,7 +1841,12 @@
           "iri": "http://www.w3.org/ns/prov#location",
           "values": [
             {
-              "value": "marineregions:3293"
+              "value": "marineregions:3293",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1260,7 +1855,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "Observing, in-situ measurement of water properties"
+              "value": "Observing, in-situ measurement of water properties",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1269,7 +1869,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Action"
+              "value": "schema:Action",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Action",
+              "element": null
             }
           ]
         }
@@ -1287,22 +1892,52 @@
           "iri": "http://purl.org/dc/terms/hasPart",
           "values": [
             {
-              "value": "gen:09a6f65fe087c3806631e8926fa3cae8e049cfdfa2b0b63fe6de04bc88144e80"
+              "value": "gen:09a6f65fe087c3806631e8926fa3cae8e049cfdfa2b0b63fe6de04bc88144e80",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "gen/09a6f65fe087c3806631e8926fa3cae8e049cfdfa2b0b63fe6de04bc88144e80",
+              "element": "e33"
             },
             {
-              "value": "gen:fd7e5c8ca79a78538b324f8426a3a6c48fdb58a0a3e2718e185455205b48d7e2"
+              "value": "gen:fd7e5c8ca79a78538b324f8426a3a6c48fdb58a0a3e2718e185455205b48d7e2",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "gen/fd7e5c8ca79a78538b324f8426a3a6c48fdb58a0a3e2718e185455205b48d7e2",
+              "element": "e32"
             },
             {
-              "value": "gen:324df37d2e503522d56f379d8856e4d14599331df280bf0d011fe3060871261a"
+              "value": "gen:324df37d2e503522d56f379d8856e4d14599331df280bf0d011fe3060871261a",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "gen/324df37d2e503522d56f379d8856e4d14599331df280bf0d011fe3060871261a",
+              "element": "e34"
             },
             {
-              "value": "gen:36294ecf35d15ba81da0bb55dfd8ee07934568e28ec56a51774b3e331ed6fd99"
+              "value": "gen:36294ecf35d15ba81da0bb55dfd8ee07934568e28ec56a51774b3e331ed6fd99",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "gen/36294ecf35d15ba81da0bb55dfd8ee07934568e28ec56a51774b3e331ed6fd99",
+              "element": "e30"
             },
             {
-              "value": "gen:67c557a442ca2446b987928fb47c4bbbd59c54395e61f01949d76c06e0106925"
+              "value": "gen:67c557a442ca2446b987928fb47c4bbbd59c54395e61f01949d76c06e0106925",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "gen/67c557a442ca2446b987928fb47c4bbbd59c54395e61f01949d76c06e0106925",
+              "element": "e29"
             },
             {
-              "value": "gen:190fd43b1968737f3501420a6bfd9b74873e32416c6e14fef26238fbe3b197a2"
+              "value": "gen:190fd43b1968737f3501420a6bfd9b74873e32416c6e14fef26238fbe3b197a2",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "gen/190fd43b1968737f3501420a6bfd9b74873e32416c6e14fef26238fbe3b197a2",
+              "element": "e28"
             }
           ]
         },
@@ -1311,7 +1946,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "cpm:mainActivity"
+              "value": "cpm:mainActivity",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/mainActivity",
+              "element": null
             }
           ]
         },
@@ -1320,7 +1960,12 @@
           "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedMetaBundleId",
           "values": [
             {
-              "value": "meta:ca76d97e-b329-4df5-8bc8-9765aaa532fd"
+              "value": "meta:ca76d97e-b329-4df5-8bc8-9765aaa532fd",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://localhost:8080/api/v1/documents/meta/ca76d97e-b329-4df5-8bc8-9765aaa532fd",
+              "element": null
             }
           ]
         },
@@ -1329,7 +1974,12 @@
           "iri": "https://www.commonprovenancemodel.org/cpm-namespace-v1-0/referencedMetaBundleSpecV",
           "values": [
             {
-              "value": "DIS-23494-2:2025"
+              "value": "DIS-23494-2:2025",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -1347,7 +1997,12 @@
           "iri": "http://www.w3.org/ns/prov#startTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1356,7 +2011,12 @@
           "iri": "http://www.w3.org/ns/prov#endTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1365,7 +2025,12 @@
           "iri": "http://www.w3.org/ns/prov#location",
           "values": [
             {
-              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64"
+              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1374,7 +2039,12 @@
           "iri": "https://schema.org/result",
           "values": [
             {
-              "value": "blank:BigProject_belgium_water_10m_1000um_r2_3um"
+              "value": "blank:BigProject_belgium_water_10m_1000um_r2_3um",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1383,7 +2053,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "Material processing, fine filtering"
+              "value": "Material processing, fine filtering",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1392,7 +2067,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Action"
+              "value": "schema:Action",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Action",
+              "element": null
             }
           ]
         },
@@ -1401,7 +2081,12 @@
           "iri": "https://schema.org/object",
           "values": [
             {
-              "value": "blank:BigProject_belgium_water_10m_1000um_r2"
+              "value": "blank:BigProject_belgium_water_10m_1000um_r2",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -1419,7 +2104,12 @@
           "iri": "http://www.w3.org/ns/prov#startTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1428,7 +2118,12 @@
           "iri": "http://www.w3.org/ns/prov#endTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1437,7 +2132,12 @@
           "iri": "https://schema.org/additionalType",
           "values": [
             {
-              "value": "short-term storage"
+              "value": "short-term storage",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1446,7 +2146,12 @@
           "iri": "http://www.w3.org/ns/prov#location",
           "values": [
             {
-              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64"
+              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1455,7 +2160,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "Storing; cold storage subsample 1"
+              "value": "Storing; cold storage subsample 1",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1464,7 +2174,12 @@
           "iri": "https://schema.org/description",
           "values": [
             {
-              "value": "\u002B4 C"
+              "value": "\u002B4 C",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1473,7 +2188,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Action"
+              "value": "schema:Action",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Action",
+              "element": null
             }
           ]
         },
@@ -1482,7 +2202,12 @@
           "iri": "https://schema.org/object",
           "values": [
             {
-              "value": "blank:BigProject_belgium_water_10m_1000um_r1"
+              "value": "blank:BigProject_belgium_water_10m_1000um_r1",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -1500,7 +2225,12 @@
           "iri": "http://www.w3.org/ns/prov#startTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1509,7 +2239,12 @@
           "iri": "http://www.w3.org/ns/prov#endTime",
           "values": [
             {
-              "value": "2021-01-01T00:00:00.000\u002B01:00"
+              "value": "2021-01-01T00:00:00.000\u002B01:00",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1518,7 +2253,12 @@
           "iri": "http://www.w3.org/ns/prov#location",
           "values": [
             {
-              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64"
+              "value": "gen:7d38ee5a6e0fc3fc67a78988647227bc0f07befb48f8101e78f726fb0c31ec64",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1527,10 +2267,20 @@
           "iri": "https://schema.org/result",
           "values": [
             {
-              "value": "blank:BigProject_belgium_water_10m_1000um_r1"
+              "value": "blank:BigProject_belgium_water_10m_1000um_r1",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://openprovenance.org/blank/BigProject_belgium_water_10m_1000um_r1",
+              "element": "e24"
             },
             {
-              "value": "blank:BigProject_belgium_water_10m_1000um_r2"
+              "value": "blank:BigProject_belgium_water_10m_1000um_r2",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://openprovenance.org/blank/BigProject_belgium_water_10m_1000um_r2",
+              "element": "e6"
             }
           ]
         },
@@ -1539,7 +2289,12 @@
           "iri": "http://purl.org/dc/terms/type",
           "values": [
             {
-              "value": "Material processing, pre-filtering"
+              "value": "Material processing, pre-filtering",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1548,7 +2303,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Action"
+              "value": "schema:Action",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Action",
+              "element": null
             }
           ]
         },
@@ -1557,7 +2317,12 @@
           "iri": "https://schema.org/object",
           "values": [
             {
-              "value": "blank:BigProject_belgium_water_10m"
+              "value": "blank:BigProject_belgium_water_10m",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -1575,7 +2340,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "Jane Smith"
+              "value": "Jane Smith",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1584,7 +2354,12 @@
           "iri": "https://schema.org/email",
           "values": [
             {
-              "value": "jane.smith@somewhere.com"
+              "value": "jane.smith@somewhere.com",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1593,7 +2368,12 @@
           "iri": "https://schema.org/identifier",
           "values": [
             {
-              "value": "orcid:0000-0001-0001-0001"
+              "value": "orcid:0000-0001-0001-0001",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1602,7 +2382,12 @@
           "iri": "https://schema.org/affiliation",
           "values": [
             {
-              "value": "seadatanet:00000"
+              "value": "seadatanet:00000",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1611,7 +2396,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Person"
+              "value": "schema:Person",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Person",
+              "element": null
             }
           ]
         }
@@ -1629,7 +2419,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "Nice Marine Station"
+              "value": "Nice Marine Station",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1638,7 +2433,12 @@
           "iri": "https://schema.org/email",
           "values": [
             {
-              "value": "info@nicemarinestation.eu"
+              "value": "info@nicemarinestation.eu",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1647,7 +2447,12 @@
           "iri": "https://schema.org/identifier",
           "values": [
             {
-              "value": "seadatanet:00000"
+              "value": "seadatanet:00000",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1656,7 +2461,12 @@
           "iri": "https://schema.org/mainEntityOfPage",
           "values": [
             {
-              "value": "https://NiceMarineStation.eu"
+              "value": "https://NiceMarineStation.eu",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1665,7 +2475,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Organization"
+              "value": "schema:Organization",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Organization",
+              "element": null
             }
           ]
         }
@@ -1683,7 +2498,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "Belgium ABS National Focal Point"
+              "value": "Belgium ABS National Focal Point",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1692,7 +2512,12 @@
           "iri": "https://schema.org/mainEntityOfPage",
           "values": [
             {
-              "value": "https://absch.cbd.int/en/countries/BE"
+              "value": "https://absch.cbd.int/en/countries/BE",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1701,7 +2526,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Organization"
+              "value": "schema:Organization",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Organization",
+              "element": null
             }
           ]
         }
@@ -1719,7 +2549,12 @@
           "iri": "https://schema.org/name",
           "values": [
             {
-              "value": "F. Lee"
+              "value": "F. Lee",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1728,7 +2563,12 @@
           "iri": "https://schema.org/email",
           "values": [
             {
-              "value": "f.lee@somewhere.com"
+              "value": "f.lee@somewhere.com",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1737,7 +2577,12 @@
           "iri": "https://schema.org/identifier",
           "values": [
             {
-              "value": "orcid:0000-0001-0001-0002"
+              "value": "orcid:0000-0001-0001-0002",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1746,7 +2591,12 @@
           "iri": "https://schema.org/affiliation",
           "values": [
             {
-              "value": "seadatanet:00000"
+              "value": "seadatanet:00000",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         },
@@ -1755,7 +2605,12 @@
           "iri": "http://www.w3.org/ns/prov#type",
           "values": [
             {
-              "value": "schema:Person"
+              "value": "schema:Person",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "https://schema.org/Person",
+              "element": null
             }
           ]
         }
@@ -1771,6 +2626,7 @@
       "bundle": "b1",
       "source": "e6",
       "target": "e34",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1781,6 +2637,7 @@
       "bundle": "b1",
       "source": "e21",
       "target": "e30",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1791,6 +2648,7 @@
       "bundle": "b1",
       "source": "e24",
       "target": "e34",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1801,6 +2659,7 @@
       "bundle": "b1",
       "source": "e15",
       "target": "e28",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1811,6 +2670,7 @@
       "bundle": "b1",
       "source": "e16",
       "target": "e32",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1821,6 +2681,7 @@
       "bundle": "b1",
       "source": "e22",
       "target": "e31",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1831,6 +2692,7 @@
       "bundle": "b1",
       "source": "e7",
       "target": "e29",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1841,6 +2703,7 @@
       "bundle": "b1",
       "source": "e19",
       "target": "e33",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1851,6 +2714,7 @@
       "bundle": "b1",
       "source": "e17",
       "target": "e31",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1861,6 +2725,7 @@
       "bundle": "b1",
       "source": "e12",
       "target": "e30",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1871,6 +2736,7 @@
       "bundle": "b1",
       "source": "e34",
       "target": "e8",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1881,6 +2747,7 @@
       "bundle": "b1",
       "source": "e34",
       "target": "e26",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1891,6 +2758,7 @@
       "bundle": "b1",
       "source": "e28",
       "target": "e1",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1901,6 +2769,7 @@
       "bundle": "b1",
       "source": "e33",
       "target": "e4",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1911,6 +2780,7 @@
       "bundle": "b1",
       "source": "e30",
       "target": "e23",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1921,6 +2791,7 @@
       "bundle": "b1",
       "source": "e32",
       "target": "e6",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1931,6 +2802,7 @@
       "bundle": "b1",
       "source": "e32",
       "target": "e25",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1941,6 +2813,7 @@
       "bundle": "b1",
       "source": "e28",
       "target": "e8",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1951,6 +2824,7 @@
       "bundle": "b1",
       "source": "e29",
       "target": "e9",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1961,6 +2835,7 @@
       "bundle": "b1",
       "source": "e33",
       "target": "e24",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1971,6 +2846,7 @@
       "bundle": "b1",
       "source": "e32",
       "target": "e2",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1981,6 +2857,7 @@
       "bundle": "b1",
       "source": "e29",
       "target": "e16",
+      "participants": [],
       "attributes": []
     },
     {
@@ -1991,6 +2868,7 @@
       "bundle": "b1",
       "source": "e34",
       "target": "e15",
+      "participants": [],
       "attributes": []
     },
     {
@@ -2001,13 +2879,19 @@
       "bundle": "b1",
       "source": "e1",
       "target": "e36",
+      "participants": [],
       "attributes": [
         {
           "name": "dcat:hadRole",
           "iri": "http://www.w3.org/ns/dcat#hadRole",
           "values": [
             {
-              "value": "receiving agent"
+              "value": "receiving agent",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -2021,13 +2905,19 @@
       "bundle": "b1",
       "source": "e33",
       "target": "e38",
+      "participants": [],
       "attributes": [
         {
           "name": "prov:role",
           "iri": "http://www.w3.org/ns/prov#role",
           "values": [
             {
-              "value": "field and laboratory technician"
+              "value": "field and laboratory technician",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -2041,13 +2931,19 @@
       "bundle": "b1",
       "source": "e30",
       "target": "e35",
+      "participants": [],
       "attributes": [
         {
           "name": "prov:role",
           "iri": "http://www.w3.org/ns/prov#role",
           "values": [
             {
-              "value": "field and laboratory technician"
+              "value": "field and laboratory technician",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -2061,13 +2957,19 @@
       "bundle": "b1",
       "source": "e32",
       "target": "e38",
+      "participants": [],
       "attributes": [
         {
           "name": "prov:role",
           "iri": "http://www.w3.org/ns/prov#role",
           "values": [
             {
-              "value": "field and laboratory technician"
+              "value": "field and laboratory technician",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -2081,13 +2983,19 @@
       "bundle": "b1",
       "source": "e28",
       "target": "e35",
+      "participants": [],
       "attributes": [
         {
           "name": "prov:role",
           "iri": "http://www.w3.org/ns/prov#role",
           "values": [
             {
-              "value": "field and laboratory technician"
+              "value": "field and laboratory technician",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -2101,13 +3009,19 @@
       "bundle": "b1",
       "source": "e34",
       "target": "e38",
+      "participants": [],
       "attributes": [
         {
           "name": "prov:role",
           "iri": "http://www.w3.org/ns/prov#role",
           "values": [
             {
-              "value": "field and laboratory technician"
+              "value": "field and laboratory technician",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -2121,13 +3035,19 @@
       "bundle": "b1",
       "source": "e29",
       "target": "e38",
+      "participants": [],
       "attributes": [
         {
           "name": "prov:role",
           "iri": "http://www.w3.org/ns/prov#role",
           "values": [
             {
-              "value": "field and laboratory technician"
+              "value": "field and laboratory technician",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
             }
           ]
         }
@@ -2141,6 +3061,7 @@
       "bundle": "b1",
       "source": "e7",
       "target": "e17",
+      "participants": [],
       "attributes": []
     },
     {
@@ -2151,6 +3072,7 @@
       "bundle": "b1",
       "source": "e19",
       "target": "e22",
+      "participants": [],
       "attributes": []
     }
   ],

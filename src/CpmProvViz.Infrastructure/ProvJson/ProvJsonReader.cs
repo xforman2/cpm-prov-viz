@@ -17,24 +17,27 @@ public sealed class ProvJsonReader : IProvDocumentReader
         ("agent", ElementKind.Agent),
     ];
 
-    // The keys of each relation's two main arguments in PROV-JSON. Map by key, never by position.
-    private static readonly (string Section, RelationType Type, string Source, string Target)[] RelationSections =
+    // The keys of each relation's two main arguments in PROV-JSON, and of its other arguments that
+    // name something, in PROV-DM order. Map by key, never by position.
+    private static readonly (string Section, RelationType Type, string Source, string Target, string[] Participants)[]
+        RelationSections =
     [
-        ("wasGeneratedBy", RelationType.WasGeneratedBy, "prov:entity", "prov:activity"),
-        ("used", RelationType.Used, "prov:activity", "prov:entity"),
-        ("wasInformedBy", RelationType.WasInformedBy, "prov:informed", "prov:informant"),
-        ("wasStartedBy", RelationType.WasStartedBy, "prov:activity", "prov:trigger"),
-        ("wasEndedBy", RelationType.WasEndedBy, "prov:activity", "prov:trigger"),
-        ("wasInvalidatedBy", RelationType.WasInvalidatedBy, "prov:entity", "prov:activity"),
-        ("wasDerivedFrom", RelationType.WasDerivedFrom, "prov:generatedEntity", "prov:usedEntity"),
-        ("wasAttributedTo", RelationType.WasAttributedTo, "prov:entity", "prov:agent"),
-        ("wasAssociatedWith", RelationType.WasAssociatedWith, "prov:activity", "prov:agent"),
-        ("actedOnBehalfOf", RelationType.ActedOnBehalfOf, "prov:delegate", "prov:responsible"),
-        ("wasInfluencedBy", RelationType.WasInfluencedBy, "prov:influencee", "prov:influencer"),
-        ("specializationOf", RelationType.SpecializationOf, "prov:specificEntity", "prov:generalEntity"),
-        ("alternateOf", RelationType.AlternateOf, "prov:alternate1", "prov:alternate2"),
-        ("hadMember", RelationType.HadMember, "prov:collection", "prov:entity"),
-        ("mentionOf", RelationType.MentionOf, "prov:specificEntity", "prov:generalEntity"),
+        ("wasGeneratedBy", RelationType.WasGeneratedBy, "prov:entity", "prov:activity", []),
+        ("used", RelationType.Used, "prov:activity", "prov:entity", []),
+        ("wasInformedBy", RelationType.WasInformedBy, "prov:informed", "prov:informant", []),
+        ("wasStartedBy", RelationType.WasStartedBy, "prov:activity", "prov:trigger", ["prov:starter"]),
+        ("wasEndedBy", RelationType.WasEndedBy, "prov:activity", "prov:trigger", ["prov:ender"]),
+        ("wasInvalidatedBy", RelationType.WasInvalidatedBy, "prov:entity", "prov:activity", []),
+        ("wasDerivedFrom", RelationType.WasDerivedFrom, "prov:generatedEntity", "prov:usedEntity",
+            ["prov:activity", "prov:generation", "prov:usage"]),
+        ("wasAttributedTo", RelationType.WasAttributedTo, "prov:entity", "prov:agent", []),
+        ("wasAssociatedWith", RelationType.WasAssociatedWith, "prov:activity", "prov:agent", ["prov:plan"]),
+        ("actedOnBehalfOf", RelationType.ActedOnBehalfOf, "prov:delegate", "prov:responsible", ["prov:activity"]),
+        ("wasInfluencedBy", RelationType.WasInfluencedBy, "prov:influencee", "prov:influencer", []),
+        ("specializationOf", RelationType.SpecializationOf, "prov:specificEntity", "prov:generalEntity", []),
+        ("alternateOf", RelationType.AlternateOf, "prov:alternate1", "prov:alternate2", []),
+        ("hadMember", RelationType.HadMember, "prov:collection", "prov:entity", []),
+        ("mentionOf", RelationType.MentionOf, "prov:specificEntity", "prov:generalEntity", ["prov:bundle"]),
     ];
 
     private static readonly HashSet<string> KnownSections =
@@ -147,7 +150,7 @@ public sealed class ProvJsonReader : IProvDocumentReader
     private static List<Relation> ReadRelations(JsonElement container, Namespaces namespaces)
     {
         var relations = new List<Relation>();
-        foreach (var (sectionName, type, sourceKey, targetKey) in RelationSections)
+        foreach (var (sectionName, type, sourceKey, targetKey, participantKeys) in RelationSections)
         {
             if (ObjectSection(container, sectionName) is not { } section)
             {
@@ -162,6 +165,12 @@ public sealed class ProvJsonReader : IProvDocumentReader
                     : namespaces.Resolve(record.Name);
                 var source = Argument(record.Value, sourceKey, namespaces);
                 var target = Argument(record.Value, targetKey, namespaces);
+                var participants = participantKeys
+                    .Select(key => Argument(record.Value, key, namespaces) is { } named
+                        ? new Participant(namespaces.Resolve(key), named)
+                        : null)
+                    .OfType<Participant>()
+                    .ToList();
 
                 // An argument that is not read as a reference stays visible as an attribute.
                 var readArguments = new List<string>();
@@ -175,8 +184,14 @@ public sealed class ProvJsonReader : IProvDocumentReader
                     readArguments.Add(targetKey);
                 }
 
+                readArguments.AddRange(participants.Select(p => p.Name.Text));
                 relations.Add(new Relation(
-                    type, id, source, target, ReadAttributes(record.Value, namespaces, except: [.. readArguments])));
+                    type,
+                    id,
+                    source,
+                    target,
+                    participants,
+                    ReadAttributes(record.Value, namespaces, except: [.. readArguments])));
             }
         }
 
@@ -212,7 +227,7 @@ public sealed class ProvJsonReader : IProvDocumentReader
                 : [attribute.Value];
             attributes.Add(new Attribute(
                 namespaces.Resolve(attribute.Name),
-                [.. items.Select(ReadValue).OfType<AttributeValue>()]));
+                [.. items.Select(item => ReadValue(item, namespaces)).OfType<AttributeValue>()]));
         }
 
         return attributes;
@@ -222,14 +237,30 @@ public sealed class ProvJsonReader : IProvDocumentReader
     /// Reads a string, number or boolean, or a typed or language-tagged literal <c>{"$": …}</c>.
     /// Returns <c>null</c> for any other shape.
     /// </summary>
-    private static AttributeValue? ReadValue(JsonElement value) => value.ValueKind switch
+    private static AttributeValue? ReadValue(JsonElement value, Namespaces namespaces) => value.ValueKind switch
     {
-        JsonValueKind.String => new AttributeValue(value.GetString()!),
-        JsonValueKind.Number or JsonValueKind.True or JsonValueKind.False => new AttributeValue(value.GetRawText()),
-        JsonValueKind.Object when value.TryGetProperty("$", out var literal) && literal.ValueKind != JsonValueKind.Object
-            && literal.ValueKind != JsonValueKind.Array => ReadValue(literal),
+        JsonValueKind.Object when value.TryGetProperty("$", out var literal) && IsScalar(literal) =>
+            ReadLiteral(value, Text(literal), namespaces),
+        _ when IsScalar(value) => new AttributeValue(Text(value), null, null, null),
         _ => null,
     };
+
+    private static AttributeValue ReadLiteral(JsonElement literal, string text, Namespaces namespaces)
+    {
+        var datatype = StringProperty(literal, "type") is { } type ? namespaces.Resolve(type) : null;
+        var qualifiedName = datatype is not null && Datatypes.IsQualifiedName(datatype) ? namespaces.Resolve(text) : null;
+        return new AttributeValue(text, datatype, StringProperty(literal, "lang"), qualifiedName);
+    }
+
+    private static bool IsScalar(JsonElement value) =>
+        value.ValueKind is JsonValueKind.String or JsonValueKind.Number or JsonValueKind.True or JsonValueKind.False;
+
+    // A string as is; a number or boolean as its JSON text.
+    private static string Text(JsonElement value) =>
+        value.ValueKind == JsonValueKind.String ? value.GetString()! : value.GetRawText();
+
+    private static string? StringProperty(JsonElement record, string key) =>
+        record.TryGetProperty(key, out var value) && value.ValueKind == JsonValueKind.String ? value.GetString() : null;
 
     /// <summary>Checks that every known section of a document or bundle is a JSON object.</summary>
     private static void CheckSections(JsonElement container)

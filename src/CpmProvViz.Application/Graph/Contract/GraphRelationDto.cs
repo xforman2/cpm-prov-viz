@@ -24,7 +24,8 @@ namespace CpmProvViz.Application.Graph.Contract;
 /// <param name="Bundle">Key of the bundle holding the relation, or <c>null</c> at the top level.</param>
 /// <param name="Source">Key of the element named by the first main argument, in the same bundle (or at the top level, for a top-level relation). <c>null</c> when the argument is missing, is not a string, or names no element there.</param>
 /// <param name="Target">Key of the element named by the second main argument, under the same rules as <c>source</c>.</param>
-/// <param name="Attributes">Every key of the record other than the two main arguments, in document order. Other arguments, such as a derivation's <c>prov:activity</c> or an association's <c>prov:plan</c>, are listed here for now, and so is an argument that is not a string, such as the array of members in <c>hadMember</c>.</param>
+/// <param name="Participants">The relation's other arguments that are given as a string, in PROV-DM order: <c>wasStartedBy</c> <c>prov:starter</c>, <c>wasEndedBy</c> <c>prov:ender</c>, <c>wasDerivedFrom</c> <c>prov:activity</c>, <c>prov:generation</c>, <c>prov:usage</c>, <c>wasAssociatedWith</c> <c>prov:plan</c>, <c>actedOnBehalfOf</c> <c>prov:activity</c>, <c>mentionOf</c> <c>prov:bundle</c>. Empty for the other types.</param>
+/// <param name="Attributes">Every key of the record other than its main arguments and its participants, in document order. An argument that is not a string, such as the array of members in <c>hadMember</c>, is listed here, and so is <c>prov:time</c>.</param>
 public sealed record GraphRelationDto(
     string Key,
     RelationType Type,
@@ -33,4 +34,5 @@ public sealed record GraphRelationDto(
     string? Bundle,
     string? Source,
     string? Target,
+    IReadOnlyList<GraphParticipantDto> Participants,
     IReadOnlyList<GraphAttributeDto> Attributes);

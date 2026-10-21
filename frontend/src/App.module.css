@@ -101,6 +101,12 @@
   min-height: 0;
 }
 
+.workspace {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
 .documentStatus {
   margin: 0;
   padding: 8px 20px;

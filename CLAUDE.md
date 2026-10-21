@@ -12,8 +12,8 @@ looks come second.
 ## Status
 
 The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist, and the frontend
-opens a file and draws its graph. CPM interpretation, parse notes and the side panel are not built
-yet.
+opens a file, draws its graph and shows the selected element or relation in a side panel. CPM
+interpretation and parse notes are not built yet.
 
 ## Structure
 
