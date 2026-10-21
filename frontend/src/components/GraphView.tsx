@@ -1,11 +1,9 @@
 import cytoscape from 'cytoscape'
 import cytoscapeElk from 'cytoscape-elk'
-import expandCollapse from 'cytoscape-expand-collapse'
 import { useEffect, useRef } from 'react'
 import type { GraphViewProps } from './GraphViewProps'
 
 cytoscape.use(cytoscapeElk)
-cytoscape.use(expandCollapse)
 
 const style: cytoscape.StylesheetJson = [
   {
