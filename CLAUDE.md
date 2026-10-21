@@ -11,8 +11,9 @@ looks come second.
 
 ## Status
 
-The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist. CPM
-interpretation, parse notes and the real UI are not built yet.
+The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist, and the frontend
+opens a file and draws its graph. CPM interpretation, parse notes and the side panel are not built
+yet.
 
 ## Structure
 
@@ -64,6 +65,7 @@ dotnet run --project src/CpmProvViz.AppHost --launch-profile http   # API + fron
 dotnet build CpmProvViz.slnx
 dotnet test CpmProvViz.slnx
 npm --prefix frontend run build               # type-check + production build
+npm --prefix frontend test                    # Vitest, on the contract fixtures in testdata/contract/
 npm --prefix frontend run lint
 ```
 

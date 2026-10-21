@@ -84,16 +84,66 @@ body {
   text-align: left;
 }
 
+.app-menu ul ul {
+  margin-bottom: 4px;
+}
+
+.app-menu ul ul button {
+  padding-left: 24px;
+}
+
+.app-menu button:enabled {
+  cursor: pointer;
+}
+
+.app-menu button:enabled:hover {
+  background: var(--bg);
+}
+
+.app-menu-heading {
+  display: block;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .app-menu button:disabled {
+  color: var(--text-muted);
+}
+
+.app-document {
+  font-weight: 400;
   color: var(--text-muted);
 }
 
 .app-main {
   grid-area: main;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 0;
 }
 
+.document-status {
+  margin: 0;
+  padding: 8px 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.document-status--error {
+  color: var(--error);
+}
+
+.empty-state {
+  margin: auto;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
 .graph {
-  width: 100%;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
 }
