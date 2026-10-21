@@ -1,4 +1,5 @@
 import type { GraphAttribute } from './GraphAttribute'
+import type { GraphParticipant } from './GraphParticipant'
 import type { RelationType } from './RelationType'
 
 export interface GraphRelation {
@@ -9,5 +10,6 @@ export interface GraphRelation {
   bundle: string | null
   source: string | null
   target: string | null
+  participants: GraphParticipant[]
   attributes: GraphAttribute[]
 }

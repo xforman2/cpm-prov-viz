@@ -1,0 +1,5 @@
+.name {
+  text-decoration: underline dotted var(--text-muted);
+  text-underline-offset: 2px;
+  cursor: help;
+}

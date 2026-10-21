@@ -218,7 +218,7 @@ public class GraphEndpointTests(WebApplicationFactory<Program> factory)
     }
 
     [Fact]
-    public async Task Reads_attribute_values_given_bare_or_as_an_array()
+    public async Task Reads_attribute_values_in_full_form_given_bare_or_as_an_array()
     {
         var graph = await PostGraph("""
             {
@@ -240,35 +240,172 @@ public class GraphEndpointTests(WebApplicationFactory<Program> factory)
             }
             """);
 
-        Assert.Equal(
-            """
-            [{"name":"prov:label","iri":"http://www.w3.org/ns/prov#label","values":[{"value":"Water sample"}]},{"name":"ex:depth","iri":"http://example.org/depth","values":[{"value":"10.5"}]},{"name":"ex:filtered","iri":"http://example.org/filtered","values":[{"value":"true"}]},{"name":"ex:count","iri":"http://example.org/count","values":[{"value":"1034"}]},{"name":"ex:place","iri":"http://example.org/place","values":[{"value":"Londres"}]},{"name":"prov:type","iri":"http://www.w3.org/ns/prov#type","values":[{"value":"ex:Sample"},{"value":"a sample"},{"value":"2"}]}]
+        AssertJson("""
+            [
+              { "name": "prov:label", "iri": "http://www.w3.org/ns/prov#label", "values": [
+                { "value": "Water sample", "datatype": null, "datatypeIri": null, "language": null, "iri": null, "element": null }
+              ] },
+              { "name": "ex:depth", "iri": "http://example.org/depth", "values": [
+                { "value": "10.5", "datatype": null, "datatypeIri": null, "language": null, "iri": null, "element": null }
+              ] },
+              { "name": "ex:filtered", "iri": "http://example.org/filtered", "values": [
+                { "value": "true", "datatype": null, "datatypeIri": null, "language": null, "iri": null, "element": null }
+              ] },
+              { "name": "ex:count", "iri": "http://example.org/count", "values": [
+                { "value": "1034", "datatype": "xsd:positiveInteger", "datatypeIri": "http://www.w3.org/2001/XMLSchema#positiveInteger", "language": null, "iri": null, "element": null }
+              ] },
+              { "name": "ex:place", "iri": "http://example.org/place", "values": [
+                { "value": "Londres", "datatype": null, "datatypeIri": null, "language": "fr", "iri": null, "element": null }
+              ] },
+              { "name": "prov:type", "iri": "http://www.w3.org/ns/prov#type", "values": [
+                { "value": "ex:Sample", "datatype": "prov:QUALIFIED_NAME", "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME", "language": null, "iri": "http://example.org/Sample", "element": null },
+                { "value": "a sample", "datatype": null, "datatypeIri": null, "language": null, "iri": null, "element": null },
+                { "value": "2", "datatype": null, "datatypeIri": null, "language": null, "iri": null, "element": null }
+              ] }
+            ]
             """,
-            Element(graph, "ex:sample")["attributes"]!.ToJsonString());
+            Element(graph, "ex:sample")["attributes"]);
     }
 
-    [Fact]
-    public async Task Lists_every_key_of_a_relation_except_its_two_main_arguments_as_attributes()
+    [Theory]
+    [InlineData("prov:QUALIFIED_NAME", "http://www.w3.org/2001/XMLSchema#")]
+    [InlineData("xsd:QName", "http://www.w3.org/2001/XMLSchema#")]
+    [InlineData("xsd:QName", "http://www.w3.org/2000/10/XMLSchema#")]
+    public async Task Reads_both_qualified_name_datatypes_and_links_a_value_to_the_element_it_names_in_the_same_bundle(
+        string datatype, string xsd)
     {
-        var graph = await PostGraph("""
+        var graph = await PostGraph($$"""
             {
-              "prefix": { "ex": "http://example.org/" },
-              "entity": { "ex:a": {}, "ex:b": {} },
-              "wasDerivedFrom": {
-                "_:d1": {
-                  "prov:generatedEntity": "ex:a",
-                  "prov:usedEntity": "ex:b",
-                  "prov:activity": "ex:copying",
-                  "prov:type": [{ "$": "prov:Revision", "type": "xsd:QName" }]
+              "prefix": { "ex": "http://example.org/", "xsd": "{{xsd}}" },
+              "entity": { "ex:sample": {} },
+              "bundle": {
+                "ex:bundle1": {
+                  "prefix": { "lab": "http://example.org/lab/" },
+                  "entity": {
+                    "lab:sample": {},
+                    "ex:report": {
+                      "ex:about": [
+                        { "$": "lab:sample", "type": "{{datatype}}" },
+                        { "$": "ex:sample", "type": "{{datatype}}" },
+                        "lab:sample"
+                      ]
+                    }
+                  }
                 }
               }
             }
             """);
 
-        var attributes = Single(graph["relations"])["attributes"]!.AsArray();
-        Assert.Equal(["prov:activity", "prov:type"], attributes.Select(a => (string?)a!["name"]));
-        Assert.Equal("ex:copying", (string?)attributes[0]!["values"]![0]!["value"]);
-        Assert.Equal("prov:Revision", (string?)attributes[1]!["values"]![0]!["value"]);
+        var values = Element(graph, "ex:report")["attributes"]![0]!["values"]!.AsArray();
+        Assert.Equal(3, values.Count);
+
+        // Named in the same bundle, resolved with the bundle's own prefixes.
+        Assert.Equal("http://example.org/lab/sample", (string?)values[0]!["iri"]);
+        Assert.Equal(ElementKey(graph, "lab:sample"), (string?)values[0]!["element"]);
+
+        // ex:sample is declared only at the top level, outside the bundle.
+        Assert.Equal("http://example.org/sample", (string?)values[1]!["iri"]);
+        Assert.Null(values[1]!["element"]);
+
+        // A plain string is never read as a qualified name, however it looks.
+        Assert.Null(values[2]!["iri"]);
+        Assert.Null(values[2]!["element"]);
+    }
+
+    [Fact]
+    public async Task Reads_a_literal_of_another_datatype_as_plain_text()
+    {
+        var graph = await PostGraph("""
+            {
+              "prefix": { "ex": "http://example.org/" },
+              "entity": { "ex:a": { "ex:see": { "$": "ex:a", "type": "xsd:string" } } }
+            }
+            """);
+
+        var value = Element(graph, "ex:a")["attributes"]![0]!["values"]![0]!;
+        Assert.Equal("ex:a", (string?)value["value"]);
+        Assert.Null(value["iri"]);
+        Assert.Null(value["element"]);
+    }
+
+    [Fact]
+    public async Task Lists_a_relations_other_arguments_as_participants_in_prov_dm_order()
+    {
+        var graph = await PostGraph("""
+            {
+              "prefix": { "ex": "http://example.org/" },
+              "entity": { "ex:a": {}, "ex:b": {} },
+              "activity": { "ex:copying": {} },
+              "wasGeneratedBy": { "ex:g1": { "prov:entity": "ex:a", "prov:activity": "ex:copying" } },
+              "wasDerivedFrom": {
+                "_:d1": {
+                  "prov:usage": "ex:u9",
+                  "prov:generatedEntity": "ex:a",
+                  "prov:usedEntity": "ex:b",
+                  "prov:type": { "$": "prov:Revision", "type": "xsd:QName" },
+                  "prov:generation": "ex:g1",
+                  "prov:activity": "ex:copying"
+                }
+              }
+            }
+            """);
+
+        var derivation = graph["relations"]!.AsArray().Single(r => (string?)r!["type"] == "wasDerivedFrom")!;
+        var generation = graph["relations"]!.AsArray().Single(r => (string?)r!["type"] == "wasGeneratedBy")!;
+        AssertJson($$"""
+            [
+              { "name": "prov:activity", "nameIri": "http://www.w3.org/ns/prov#activity", "id": "ex:copying", "iri": "http://example.org/copying", "element": "{{ElementKey(graph, "ex:copying")}}", "relation": null },
+              { "name": "prov:generation", "nameIri": "http://www.w3.org/ns/prov#generation", "id": "ex:g1", "iri": "http://example.org/g1", "element": null, "relation": "{{(string?)generation["key"]}}" },
+              { "name": "prov:usage", "nameIri": "http://www.w3.org/ns/prov#usage", "id": "ex:u9", "iri": "http://example.org/u9", "element": null, "relation": null }
+            ]
+            """,
+            derivation["participants"]);
+        Assert.Equal(["prov:type"], derivation["attributes"]!.AsArray().Select(a => (string?)a!["name"]));
+    }
+
+    [Theory]
+    [InlineData("wasStartedBy", "prov:activity", "prov:trigger", "prov:starter")]
+    [InlineData("wasEndedBy", "prov:activity", "prov:trigger", "prov:ender")]
+    [InlineData("wasAssociatedWith", "prov:activity", "prov:agent", "prov:plan")]
+    [InlineData("actedOnBehalfOf", "prov:delegate", "prov:responsible", "prov:activity")]
+    [InlineData("mentionOf", "prov:specificEntity", "prov:generalEntity", "prov:bundle")]
+    public async Task Draws_only_the_main_edge_and_lists_the_other_argument_as_a_participant(
+        string type, string sourceKey, string targetKey, string participantKey)
+    {
+        var graph = await PostGraph($$"""
+            {
+              "prefix": { "ex": "http://example.org/" },
+              "entity": { "ex:a": {}, "ex:b": {}, "ex:c": {} },
+              "{{type}}": {
+                "_:r": { "{{sourceKey}}": "ex:a", "{{targetKey}}": "ex:b", "{{participantKey}}": "ex:c", "prov:time": "2021-01-01T10:00:00Z" }
+              }
+            }
+            """);
+
+        var relation = Single(graph["relations"]);
+        Assert.Equal(ElementKey(graph, "ex:a"), (string?)relation["source"]);
+        Assert.Equal(ElementKey(graph, "ex:b"), (string?)relation["target"]);
+        var participant = Single(relation["participants"]);
+        Assert.Equal(participantKey, (string?)participant["name"]);
+        Assert.Equal(ElementKey(graph, "ex:c"), (string?)participant["element"]);
+        Assert.Equal(["prov:time"], relation["attributes"]!.AsArray().Select(a => (string?)a!["name"]));
+    }
+
+    [Fact]
+    public async Task Keeps_an_other_argument_that_is_not_a_string_as_an_attribute()
+    {
+        var graph = await PostGraph("""
+            {
+              "prefix": { "ex": "http://example.org/" },
+              "activity": { "ex:writing": {} },
+              "agent": { "ex:alice": {} },
+              "wasAssociatedWith": { "_:a1": { "prov:activity": "ex:writing", "prov:agent": "ex:alice", "prov:plan": ["ex:p1", "ex:p2"] } }
+            }
+            """);
+
+        var association = Single(graph["relations"]);
+        Assert.Empty(association["participants"]!.AsArray());
+        Assert.Equal("prov:plan", (string?)Single(association["attributes"])["name"]);
     }
 
     [Fact]
@@ -285,9 +422,9 @@ public class GraphEndpointTests(WebApplicationFactory<Program> factory)
         var membership = Single(graph["relations"]);
         Assert.Equal(ElementKey(graph, "ex:collection"), (string?)membership["source"]);
         Assert.Null(membership["target"]);
-        Assert.Equal(
-            """[{"name":"prov:entity","iri":"http://www.w3.org/ns/prov#entity","values":[{"value":"ex:a"},{"value":"ex:b"}]}]""",
-            membership["attributes"]!.ToJsonString());
+        var members = Single(membership["attributes"]);
+        Assert.Equal("prov:entity", (string?)members["name"]);
+        Assert.Equal(["ex:a", "ex:b"], members["values"]!.AsArray().Select(v => (string?)v!["value"]));
     }
 
     [Theory]
@@ -345,6 +482,10 @@ public class GraphEndpointTests(WebApplicationFactory<Program> factory)
         Assert.Equal(400, (int?)problem["status"]);
         Assert.False(string.IsNullOrWhiteSpace((string?)problem["detail"]));
     }
+
+    // Compares as serialised text, so a mismatch shows as a readable diff and field order counts.
+    private static void AssertJson(string expected, JsonNode? actual) =>
+        Assert.Equal(JsonNode.Parse(expected)!.ToJsonString(), actual?.ToJsonString());
 
     private static JsonNode Single(JsonNode? array) => Assert.Single(array!.AsArray())!;
 

@@ -3,6 +3,7 @@ import styles from './App.module.css'
 import type { OpenDocument } from './OpenDocument'
 import { useReadGraph } from './api/graph'
 import { useApiInfo } from './api/info'
+import { DetailsPanel } from './components/DetailsPanel'
 import { GraphView } from './components/GraphView'
 import { OpenFileButton } from './components/OpenFileButton'
 import { toCytoscapeElements } from './graph/cytoscape'
@@ -13,12 +14,17 @@ export default function App() {
   const apiInfo = useApiInfo()
   const readGraph = useReadGraph()
   const [openDocument, setOpenDocument] = useState<OpenDocument | null>(null)
+  // Key of the selected element or relation.
+  const [selected, setSelected] = useState<string | null>(null)
 
   const openFile = (file: File) =>
     readGraph.mutate(file, {
       // Callbacks passed to mutate run for the latest call only, so a slow earlier file can't
       // replace the graph of a newer one.
-      onSuccess: (graph) => setOpenDocument({ fileName: file.name, elements: toCytoscapeElements(graph) }),
+      onSuccess: (graph) => {
+        setOpenDocument({ fileName: file.name, graph, elements: toCytoscapeElements(graph) })
+        setSelected(null)
+      },
     })
 
   return (
@@ -65,7 +71,10 @@ export default function App() {
           </p>
         )}
         {openDocument ? (
-          <GraphView elements={openDocument.elements} />
+          <div className={styles.workspace}>
+            <GraphView elements={openDocument.elements} selected={selected} onSelect={setSelected} />
+            <DetailsPanel graph={openDocument.graph} selected={selected} onSelect={setSelected} />
+          </div>
         ) : (
           readGraph.isIdle && (
             <p className={styles.emptyState}>Open a PROV-JSON document from the Document menu.</p>

@@ -1,0 +1,332 @@
+{
+  "prefixes": {
+    "ex": "http://example.org/",
+    "xs": "http://www.w3.org/2000/10/XMLSchema#",
+    "schema": "https://schema.org/"
+  },
+  "bundles": [
+    {
+      "key": "b1",
+      "id": "ex:analysisBundle",
+      "iri": "http://example.org/analysisBundle",
+      "prefixes": {
+        "lab": "http://example.org/lab/"
+      }
+    }
+  ],
+  "elements": [
+    {
+      "key": "e1",
+      "id": "lab:rawReads",
+      "iri": "http://example.org/lab/rawReads",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "schema:name",
+          "iri": "https://schema.org/name",
+          "values": [
+            {
+              "value": "Raw reads",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
+            }
+          ]
+        },
+        {
+          "name": "lab:sizeInBytes",
+          "iri": "http://example.org/lab/sizeInBytes",
+          "values": [
+            {
+              "value": "1048576",
+              "datatype": "xsd:long",
+              "datatypeIri": "http://www.w3.org/2001/XMLSchema#long",
+              "language": null,
+              "iri": null,
+              "element": null
+            }
+          ]
+        },
+        {
+          "name": "lab:checked",
+          "iri": "http://example.org/lab/checked",
+          "values": [
+            {
+              "value": "true",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e2",
+      "id": "lab:assembly",
+      "iri": "http://example.org/lab/assembly",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:label",
+          "iri": "http://www.w3.org/ns/prov#label",
+          "values": [
+            {
+              "value": "Genome assembly",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": "en",
+              "iri": null,
+              "element": null
+            },
+            {
+              "value": "Sestaven\u00ED genomu",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": "cs",
+              "iri": null,
+              "element": null
+            }
+          ]
+        },
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "lab:Assembly",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://example.org/lab/Assembly",
+              "element": null
+            },
+            {
+              "value": "lab:Assembly",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
+            }
+          ]
+        },
+        {
+          "name": "lab:basedOn",
+          "iri": "http://example.org/lab/basedOn",
+          "values": [
+            {
+              "value": "lab:rawReads",
+              "datatype": "xs:QName",
+              "datatypeIri": "http://www.w3.org/2000/10/XMLSchema#QName",
+              "language": null,
+              "iri": "http://example.org/lab/rawReads",
+              "element": "e1"
+            }
+          ]
+        },
+        {
+          "name": "lab:seeAlso",
+          "iri": "http://example.org/lab/seeAlso",
+          "values": [
+            {
+              "value": "ex:elsewhere",
+              "datatype": "xsd:QName",
+              "datatypeIri": "http://www.w3.org/2001/XMLSchema#QName",
+              "language": null,
+              "iri": "http://example.org/elsewhere",
+              "element": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e3",
+      "id": "lab:protocol",
+      "iri": "http://example.org/lab/protocol",
+      "kind": "entity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "prov:Plan",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/prov#Plan",
+              "element": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e4",
+      "id": "lab:assembling",
+      "iri": "http://example.org/lab/assembling",
+      "kind": "activity",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:startTime",
+          "iri": "http://www.w3.org/ns/prov#startTime",
+          "values": [
+            {
+              "value": "2024-03-01T08:00:00Z",
+              "datatype": "xsd:dateTime",
+              "datatypeIri": "http://www.w3.org/2001/XMLSchema#dateTime",
+              "language": null,
+              "iri": null,
+              "element": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "e5",
+      "id": "lab:alice",
+      "iri": "http://example.org/lab/alice",
+      "kind": "agent",
+      "bundle": "b1",
+      "attributes": [
+        {
+          "name": "prov:type",
+          "iri": "http://www.w3.org/ns/prov#type",
+          "values": [
+            {
+              "value": "prov:Person",
+              "datatype": "prov:QUALIFIED_NAME",
+              "datatypeIri": "http://www.w3.org/ns/prov#QUALIFIED_NAME",
+              "language": null,
+              "iri": "http://www.w3.org/ns/prov#Person",
+              "element": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "key": "r1",
+      "type": "wasGeneratedBy",
+      "id": "lab:g1",
+      "iri": "http://example.org/lab/g1",
+      "bundle": "b1",
+      "source": "e2",
+      "target": "e4",
+      "participants": [],
+      "attributes": [
+        {
+          "name": "prov:time",
+          "iri": "http://www.w3.org/ns/prov#time",
+          "values": [
+            {
+              "value": "2024-03-01T12:00:00Z",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r2",
+      "type": "used",
+      "id": "lab:u1",
+      "iri": "http://example.org/lab/u1",
+      "bundle": "b1",
+      "source": "e4",
+      "target": "e1",
+      "participants": [],
+      "attributes": [
+        {
+          "name": "prov:role",
+          "iri": "http://www.w3.org/ns/prov#role",
+          "values": [
+            {
+              "value": "input",
+              "datatype": null,
+              "datatypeIri": null,
+              "language": null,
+              "iri": null,
+              "element": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "r3",
+      "type": "wasDerivedFrom",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e2",
+      "target": "e1",
+      "participants": [
+        {
+          "name": "prov:activity",
+          "nameIri": "http://www.w3.org/ns/prov#activity",
+          "id": "lab:assembling",
+          "iri": "http://example.org/lab/assembling",
+          "element": "e4",
+          "relation": null
+        },
+        {
+          "name": "prov:generation",
+          "nameIri": "http://www.w3.org/ns/prov#generation",
+          "id": "lab:g1",
+          "iri": "http://example.org/lab/g1",
+          "element": null,
+          "relation": "r1"
+        },
+        {
+          "name": "prov:usage",
+          "nameIri": "http://www.w3.org/ns/prov#usage",
+          "id": "lab:u1",
+          "iri": "http://example.org/lab/u1",
+          "element": null,
+          "relation": "r2"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "key": "r4",
+      "type": "wasAssociatedWith",
+      "id": null,
+      "iri": null,
+      "bundle": "b1",
+      "source": "e4",
+      "target": "e5",
+      "participants": [
+        {
+          "name": "prov:plan",
+          "nameIri": "http://www.w3.org/ns/prov#plan",
+          "id": "lab:protocol",
+          "iri": "http://example.org/lab/protocol",
+          "element": "e3",
+          "relation": null
+        }
+      ],
+      "attributes": []
+    }
+  ],
+  "parseNotes": [],
+  "validationFindings": []
+}

@@ -9,6 +9,7 @@ const white = '#ffffff'
 const bundleBackground = '#f8fafc'
 const nodeBorder = '#cbd5e1'
 const edgeColor = '#94a3b8'
+const selectedColor = '#4f46e5'
 const entity = { background: '#fef9c3', border: '#eab308' }
 const activity = { background: '#e0e7ff', border: '#6366f1' }
 const agent = { background: '#ffedd5', border: '#f97316' }
@@ -67,5 +68,10 @@ export const graphStyle: StylesheetJson = [
       'text-background-color': white,
       'text-background-opacity': 1,
     },
+  },
+  { selector: 'node:selected', style: { 'border-width': 3, 'border-color': selectedColor } },
+  {
+    selector: 'edge:selected',
+    style: { width: 3, 'line-color': selectedColor, 'target-arrow-color': selectedColor, color: selectedColor },
   },
 ]

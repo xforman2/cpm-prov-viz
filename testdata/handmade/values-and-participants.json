@@ -1,0 +1,58 @@
+{
+  "prefix": {
+    "ex": "http://example.org/",
+    "xs": "http://www.w3.org/2000/10/XMLSchema#",
+    "schema": "https://schema.org/"
+  },
+  "bundle": {
+    "ex:analysisBundle": {
+      "prefix": { "lab": "http://example.org/lab/" },
+      "entity": {
+        "lab:rawReads": {
+          "schema:name": "Raw reads",
+          "lab:sizeInBytes": { "$": "1048576", "type": "xsd:long" },
+          "lab:checked": true
+        },
+        "lab:assembly": {
+          "prov:label": [
+            { "$": "Genome assembly", "lang": "en" },
+            { "$": "Sestavení genomu", "lang": "cs" }
+          ],
+          "prov:type": [
+            { "$": "lab:Assembly", "type": "prov:QUALIFIED_NAME" },
+            "lab:Assembly"
+          ],
+          "lab:basedOn": { "$": "lab:rawReads", "type": "xs:QName" },
+          "lab:seeAlso": { "$": "ex:elsewhere", "type": "xsd:QName" }
+        },
+        "lab:protocol": { "prov:type": { "$": "prov:Plan", "type": "prov:QUALIFIED_NAME" } }
+      },
+      "activity": {
+        "lab:assembling": {
+          "prov:startTime": { "$": "2024-03-01T08:00:00Z", "type": "xsd:dateTime" }
+        }
+      },
+      "agent": {
+        "lab:alice": { "prov:type": { "$": "prov:Person", "type": "prov:QUALIFIED_NAME" } }
+      },
+      "used": {
+        "lab:u1": { "prov:activity": "lab:assembling", "prov:entity": "lab:rawReads", "prov:role": "input" }
+      },
+      "wasGeneratedBy": {
+        "lab:g1": { "prov:entity": "lab:assembly", "prov:activity": "lab:assembling", "prov:time": "2024-03-01T12:00:00Z" }
+      },
+      "wasDerivedFrom": {
+        "_:d1": {
+          "prov:generatedEntity": "lab:assembly",
+          "prov:usedEntity": "lab:rawReads",
+          "prov:activity": "lab:assembling",
+          "prov:generation": "lab:g1",
+          "prov:usage": "lab:u1"
+        }
+      },
+      "wasAssociatedWith": {
+        "_:a1": { "prov:activity": "lab:assembling", "prov:agent": "lab:alice", "prov:plan": "lab:protocol" }
+      }
+    }
+  }
+}

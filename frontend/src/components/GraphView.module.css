@@ -1,4 +1,10 @@
 .graph {
+  position: relative;
   flex: 1;
   min-height: 0;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
 }
