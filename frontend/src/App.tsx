@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styles from './App.module.css'
 import type { OpenDocument } from './OpenDocument'
 import { useReadGraph } from './api/graph'
 import { useApiInfo } from './api/info'
@@ -21,22 +22,22 @@ export default function App() {
     })
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>
+    <div className={styles.app}>
+      <header className={styles.header}>
+        <h1 className={styles.title}>
           CPM Provenance Viewer
-          {openDocument && <span className="app-document"> · {openDocument.fileName}</span>}
+          {openDocument && <span className={styles.fileName}> · {openDocument.fileName}</span>}
         </h1>
-        <span className={`api-status api-status--${apiInfo.status}`}>
+        <span className={styles.apiStatus} data-status={apiInfo.status}>
           {apiInfo.isSuccess && `API ${apiInfo.data.version}`}
           {apiInfo.isPending && 'Connecting to API…'}
           {apiInfo.isError && 'API unavailable'}
         </span>
       </header>
-      <nav className="app-menu" aria-label="Main menu">
+      <nav className={styles.menu} aria-label="Main menu">
         <ul>
           <li>
-            <span className="app-menu-heading">Document</span>
+            <span className={styles.menuHeading}>Document</span>
             <ul>
               <li>
                 <OpenFileButton onOpen={openFile} />
@@ -52,14 +53,14 @@ export default function App() {
           ))}
         </ul>
       </nav>
-      <main className="app-main">
+      <main className={styles.main}>
         {readGraph.isPending && (
-          <p className="document-status" role="status">
+          <p className={styles.documentStatus} role="status">
             Opening {readGraph.variables.name}…
           </p>
         )}
         {readGraph.isError && (
-          <p className="document-status document-status--error" role="alert">
+          <p className={styles.documentError} role="alert">
             {readGraph.variables.name} could not be opened. {readGraph.error.message}
           </p>
         )}
@@ -67,7 +68,7 @@ export default function App() {
           <GraphView elements={openDocument.elements} />
         ) : (
           readGraph.isIdle && (
-            <p className="empty-state">Open a PROV-JSON document from the Document menu.</p>
+            <p className={styles.emptyState}>Open a PROV-JSON document from the Document menu.</p>
           )
         )}
       </main>

@@ -50,6 +50,11 @@ props included, lives in its own file named after it, e.g. `frontend/src/api/con
 Each component also gets its own file named after it. Functions are grouped by topic instead: one
 module per topic, e.g. `frontend/src/api/graph.ts` holds `readGraph` and its hook `useReadGraph`.
 
+Frontend styles: `frontend/src/index.css` holds only the design tokens (CSS custom properties) and
+the reset. Each component keeps its styles in a CSS module next to it (`GraphView.module.css`). The
+Cytoscape stylesheet lives in `frontend/src/graph/style.ts` and reads every colour and the font from
+the tokens; no colour is written anywhere else.
+
 Application is split by feature. `<Feature>/Contract/` holds the DTOs the feature's use cases
 return, `<Feature>/<Action>/` holds one use case with its interface and request record, and
 `Ports/` holds the interfaces Infrastructure implements and the types in their signatures, e.g.
