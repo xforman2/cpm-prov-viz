@@ -47,4 +47,42 @@ public class EmbrcDocumentTests(WebApplicationFactory<Program> factory)
             Assert.NotNull((string?)r["target"]);
         });
     }
+
+    [Theory]
+    [MemberData(nameof(Documents))]
+    public async Task Each_document_is_one_provenance_component_with_one_main_activity(string document)
+    {
+        var graph = await factory.PostGraph(await File.ReadAllTextAsync(TestData.PathOf(document)));
+
+        Assert.True((bool)Assert.Single(graph["bundles"]!.AsArray())!["isProvenanceComponent"]!);
+        Assert.Single(graph["elements"]!.AsArray(), e => e!["cpmRoles"]!.AsArray().Any(r => (string?)r == "mainActivity"));
+    }
+
+    [Fact]
+    public async Task Processing_v1_has_the_traversal_information_its_readme_describes()
+    {
+        var graph = await factory.PostGraph(await File.ReadAllTextAsync(TestData.PathOf("embrc/dataset2/ProcessingBundle_V1.json")));
+
+        var traversal = graph["elements"]!.AsArray()
+            .Where(e => (string?)e!["membership"] == "traversalInformation")
+            .Select(e => ((string?)e!["id"], string.Join(' ', e["cpmRoles"]!.AsArray().Select(r => (string?)r))))
+            .Order();
+        Assert.Equal(
+            [
+                ("blank:NiceMarineStation", "senderAgent receiverAgent"),
+                ("blank:ProcessedSampleCon", "forwardConnector"),
+                ("blank:ProcessedSampleConSpec", "specForwardConnector"),
+                ("blank:Processing", "mainActivity"),
+                ("blank:StoredSampleCon_r1", "backwardConnector"),
+            ],
+            traversal);
+        Assert.All(
+            graph["elements"]!.AsArray().Where(e => (string?)e!["membership"] != "traversalInformation"),
+            e =>
+            {
+                Assert.Equal("domainSpecificInformation", (string?)e!["membership"]);
+                Assert.Empty(e["cpmRoles"]!.AsArray());
+            });
+        Assert.Contains(graph["relations"]!.AsArray(), r => (string?)r!["membership"] == "joining");
+    }
 }

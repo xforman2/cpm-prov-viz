@@ -1,3 +1,4 @@
+import { membershipLabel } from '../graph/labels'
 import { findBundle } from '../graph/lookup'
 import { AttributeFields } from './AttributeFields'
 import { DetailsSection } from './DetailsSection'
@@ -28,6 +29,7 @@ export function RelationDetails({ relation, graph, onSelect }: RelationDetailsPr
         <Field label="Target">
           <ElementReference elementKey={relation.target} graph={graph} onSelect={onSelect} />
         </Field>
+        <Field label="CPM membership">{membershipLabel(relation.membership)}</Field>
       </DetailsSection>
       <DetailsSection title="Other participants" isEmpty={relation.participants.length === 0}>
         {relation.participants.map((participant) => (

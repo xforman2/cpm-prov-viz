@@ -1,4 +1,5 @@
 import type { GraphElement } from '../api/contract/GraphElement'
+import type { RelationMembership } from '../api/contract/RelationMembership'
 
 const maxLabelLength = 24
 
@@ -22,4 +23,15 @@ export function elementLabel(element: GraphElement): string {
 export function shortenIdentifier(id: string): string {
   const localPart = id.slice(id.indexOf(':') + 1)
   return localPart.length <= maxLabelLength ? localPart : `${localPart.slice(0, maxLabelLength - 1)}…`
+}
+
+const membershipLabels: Record<RelationMembership, string> = {
+  traversalInformation: 'Traversal information',
+  domainSpecificInformation: 'Domain-specific information',
+  joining: 'Joins traversal and domain-specific information',
+}
+
+// Which part of a provenance component an element or relation belongs to.
+export function membershipLabel(membership: RelationMembership | null): string {
+  return membership === null ? 'None (not in a provenance component)' : membershipLabels[membership]
 }

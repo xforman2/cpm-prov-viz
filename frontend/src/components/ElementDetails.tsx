@@ -1,3 +1,4 @@
+import { membershipLabel } from '../graph/labels'
 import { findBundle } from '../graph/lookup'
 import { AttributeFields } from './AttributeFields'
 import { DetailsSection } from './DetailsSection'
@@ -19,6 +20,10 @@ export function ElementDetails({ element, graph, onSelect }: ElementDetailsProps
         <Field label="Bundle">
           {bundle ? <QualifiedNameText text={bundle.id} iri={bundle.iri} /> : 'None (top level)'}
         </Field>
+      </DetailsSection>
+      <DetailsSection title="CPM">
+        <Field label="Roles">{element.cpmRoles.length === 0 ? 'None' : element.cpmRoles.join(', ')}</Field>
+        <Field label="Membership">{membershipLabel(element.membership)}</Field>
       </DetailsSection>
       <AttributeFields attributes={element.attributes} onSelect={onSelect} />
     </>

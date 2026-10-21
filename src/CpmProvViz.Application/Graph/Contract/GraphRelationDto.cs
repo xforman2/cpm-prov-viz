@@ -1,3 +1,4 @@
+using CpmProvViz.Domain.Cpm;
 using CpmProvViz.Domain.Prov;
 
 namespace CpmProvViz.Application.Graph.Contract;
@@ -26,6 +27,7 @@ namespace CpmProvViz.Application.Graph.Contract;
 /// <param name="Target">Key of the element named by the second main argument, under the same rules as <c>source</c>.</param>
 /// <param name="Participants">The relation's other arguments that are given as a string, in PROV-DM order: <c>wasStartedBy</c> <c>prov:starter</c>, <c>wasEndedBy</c> <c>prov:ender</c>, <c>wasDerivedFrom</c> <c>prov:activity</c>, <c>prov:generation</c>, <c>prov:usage</c>, <c>wasAssociatedWith</c> <c>prov:plan</c>, <c>actedOnBehalfOf</c> <c>prov:activity</c>, <c>mentionOf</c> <c>prov:bundle</c>. Empty for the other types.</param>
 /// <param name="Attributes">Every key of the record other than its main arguments and its participants, in document order. An argument that is not a string, such as the array of members in <c>hadMember</c>, is listed here, and so is <c>prov:time</c>.</param>
+/// <param name="Membership">For a relation in a provenance component, by the <c>membership</c> of the elements <c>source</c> and <c>target</c> name: <c>traversalInformation</c> when it names at least one element and every one it names is traversal information, <c>joining</c> when one is traversal information and the other domain-specific information, otherwise <c>domainSpecificInformation</c>, also when it names no element. Participants don't count. <c>null</c> for a relation outside any provenance component.</param>
 public sealed record GraphRelationDto(
     string Key,
     RelationType Type,
@@ -35,4 +37,5 @@ public sealed record GraphRelationDto(
     string? Source,
     string? Target,
     IReadOnlyList<GraphParticipantDto> Participants,
-    IReadOnlyList<GraphAttributeDto> Attributes);
+    IReadOnlyList<GraphAttributeDto> Attributes,
+    RelationMembership? Membership);

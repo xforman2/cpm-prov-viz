@@ -13,6 +13,8 @@ const selectedColor = '#4f46e5'
 const entity = { background: '#fef9c3', border: '#eab308' }
 const activity = { background: '#e0e7ff', border: '#6366f1' }
 const agent = { background: '#ffedd5', border: '#f97316' }
+const traversalEdgeColor = '#334155'
+const joiningEdgeColor = '#0d9488'
 
 const nodeWidth = 170
 const nodeHeight = 40
@@ -42,6 +44,9 @@ export const graphStyle: StylesheetJson = [
   { selector: 'node.entity', style: { 'background-color': entity.background, 'border-color': entity.border } },
   { selector: 'node.activity', style: { 'background-color': activity.background, 'border-color': activity.border } },
   { selector: 'node.agent', style: { 'background-color': agent.background, 'border-color': agent.border } },
+  // In a provenance component, the traversal information stands out: a thick border and a bold
+  // label. The domain-specific information keeps the plain look.
+  { selector: 'node.traversal-information', style: { 'border-width': 3, 'font-weight': 700 } },
   {
     selector: 'node.bundle',
     style: {
@@ -68,6 +73,19 @@ export const graphStyle: StylesheetJson = [
       'text-background-color': white,
       'text-background-opacity': 1,
     },
+  },
+  {
+    selector: 'node.bundle.provenance-component',
+    style: { 'border-style': 'solid', 'border-color': nodeBorder },
+  },
+  {
+    selector: 'edge.traversal-information',
+    style: { width: 2.5, 'line-color': traversalEdgeColor, 'target-arrow-color': traversalEdgeColor },
+  },
+  // A relation joining domain-specific information to the traversal information.
+  {
+    selector: 'edge.joining',
+    style: { 'line-style': 'dashed', 'line-color': joiningEdgeColor, 'target-arrow-color': joiningEdgeColor, color: joiningEdgeColor },
   },
   { selector: 'node:selected', style: { 'border-width': 3, 'border-color': selectedColor } },
   {

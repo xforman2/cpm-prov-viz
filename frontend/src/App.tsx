@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import styles from './App.module.css'
 import type { OpenDocument } from './OpenDocument'
 import { useReadGraph } from './api/graph'
@@ -8,21 +8,25 @@ import { GraphView } from './components/GraphView'
 import { OpenFileButton } from './components/OpenFileButton'
 import { toCytoscapeElements } from './graph/cytoscape'
 
-const reservedMenuItems = ['Bundles', 'View', 'Validation']
-
 export default function App() {
   const apiInfo = useApiInfo()
   const readGraph = useReadGraph()
   const [openDocument, setOpenDocument] = useState<OpenDocument | null>(null)
   // Key of the selected element or relation.
   const [selected, setSelected] = useState<string | null>(null)
+  const [hideDomainSpecificInformation, setHideDomainSpecificInformation] = useState(false)
+  const elements = useMemo(
+    () => (openDocument ? toCytoscapeElements(openDocument.graph, hideDomainSpecificInformation) : []),
+    [openDocument, hideDomainSpecificInformation],
+  )
+  const hasProvenanceComponent = openDocument?.graph.bundles.some((bundle) => bundle.isProvenanceComponent) ?? false
 
   const openFile = (file: File) =>
     readGraph.mutate(file, {
       // Callbacks passed to mutate run for the latest call only, so a slow earlier file can't
       // replace the graph of a newer one.
       onSuccess: (graph) => {
-        setOpenDocument({ fileName: file.name, graph, elements: toCytoscapeElements(graph) })
+        setOpenDocument({ fileName: file.name, graph })
         setSelected(null)
       },
     })
@@ -50,13 +54,32 @@ export default function App() {
               </li>
             </ul>
           </li>
-          {reservedMenuItems.map((item) => (
-            <li key={item}>
-              <button type="button" disabled>
-                {item}
-              </button>
-            </li>
-          ))}
+          <li>
+            <button type="button" disabled>
+              Bundles
+            </button>
+          </li>
+          <li>
+            <span className={styles.menuHeading}>View</span>
+            <ul>
+              <li>
+                <button
+                  type="button"
+                  aria-pressed={hideDomainSpecificInformation}
+                  disabled={!hasProvenanceComponent}
+                  title={hasProvenanceComponent ? undefined : 'The document has no provenance component.'}
+                  onClick={() => setHideDomainSpecificInformation((hide) => !hide)}
+                >
+                  {hideDomainSpecificInformation ? 'Show' : 'Hide'} domain-specific information
+                </button>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button type="button" disabled>
+              Validation
+            </button>
+          </li>
         </ul>
       </nav>
       <main className={styles.main}>
@@ -72,7 +95,7 @@ export default function App() {
         )}
         {openDocument ? (
           <div className={styles.workspace}>
-            <GraphView elements={openDocument.elements} selected={selected} onSelect={setSelected} />
+            <GraphView elements={elements} selected={selected} onSelect={setSelected} />
             <DetailsPanel graph={openDocument.graph} selected={selected} onSelect={setSelected} />
           </div>
         ) : (

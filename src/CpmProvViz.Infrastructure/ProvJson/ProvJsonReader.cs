@@ -40,10 +40,10 @@ public sealed class ProvJsonReader : IProvDocumentReader
         ("mentionOf", RelationType.MentionOf, "prov:specificEntity", "prov:generalEntity", ["prov:bundle"]),
     ];
 
-    private static readonly HashSet<string> KnownSections =
-    [
-        "prefix", "bundle", .. ElementSections.Select(s => s.Section), .. RelationSections.Select(s => s.Section),
-    ];
+    private static readonly HashSet<string> KnownSections = new[] { "prefix", "bundle" }
+        .Concat(ElementSections.Select(s => s.Section))
+        .Concat(RelationSections.Select(s => s.Section))
+        .ToHashSet();
 
     private const string BlankIdentifierPrefix = "_:";
 
@@ -191,7 +191,7 @@ public sealed class ProvJsonReader : IProvDocumentReader
                     source,
                     target,
                     participants,
-                    ReadAttributes(record.Value, namespaces, except: [.. readArguments])));
+                    ReadAttributes(record.Value, namespaces, except: readArguments.ToArray())));
             }
         }
 
@@ -227,7 +227,7 @@ public sealed class ProvJsonReader : IProvDocumentReader
                 : [attribute.Value];
             attributes.Add(new Attribute(
                 namespaces.Resolve(attribute.Name),
-                [.. items.Select(item => ReadValue(item, namespaces)).OfType<AttributeValue>()]));
+                items.Select(item => ReadValue(item, namespaces)).OfType<AttributeValue>().ToList()));
         }
 
         return attributes;

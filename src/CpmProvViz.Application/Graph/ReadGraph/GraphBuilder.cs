@@ -1,4 +1,6 @@
+using CpmProvViz.Application.Cpm;
 using CpmProvViz.Application.Graph.Contract;
+using CpmProvViz.Domain.Cpm;
 using CpmProvViz.Domain.Prov;
 using Attribute = CpmProvViz.Domain.Prov.Attribute;
 
@@ -8,7 +10,7 @@ namespace CpmProvViz.Application.Graph.ReadGraph;
 /// Builds the graph of one document, keying bundles, elements and relations in reading order.
 /// Create one per document: it is not shared between calls.
 /// </summary>
-internal sealed class GraphBuilder
+internal sealed class GraphBuilder(ICpmInterpreter cpm)
 {
     private const string BundleKeyPrefix = "b";
     private const string ElementKeyPrefix = "e";
@@ -20,35 +22,50 @@ internal sealed class GraphBuilder
 
     /// <summary>Adds the document's statements that sit outside any bundle.</summary>
     public void AddTopLevel(ProvDocument document) =>
-        AddStatements(document.Elements, document.Relations, bundleKey: null);
+        AddStatements(document.Elements, document.Relations, bundleKey: null, isProvenanceComponent: false);
 
     /// <summary>Adds a bundle and its statements.</summary>
     public void AddBundle(Bundle bundle)
     {
         var key = Key(BundleKeyPrefix, bundles.Count);
-        bundles.Add(new GraphBundleDto(key, bundle.Id.Text, bundle.Id.Iri, bundle.Prefixes));
-        AddStatements(bundle.Elements, bundle.Relations, key);
+        var isProvenanceComponent = cpm.IsProvenanceComponent(bundle);
+        bundles.Add(new GraphBundleDto(key, bundle.Id.Text, bundle.Id.Iri, bundle.Prefixes, isProvenanceComponent));
+        AddStatements(bundle.Elements, bundle.Relations, key, isProvenanceComponent);
     }
 
     public GraphDto Build(IReadOnlyDictionary<string, string> prefixes) =>
         new(prefixes, bundles, elements, relations, [], []);
 
     // Statements in one bundle (or at the top level) refer only to elements in the same place:
-    // PROV handles every bundle independently.
+    // PROV handles every bundle independently. Only a provenance component's statements have a
+    // membership.
     private void AddStatements(
-        IReadOnlyList<Element> scopeElements, IReadOnlyList<Relation> scopeRelations, string? bundleKey)
+        IReadOnlyList<Element> scopeElements,
+        IReadOnlyList<Relation> scopeRelations,
+        string? bundleKey,
+        bool isProvenanceComponent)
     {
         var elementKeys = KeysByIri(scopeElements.Select(e => e.Id), ElementKeyPrefix, elements.Count);
         var relationKeys = KeysByIri(scopeRelations.Select(r => r.Id), RelationKeyPrefix, relations.Count);
+        var memberships = new Dictionary<string, ElementMembership>();
         foreach (var element in scopeElements)
         {
+            var roles = cpm.Roles(element);
+            var membership = isProvenanceComponent ? cpm.Membership(roles) : (ElementMembership?)null;
+            if (membership is { } known)
+            {
+                memberships.TryAdd(element.Id.Iri, known);
+            }
+
             elements.Add(new GraphElementDto(
                 Key(ElementKeyPrefix, elements.Count),
                 element.Id.Text,
                 element.Id.Iri,
                 element.Kind,
                 bundleKey,
-                Attributes(element.Attributes, elementKeys)));
+                Attributes(element.Attributes, elementKeys),
+                roles,
+                membership));
         }
 
         foreach (var relation in scopeRelations)
@@ -61,8 +78,11 @@ internal sealed class GraphBuilder
                 bundleKey,
                 KeyOf(elementKeys, relation.Source),
                 KeyOf(elementKeys, relation.Target),
-                [.. relation.Participants.Select(p => Participant(p, elementKeys, relationKeys))],
-                Attributes(relation.Attributes, elementKeys)));
+                relation.Participants.Select(p => Participant(p, elementKeys, relationKeys)).ToList(),
+                Attributes(relation.Attributes, elementKeys),
+                isProvenanceComponent
+                    ? cpm.Membership(MembershipOf(memberships, relation.Source), MembershipOf(memberships, relation.Target))
+                    : null));
         }
     }
 
@@ -86,6 +106,10 @@ internal sealed class GraphBuilder
         return keys;
     }
 
+    private static ElementMembership? MembershipOf(
+        IReadOnlyDictionary<string, ElementMembership> membershipsByIri, QualifiedName? name) =>
+        name is not null && membershipsByIri.TryGetValue(name.Iri, out var membership) ? membership : null;
+
     private static string? KeyOf(IReadOnlyDictionary<string, string> keysByIri, QualifiedName? name) =>
         name is not null && keysByIri.TryGetValue(name.Iri, out var key) ? key : null;
 
@@ -107,8 +131,10 @@ internal sealed class GraphBuilder
 
     private static List<GraphAttributeDto> Attributes(
         IReadOnlyList<Attribute> attributes, IReadOnlyDictionary<string, string> elementKeys) =>
-        [.. attributes.Select(a => new GraphAttributeDto(
-            a.Name.Text, a.Name.Iri, [.. a.Values.Select(v => Value(v, elementKeys))]))];
+        attributes
+            .Select(a => new GraphAttributeDto(
+                a.Name.Text, a.Name.Iri, a.Values.Select(v => Value(v, elementKeys)).ToList()))
+            .ToList();
 
     private static GraphAttributeValueDto Value(AttributeValue value, IReadOnlyDictionary<string, string> elementKeys) =>
         new(
