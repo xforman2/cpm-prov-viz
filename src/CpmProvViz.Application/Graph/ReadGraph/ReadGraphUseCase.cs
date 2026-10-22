@@ -1,6 +1,6 @@
-using CpmProvViz.Application.Cpm;
 using CpmProvViz.Application.Graph.Contract;
 using CpmProvViz.Application.Ports;
+using CpmProvViz.Domain.Cpm;
 
 namespace CpmProvViz.Application.Graph.ReadGraph;
 

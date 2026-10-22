@@ -1,7 +1,6 @@
-using CpmProvViz.Domain.Cpm;
 using CpmProvViz.Domain.Prov;
 
-namespace CpmProvViz.Application.Cpm;
+namespace CpmProvViz.Domain.Cpm;
 
 /// <inheritdoc />
 /// <remarks>Follows the CPF preprint and CPF-Toolbox's default strategy.</remarks>
