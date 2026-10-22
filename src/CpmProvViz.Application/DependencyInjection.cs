@@ -1,5 +1,5 @@
-using CpmProvViz.Application.Cpm;
 using CpmProvViz.Application.Graph.ReadGraph;
+using CpmProvViz.Domain.Cpm;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CpmProvViz.Application;

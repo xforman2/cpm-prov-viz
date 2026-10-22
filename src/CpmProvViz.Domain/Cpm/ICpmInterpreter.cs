@@ -1,7 +1,6 @@
-using CpmProvViz.Domain.Cpm;
 using CpmProvViz.Domain.Prov;
 
-namespace CpmProvViz.Application.Cpm;
+namespace CpmProvViz.Domain.Cpm;
 
 /// <summary>
 /// Reads PROV statements as CPM. It interprets and never validates: a provenance component missing

@@ -75,6 +75,9 @@ Each layer registers its own services in a `DependencyInjection` class with one 
 (`AddApi`, `AddApplication`, `AddInfrastructure`), and `Program.cs` only calls those. Domain
 registers nothing and stays free of dependencies.
 
+A service that only works on domain types (no ports, DTOs or I/O) is a domain service and lives
+in Domain with its interface, e.g. `Domain/Cpm/ICpmInterpreter.cs`. `AddApplication` registers it.
+
 ## Commands
 
 ```fish
