@@ -1,4 +1,4 @@
-<Project Sdk="Aspire.AppHost.Sdk/13.6.1">
+<Project Sdk="Aspire.AppHost.Sdk/13.6.4">
 
   <ItemGroup>
     <ProjectReference Include="..\CpmProvViz.Api\CpmProvViz.Api.csproj" />
@@ -14,7 +14,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.6.1" />
+    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.6.4" />
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.Java" Version="13.6.1" />
   </ItemGroup>
 
 </Project>

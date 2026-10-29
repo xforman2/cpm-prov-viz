@@ -8,6 +8,10 @@ namespace CpmProvViz.Infrastructure.ProvJson;
 /// <summary>
 /// Reads PROV-JSON (W3C Member Submission, 2013).
 /// </summary>
+/// <remarks>
+/// Temporary: PROV and CPM handling moves to the Java provenance service (CPF-Toolbox). Don't
+/// extend this.
+/// </remarks>
 public sealed class ProvJsonReader : IProvDocumentReader
 {
     private static readonly (string Section, ElementKind Kind)[] ElementSections =

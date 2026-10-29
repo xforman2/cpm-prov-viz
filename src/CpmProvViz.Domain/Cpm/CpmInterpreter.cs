@@ -3,7 +3,11 @@ using CpmProvViz.Domain.Prov;
 namespace CpmProvViz.Domain.Cpm;
 
 /// <inheritdoc />
-/// <remarks>Follows the CPF preprint and CPF-Toolbox's default strategy.</remarks>
+/// <remarks>
+/// Follows the CPF preprint and CPF-Toolbox's default strategy.
+/// Temporary: PROV and CPM handling moves to the Java provenance service (CPF-Toolbox). Don't
+/// extend this.
+/// </remarks>
 public sealed class CpmInterpreter : ICpmInterpreter
 {
     /// <summary>The current CPM namespace. Terms in older CPM namespaces are not interpreted.</summary>
