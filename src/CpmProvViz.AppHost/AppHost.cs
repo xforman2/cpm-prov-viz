@@ -3,7 +3,12 @@ var builder = DistributedApplication.CreateBuilder(args);
 builder.AddJavaApp("provenance-service", "../../provenance-service")
     .WithMavenGoal("spring-boot:run")
     .WithHttpEndpoint(env: "SERVER_PORT")
-    .WithHttpHealthCheck("/health");
+    .WithHttpHealthCheck("/health")
+    .WithUrlForEndpoint("http", url =>
+    {
+        url.Url = "/health";
+        url.DisplayText = "Health";
+    });
 
 var api = builder.AddProject<Projects.CpmProvViz_Api>("api")
     .WithHttpHealthCheck("/health")
