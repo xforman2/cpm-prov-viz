@@ -6,6 +6,10 @@ namespace CpmProvViz.Domain.Cpm;
 /// Reads PROV statements as CPM. It interprets and never validates: a provenance component missing
 /// its connectors is still read as one.
 /// </summary>
+/// <remarks>
+/// Temporary: PROV and CPM handling moves to the Java provenance service (CPF-Toolbox). Don't
+/// extend this.
+/// </remarks>
 public interface ICpmInterpreter
 {
     /// <summary>

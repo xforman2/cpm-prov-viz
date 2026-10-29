@@ -16,6 +16,7 @@ interprets CPM: each element's CPM roles, traversal information vs domain-specif
 and which bundles are provenance components. The frontend opens a file, draws its graph with the
 traversal information styled apart, can hide the domain-specific information, and shows the
 selected element or relation in a side panel. The menu and the side panel collapse to thin strips.
+The Java provenance service runs under the AppHost and serves only health; nothing calls it yet.
 
 ## Structure
 
@@ -31,6 +32,8 @@ tests/                         xUnit projects; CpmProvViz.Api.Tests tests at the
 testdata/                      PROV-JSON test documents (EMBRC example: `testdata/embrc/README.md`,
                                hand-made ones: `testdata/handmade/`) and contract fixtures
                                (`testdata/contract/`)
+provenance-service/            Java 25 + Spring Boot 4 (Maven) service that takes over PROV and CPM
+                               handling
 frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs; no automated tests,
                                checked by eye in the running app
 CpmProvViz.slnx
@@ -86,6 +89,7 @@ dotnet build CpmProvViz.slnx
 dotnet test CpmProvViz.slnx
 npm --prefix frontend run build               # type-check + production build
 npm --prefix frontend run lint
+provenance-service/mvnw -f provenance-service/pom.xml spring-boot:run
 ```
 
 The frontend calls the API through the Vite proxy (`/api/*`). The AppHost passes the API address
@@ -105,6 +109,12 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
   input and runs CPM checks: connector pairs, `cpm:referencedBundleId`, traversal information
   vs domain-specific information. It returns the graph JSON. It may also fetch bundles from
   remote provenance services, because server-side fetching avoids CORS.
+- **Provenance service (Java, Spring Boot 4):** all PROV and CPM handling moves here, onto
+  CPF-Toolbox, and the C# code that reads PROV and interprets CPM is temporary. Where CPF-Toolbox
+  semantics differ from ours, CPF-Toolbox wins. The Java code follows the same rules as the C#
+  code: one type per file, an interface for every use case and service, `<Action>UseCase`, no local
+  functions and the Clean Architecture direction, in one Maven module with the packages `domain`,
+  `application`, `infrastructure` and `api`.
 - **Graph JSON contract:** the single source of truth between backend and frontend. It is
   specified by `GraphDto` and the `…Dto` records it holds (`src/CpmProvViz.Application/Graph/Contract/`)
   and their XML comments, which the OpenAPI document publishes. Change the records first, then
