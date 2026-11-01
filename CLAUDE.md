@@ -16,7 +16,9 @@ interprets CPM: each element's CPM roles, traversal information vs domain-specif
 and which bundles are provenance components. The frontend opens a file, draws its graph with the
 traversal information styled apart, can hide the domain-specific information, and shows the
 selected element or relation in a side panel. The menu and the side panel collapse to thin strips.
-The Java provenance service runs under the AppHost and serves only health; nothing calls it yet.
+The Java provenance service runs under the AppHost. `POST /documents/read` reads a PROV-JSON
+document with CPF-Toolbox and returns the toolbox's view of each bundle, flattened; nothing calls it
+yet.
 
 ## Structure
 
@@ -33,7 +35,7 @@ testdata/                      PROV-JSON test documents (EMBRC example: `testdat
                                hand-made ones: `testdata/handmade/`) and contract fixtures
                                (`testdata/contract/`)
 provenance-service/            Java 25 + Spring Boot 4 (Maven) service that takes over PROV and CPM
-                               handling
+                               handling, on CPF-Toolbox 2.5.0 from JitPack
 frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs; no automated tests,
                                checked by eye in the running app
 CpmProvViz.slnx
@@ -113,8 +115,10 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
   CPF-Toolbox, and the C# code that reads PROV and interprets CPM is temporary. Where CPF-Toolbox
   semantics differ from ours, CPF-Toolbox wins. The Java code follows the same rules as the C#
   code: one type per file, an interface for every use case and service, `<Action>UseCase`, no local
-  functions and the Clean Architecture direction, in one Maven module with the packages `domain`,
-  `application`, `infrastructure` and `api`.
+  functions and the Clean Architecture direction, in one Maven module with the packages
+  `application`, `infrastructure` and `api` (`domain` once something needs it). Each layer
+  registers its beans by interface in its own `@Configuration` class (`ApplicationConfiguration`,
+  `InfrastructureConfiguration`).
 - **Graph JSON contract:** the single source of truth between backend and frontend. It is
   specified by `GraphDto` and the `…Dto` records it holds (`src/CpmProvViz.Application/Graph/Contract/`)
   and their XML comments, which the OpenAPI document publishes. Change the records first, then
