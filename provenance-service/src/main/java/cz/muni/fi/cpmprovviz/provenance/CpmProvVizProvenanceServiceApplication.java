@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CpmProvVizProvenanceServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CpmProvVizProvenanceServiceApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(CpmProvVizProvenanceServiceApplication.class, args);
+    }
 }

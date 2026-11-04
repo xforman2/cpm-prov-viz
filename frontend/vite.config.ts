@@ -6,9 +6,9 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      // The Aspire AppHost injects the API address as API_HTTPS / API_HTTP.
+      // The Java provenance service. The Aspire AppHost injects its address as PROVENANCE_SERVICE_HTTP.
       '/api': {
-        target: process.env.API_HTTPS || process.env.API_HTTP,
+        target: process.env.PROVENANCE_SERVICE_HTTP,
         changeOrigin: true,
       },
     },

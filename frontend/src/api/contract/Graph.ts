@@ -4,9 +4,10 @@ import type { GraphRelation } from './GraphRelation'
 import type { ParseNote } from './ParseNote'
 import type { ValidationFinding } from './ValidationFinding'
 
-// The graph contract returned by POST /api/graph: this interface and the ones it holds, in this
-// folder. It mirrors GraphDto and the …Dto records it holds
-// (src/CpmProvViz.Application/Graph/Contract/), whose comments are its specification.
+// The graph contract returned by the provenance service's POST /api/graph: this interface and the
+// ones it holds, in this folder. It mirrors the Java records GraphDto and the …Dto records and enums
+// it holds (provenance-service/src/main/java/cz/muni/fi/cpmprovviz/provenance/application/graph/contract/),
+// whose Javadoc is its specification.
 export interface Graph {
   prefixes: Record<string, string>
   bundles: GraphBundle[]

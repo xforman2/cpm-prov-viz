@@ -44,14 +44,14 @@ export const graphStyle: StylesheetJson = [
   { selector: 'node.entity', style: { 'background-color': entity.background, 'border-color': entity.border } },
   { selector: 'node.activity', style: { 'background-color': activity.background, 'border-color': activity.border } },
   { selector: 'node.agent', style: { 'background-color': agent.background, 'border-color': agent.border } },
-  // In a provenance component, the traversal information stands out: a thick border and a bold
+  // In a bundle, the traversal information stands out: a thick border and a bold
   // label. The domain-specific information keeps the plain look.
   { selector: 'node.traversal-information', style: { 'border-width': 3, 'font-weight': 700 } },
   {
     selector: 'node.bundle',
     style: {
       'background-color': bundleBackground,
-      'border-style': 'dashed',
+      'border-color': nodeBorder,
       'text-valign': 'top',
       // A bundle grows with its contents, so its title isn't cut at the node width.
       'text-max-width': '1000px',
@@ -73,10 +73,6 @@ export const graphStyle: StylesheetJson = [
       'text-background-color': white,
       'text-background-opacity': 1,
     },
-  },
-  {
-    selector: 'node.bundle.provenance-component',
-    style: { 'border-style': 'solid', 'border-color': nodeBorder },
   },
   {
     selector: 'edge.traversal-information',

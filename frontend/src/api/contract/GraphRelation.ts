@@ -13,6 +13,6 @@ export interface GraphRelation {
   target: string | null
   participants: GraphParticipant[]
   attributes: GraphAttribute[]
-  // null outside any provenance component.
+  // null outside any bundle.
   membership: RelationMembership | null
 }

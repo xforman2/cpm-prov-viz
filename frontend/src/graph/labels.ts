@@ -31,7 +31,7 @@ const membershipLabels: Record<RelationMembership, string> = {
   joining: 'Joins traversal and domain-specific information',
 }
 
-// Which part of a provenance component an element or relation belongs to.
+// Which part of its bundle an element or relation belongs to.
 export function membershipLabel(membership: RelationMembership | null): string {
-  return membership === null ? 'None (not in a provenance component)' : membershipLabels[membership]
+  return membership === null ? 'None (outside any bundle)' : membershipLabels[membership]
 }
