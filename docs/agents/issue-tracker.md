@@ -19,6 +19,31 @@ Infer the repo from `git remote -v`; `gh` does this automatically when run insid
 - Issue titles are lowercase only, e.g. `bundle parser`.
 - Every change belongs to an issue; branch, commit and PR rules are in `CLAUDE.md` under "Git workflow and issues".
 
+## Writing an issue
+
+Issues are short and plain. Only an issue written after a grill-me session uses the long spec format and gets the
+`grilled` label.
+
+- **Title:** lowercase, at most 6 words, names the outcome.
+- **Body:** at most about 8 lines:
+  - the problem or goal in 1–2 plain sentences;
+  - optionally `**Notes:**` with at most 3 bullets (links, files, the cause in one line);
+  - `**Done when:**` one check you can see in the app or the output.
+- No implementation plan and no long cause analysis: those belong in the PR or a grill-me session.
+
+```markdown
+Opening a document with a dictionary relation (e.g. `hadDictionaryMember`)
+fails with "API can't be reached" instead of a proper error.
+
+**Done when:** such a document shows a readable error, or its dictionary
+relations appear in the graph.
+```
+
+## Triage state
+
+The maintainer decides every issue's triage state (see `triage-labels.md`). Before creating an issue, or changing
+an issue's triage label, ask which state it gets; never pick one yourself.
+
 ## Pull requests as a triage surface
 
 **PRs as a request surface: no.** _(Set to `yes` if this repo treats external PRs as feature requests; `/triage` reads this flag.)_
