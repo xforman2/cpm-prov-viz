@@ -1,6 +1,6 @@
 package cz.muni.fi.cpmprovviz.provenance.infrastructure;
 
-import cz.muni.fi.cpmprovviz.provenance.application.ports.IProvDocumentReader;
+import cz.muni.fi.cpmprovviz.provenance.application.ports.ProvDocumentReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class InfrastructureConfiguration {
 
     @Bean
-    public IProvDocumentReader provDocumentReader() {
+    public ProvDocumentReader provDocumentReader() {
         return new ProvJsonDocumentReader();
     }
 }

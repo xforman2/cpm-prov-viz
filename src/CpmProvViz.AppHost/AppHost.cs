@@ -1,6 +1,6 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-builder.AddJavaApp("provenance-service", "../../provenance-service")
+var provenanceService = builder.AddJavaApp("provenance-service", "../../provenance-service")
     .WithMavenGoal("spring-boot:run")
     .WithHttpEndpoint(env: "SERVER_PORT")
     .WithHttpHealthCheck("/health")
@@ -10,7 +10,9 @@ builder.AddJavaApp("provenance-service", "../../provenance-service")
         url.DisplayText = "Health";
     });
 
-var api = builder.AddProject<Projects.CpmProvViz_Api>("api")
+// Nothing uses the C# API now: the frontend reads documents through the provenance service. It stays
+// registered and running until it is removed.
+builder.AddProject<Projects.CpmProvViz_Api>("api")
     .WithHttpHealthCheck("/health")
     .WithUrlForEndpoint("http", url =>
     {
@@ -19,7 +21,7 @@ var api = builder.AddProject<Projects.CpmProvViz_Api>("api")
     });
 
 builder.AddViteApp("frontend", "../../frontend")
-    .WithReference(api)
-    .WaitFor(api);
+    .WithReference(provenanceService)
+    .WaitFor(provenanceService);
 
 builder.Build().Run();

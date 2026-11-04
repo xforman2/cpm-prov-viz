@@ -6,6 +6,10 @@ using CpmProvViz.Application.Graph.ReadGraph;
 using CpmProvViz.Application.Ports;
 using CpmProvViz.Infrastructure;
 
+// Nothing uses this API now: the frontend reads documents through the Java provenance service
+// (provenance-service/). It stays registered in the AppHost and running, with its code and tests, until
+// it is removed.
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
@@ -33,6 +37,7 @@ api.MapGet("info", () => new ApiInfo(
     .WithName("GetApiInfo")
     .WithSummary("Returns the API name and version.");
 
+// Not used: the frontend calls the provenance service's POST /api/graph instead.
 api.MapPost("graph", async Task<IResult> (
         HttpRequest request, IReadGraphUseCase readGraph, CancellationToken cancellationToken) =>
     {

@@ -3,7 +3,7 @@ package cz.muni.fi.cpmprovviz.provenance.application.ports;
 import org.openprovenance.prov.model.Document;
 
 /** Reads a serialised PROV document into ProvToolbox's model. */
-public interface IProvDocumentReader {
+public interface ProvDocumentReader {
 
     /**
      * Reads the document.

@@ -1,8 +1,8 @@
 package cz.muni.fi.cpmprovviz.provenance.application;
 
-import cz.muni.fi.cpmprovviz.provenance.application.document.readdocument.IReadDocumentUseCase;
-import cz.muni.fi.cpmprovviz.provenance.application.document.readdocument.ReadDocumentUseCase;
-import cz.muni.fi.cpmprovviz.provenance.application.ports.IProvDocumentReader;
+import cz.muni.fi.cpmprovviz.provenance.application.graph.readgraph.ReadGraphUseCase;
+import cz.muni.fi.cpmprovviz.provenance.application.graph.readgraph.ReadGraphUseCaseImpl;
+import cz.muni.fi.cpmprovviz.provenance.application.ports.ProvDocumentReader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationConfiguration {
 
     @Bean
-    public IReadDocumentUseCase readDocumentUseCase(IProvDocumentReader documentReader) {
-        return new ReadDocumentUseCase(documentReader);
+    public ReadGraphUseCase readGraphUseCase(ProvDocumentReader documentReader) {
+        return new ReadGraphUseCaseImpl(documentReader);
     }
 }

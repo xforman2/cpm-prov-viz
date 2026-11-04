@@ -16,7 +16,7 @@ export function toCytoscapeElements(graph: Graph, hideDomainSpecificInformation:
   const bundleNodes: ElementDefinition[] = graph.bundles.map((bundle) => ({
     group: 'nodes',
     data: { id: bundle.key, label: shortenIdentifier(bundle.id) },
-    classes: bundle.isProvenanceComponent ? ['bundle', 'provenance-component'] : ['bundle'],
+    classes: ['bundle'],
     // A bundle is only a group: clicking it selects nothing.
     selectable: false,
   }))

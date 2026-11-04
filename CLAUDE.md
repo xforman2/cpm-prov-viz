@@ -11,31 +11,32 @@ looks come second.
 
 ## Status
 
-The graph contract and a first PROV-JSON reader behind `POST /api/graph` exist. The backend
-interprets CPM: each element's CPM roles, traversal information vs domain-specific information,
-and which bundles are provenance components. The frontend opens a file, draws its graph with the
-traversal information styled apart, can hide the domain-specific information, and shows the
+The frontend reads documents through the Java provenance service, with no C# in between. Its
+`POST /api/graph` reads a PROV-JSON document with ProvToolbox, builds CPF-Toolbox's CPM view of each
+bundle and returns the graph contract: each element's CPM roles and traversal information vs
+domain-specific information, as the toolbox decides. The frontend opens a file, draws its graph with
+the traversal information styled apart, can hide the domain-specific information, and shows the
 selected element or relation in a side panel. The menu and the side panel collapse to thin strips.
-The Java provenance service runs under the AppHost. `POST /documents/read` reads a PROV-JSON
-document with CPF-Toolbox and returns the toolbox's view of each bundle, flattened; nothing calls it
-yet.
+The C# API still runs under the AppHost with its own `POST /api/graph`, but nothing uses it now; its
+code and tests stay until it is removed.
 
 ## Structure
 
 ```
-src/
+src/                           C# code, not used now (see Status)
   CpmProvViz.Domain/           PROV/CPM model, no dependencies
   CpmProvViz.Application/      use cases (load, normalise, CPM checks, map to graph contract) → Domain
   CpmProvViz.Infrastructure/   PROV-JSON reading, file and remote loading → Application
   CpmProvViz.Api/              ASP.NET Core minimal API → Application, Infrastructure
   CpmProvViz.ServiceDefaults/  shared Aspire setup (health checks, telemetry)
-  CpmProvViz.AppHost/          Aspire AppHost: runs the API and the frontend together
+  CpmProvViz.AppHost/          Aspire AppHost: runs the provenance service, the C# API and the
+                               frontend together
 tests/                         xUnit projects; CpmProvViz.Api.Tests tests at the HTTP seam
 testdata/                      PROV-JSON test documents (EMBRC example: `testdata/embrc/README.md`,
                                hand-made ones: `testdata/handmade/`) and contract fixtures
                                (`testdata/contract/`)
-provenance-service/            Java 25 + Spring Boot 4 (Maven) service that takes over PROV and CPM
-                               handling, on CPF-Toolbox 2.5.0 from JitPack
+provenance-service/            Java 25 + Spring Boot 4 (Maven) service that does the PROV and CPM
+                               handling, on CPF-Toolbox 2.5.0 from JitPack (see Java below)
 frontend/                      React + TypeScript (Vite), Cytoscape.js + elkjs; no automated tests,
                                checked by eye in the running app
 CpmProvViz.slnx
@@ -86,43 +87,41 @@ in Domain with its interface, e.g. `Domain/Cpm/ICpmInterpreter.cs`. `AddApplicat
 ## Commands
 
 ```fish
-dotnet run --project src/CpmProvViz.AppHost --launch-profile http   # API + frontend + dashboard
+dotnet run --project src/CpmProvViz.AppHost --launch-profile http   # services + frontend + dashboard
 dotnet build CpmProvViz.slnx
 dotnet test CpmProvViz.slnx
 npm --prefix frontend run build               # type-check + production build
 npm --prefix frontend run lint
 provenance-service/mvnw -f provenance-service/pom.xml spring-boot:run
+provenance-service/mvnw -f provenance-service/pom.xml verify          # compile, format check
+provenance-service/mvnw -f provenance-service/pom.xml spotless:apply  # format the Java code
 ```
 
-The frontend calls the API through the Vite proxy (`/api/*`). The AppHost passes the API address
-in as `API_HTTPS` / `API_HTTP`.
+The frontend calls the provenance service through the Vite proxy (`/api/*`). The AppHost passes
+its address in as `PROVENANCE_SERVICE_HTTP`.
 
-In Development, Swagger UI runs at http://localhost:5024/swagger, built from the OpenAPI document
+In Development, the C# API's Swagger UI runs at http://localhost:5024/swagger, built from the OpenAPI document
 at `/openapi/v1.json`. Neither is available outside Development.
 
 ## Architecture
 
 ```
-PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► frontend (React + TypeScript)
-                normalise, CPM checks        contract      ELK layout → Cytoscape.js render
+PROV-JSON ──► provenance service (Java) ──► graph JSON ──► frontend (React + TypeScript)
+               ProvToolbox, CPF-Toolbox      contract      ELK layout → Cytoscape.js render
 ```
 
-- **Parser / backend (C#, .NET 10):** reads PROV-JSON (PROV-N later, maybe). It normalises the
-  input and runs CPM checks: connector pairs, `cpm:referencedBundleId`, traversal information
-  vs domain-specific information. It returns the graph JSON. It may also fetch bundles from
-  remote provenance services, because server-side fetching avoids CORS.
-- **Provenance service (Java, Spring Boot 4):** all PROV and CPM handling moves here, onto
-  CPF-Toolbox, and the C# code that reads PROV and interprets CPM is temporary. Where CPF-Toolbox
-  semantics differ from ours, CPF-Toolbox wins. The Java code follows the same rules as the C#
-  code: one type per file, an interface for every use case and service, `<Action>UseCase`, no local
-  functions and the Clean Architecture direction, in one Maven module with the packages
-  `application`, `infrastructure` and `api` (`domain` once something needs it). Each layer
-  registers its beans by interface in its own `@Configuration` class (`ApplicationConfiguration`,
-  `InfrastructureConfiguration`).
-- **Graph JSON contract:** the single source of truth between backend and frontend. It is
-  specified by `GraphDto` and the `…Dto` records it holds (`src/CpmProvViz.Application/Graph/Contract/`)
-  and their XML comments, which the OpenAPI document publishes. Change the records first, then
-  the frontend.
+- **Provenance service (Java, Spring Boot 4):** does all PROV and CPM handling, on CPF-Toolbox.
+  It reads PROV-JSON with ProvToolbox, builds one CPF-Toolbox `CpmDocument` per bundle and maps the
+  toolbox's nodes and edges to the graph JSON. Where CPF-Toolbox semantics differ from ours,
+  CPF-Toolbox wins. It may later fetch bundles from remote provenance services, because
+  server-side fetching avoids CORS.
+- **C# backend (.NET 10):** the first reader and CPM interpreter, behind its own `POST /api/graph`.
+  Nothing uses it now; it stays registered and running, with its code and tests, until it is
+  removed.
+- **Graph JSON contract:** the single source of truth between the provenance service and the
+  frontend. It is specified by `GraphDto` and the records and enums it holds
+  (`provenance-service/src/main/java/cz/muni/fi/cpmprovviz/provenance/application/graph/contract/`)
+  and their Javadoc. Change the records first, then the frontend.
 - **Frontend:** React for the menus and panels, TanStack Query for the API calls, Cytoscape.js for
   rendering and interaction.
   Bundles are compound nodes and can be collapsed. elkjs (Layered, `INCLUDE_CHILDREN`) does the
@@ -131,6 +130,37 @@ PROV-JSON ──► parser (C#, ASP.NET Core) ──► graph JSON ──► fro
   computed per bundle and cached, which is safe because CPM bundles are immutable. Agent edges
   don't constrain the layering. React Flow was rejected because it became unusable at about
   1200 nodes.
+
+## Java
+
+The provenance service is one Maven module. The C# rules above apply to it too: one type per file,
+an interface for every use case and service, injected only through it, no local functions and the
+Clean Architecture direction. Packages under `cz.muni.fi.cpmprovviz.provenance`:
+
+```
+api/                           controllers (`GraphController`, `InfoController` for `GET /api/info`),
+                               `ProblemHandler`, which turns a failed read into a 400 naming the step
+application/
+  ApplicationConfiguration     registers the use cases by interface
+  graph/contract/              `GraphDto` and every record and enum it holds, one per file
+  graph/readgraph/             `ReadGraphUseCase`, `ReadGraphUseCaseImpl`, `ReadGraphRequest`, and the
+                               per-call `GraphBuilder` and `ScopeMapper` that map CPF-Toolbox's nodes
+                               and edges to the contract
+  ports/                       interfaces infrastructure implements (`ProvDocumentReader`) and the
+                               types in their signatures (`UnreadableDocumentException`)
+infrastructure/
+  InfrastructureConfiguration  registers the port implementations by port
+  ProvJsonDocumentReader       ProvToolbox's PROV-JSON reader
+```
+
+`domain/` comes once something needs it. Names follow Java, not C#: no `I` prefix. A use case is an
+interface named `<Action>UseCase` with one `execute` method, implemented by `<Action>UseCaseImpl`;
+its input is `<Action>Request`. A port is an interface named after what it does
+(`ProvDocumentReader`), implemented by a class named after how (`ProvJsonDocumentReader`). Each
+layer registers its beans by interface in its own `@Configuration` class.
+
+The code compiles with `-Xlint:all -Werror` and is formatted with palantir-java-format through
+Spotless: `mvnw spotless:apply` formats it, and `mvnw verify` fails when it is not formatted.
 
 ## Git workflow and issues
 

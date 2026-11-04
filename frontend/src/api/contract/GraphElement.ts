@@ -11,6 +11,6 @@ export interface GraphElement {
   bundle: string | null
   attributes: GraphAttribute[]
   cpmRoles: CpmRole[]
-  // null outside any provenance component.
+  // null outside any bundle.
   membership: ElementMembership | null
 }

@@ -18,7 +18,8 @@ export default function App() {
   const [hideDomainSpecificInformation, setHideDomainSpecificInformation] = useState(false)
   const [menuOpen, setMenuOpen] = useStoredFlag('cpm-prov-viz.menuOpen', true)
   const [detailsOpen, setDetailsOpen] = useStoredFlag('cpm-prov-viz.detailsOpen', true)
-  const hasProvenanceComponent = openDocument?.graph.bundles.some((bundle) => bundle.isProvenanceComponent) ?? false
+  const hasTraversalInformation =
+    openDocument?.graph.elements.some((element) => element.membership === 'traversalInformation') ?? false
 
   // Selecting something shows its details, so a collapsed details panel opens.
   const select = (key: string | null) => {
@@ -78,8 +79,8 @@ export default function App() {
                   <button
                     type="button"
                     aria-pressed={hideDomainSpecificInformation}
-                    disabled={!hasProvenanceComponent}
-                    title={hasProvenanceComponent ? undefined : 'The document has no provenance component.'}
+                    disabled={!hasTraversalInformation}
+                    title={hasTraversalInformation ? undefined : 'The document has no traversal information.'}
                     onClick={() => setHideDomainSpecificInformation((hide) => !hide)}
                   >
                     {hideDomainSpecificInformation ? 'Show' : 'Hide'} domain-specific information
