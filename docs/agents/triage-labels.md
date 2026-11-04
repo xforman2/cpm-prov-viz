@@ -10,6 +10,9 @@ The skills speak in terms of five canonical triage roles. This file maps those r
 | `ready-for-human`          | `ready-for-human`    | Requires human implementation            |
 | `wontfix`                  | `wontfix`            | Will not be actioned                     |
 
+Besides the triage states, `grilled` marks an issue written after a grill-me session (long spec format allowed), and
+`cpf-toolbox` marks work in CPF-Toolbox or the ProvToolbox classes it patches. Neither is a triage state.
+
 When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the corresponding label string from this table.
 
 Edit the "Label in our tracker" column to match whatever vocabulary you actually use.
