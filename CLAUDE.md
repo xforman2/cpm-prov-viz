@@ -12,11 +12,14 @@ looks come second.
 ## Status
 
 The frontend reads documents through the Java provenance service, with no C# in between. Its
-`POST /api/graph` reads a PROV-JSON document with ProvToolbox, builds CPF-Toolbox's CPM view of each
+`POST /api/graph` reads a PROV-JSON document with ProvToolbox, builds CPF-Toolbox's CPM view of its
 bundle and returns the graph contract: each element's CPM roles and traversal information vs
 domain-specific information, as the toolbox decides. The frontend opens a file, draws its graph with
 the traversal information styled apart, can hide the domain-specific information, and shows the
 selected element or relation in a side panel. The menu and the side panel collapse to thin strips.
+For now the document must be exactly one bundle and nothing else, as CPF-Toolbox's `CpmDocument`
+requires and as decided with the supervisor; any other document is rejected with a 400. The graph
+contract keeps its list of bundles so that it can carry several later.
 The C# API still runs under the AppHost with its own `POST /api/graph`, but nothing uses it now; its
 code and tests stay until it is removed.
 
@@ -111,8 +114,8 @@ PROV-JSON ──► provenance service (Java) ──► graph JSON ──► fro
 ```
 
 - **Provenance service (Java, Spring Boot 4):** does all PROV and CPM handling, on CPF-Toolbox.
-  It reads PROV-JSON with ProvToolbox, builds one CPF-Toolbox `CpmDocument` per bundle and maps the
-  toolbox's nodes and edges to the graph JSON. Where CPF-Toolbox semantics differ from ours,
+  It reads PROV-JSON with ProvToolbox, checks that the document is one bundle, builds CPF-Toolbox's
+  `CpmDocument` of it and maps the toolbox's nodes and edges to the graph JSON. Where CPF-Toolbox semantics differ from ours,
   CPF-Toolbox wins. It may later fetch bundles from remote provenance services, because
   server-side fetching avoids CORS.
 - **C# backend (.NET 10):** the first reader and CPM interpreter, behind its own `POST /api/graph`.
@@ -139,15 +142,19 @@ Clean Architecture direction. Packages under `cz.muni.fi.cpmprovviz.provenance`:
 
 ```
 api/                           controllers (`GraphController`, `InfoController` for `GET /api/info`),
-                               `ProblemHandler`, which turns a failed read into a 400 naming the step
+                               `ProblemHandler`, which turns a failed read into a 400 naming the step (`readJson`,
+                               `checkBundle`, `buildCpmView`)
 application/
   ApplicationConfiguration     registers the use cases by interface
   graph/contract/              `GraphDto` and every record and enum it holds, one per file
-  graph/readgraph/             `ReadGraphUseCase`, `ReadGraphUseCaseImpl`, `ReadGraphRequest`, and the
-                               per-call `GraphBuilder` and `ScopeMapper` that map CPF-Toolbox's nodes
-                               and edges to the contract
-  ports/                       interfaces infrastructure implements (`ProvDocumentReader`) and the
-                               types in their signatures (`UnreadableDocumentException`)
+  graph/readgraph/             `ReadGraphUseCase`, `ReadGraphUseCaseImpl`, `ReadGraphRequest`
+    mapping/                   CPF-Toolbox's nodes and edges → the contract: `GraphBuilder` (per
+                               document), `BundleMapper` (per bundle, holds its keys) and the
+                               stateless `ProvNames` and `ContractEnums`
+  exceptions/                  the exceptions the use cases and ports throw
+                               (`UnreadableDocumentException`, `NotOneBundleException`,
+                               `UnbuildableCpmViewException`), which `ProblemHandler` maps to 400s
+  ports/                       interfaces infrastructure implements (`ProvDocumentReader`)
 infrastructure/
   InfrastructureConfiguration  registers the port implementations by port
   ProvJsonDocumentReader       ProvToolbox's PROV-JSON reader

@@ -21,10 +21,11 @@ import java.util.List;
  * @param id identifier, or {@code null} when ProvToolbox gives the relation none, as for a blank identifier
  *     ({@code _:…})
  * @param iri expanded IRI of {@code id}, or {@code null}
- * @param bundle key of the bundle holding the relation, or {@code null} for a relation outside any bundle
- * @param source key of the element CPF-Toolbox links as the first main argument: the element in the same bundle (or
- *     outside any bundle, for a relation outside any bundle) with that identifier and the kind the relation expects
- *     there. {@code null} when the argument is missing or names no such element.
+ * @param bundle key of the bundle holding the relation. Never {@code null} for now (see {@link GraphDto}); {@code null}
+ *     is kept for a relation outside any bundle.
+ * @param source key of the element CPF-Toolbox links as the first main argument: the element in the same bundle with
+ *     that identifier and the kind the relation expects there. {@code null} when the argument is missing or names no
+ *     such element.
  * @param target key of the element CPF-Toolbox links as the second main argument, under the same rules as
  *     {@code source}
  * @param participants the relation's other arguments, in PROV-DM order: {@code wasStartedBy} {@code prov:starter},
@@ -34,10 +35,10 @@ import java.util.List;
  *     Empty for the other types.
  * @param attributes the relation's attributes, as ProvToolbox gives them ({@code getAttributes()}). {@code prov:time}
  *     is not among them: ProvToolbox keeps it apart.
- * @param membership for a relation in a bundle, by the {@code membership} of the elements at its two ends:
- *     {@code traversalInformation} when both are traversal information, {@code joining} when one is traversal
- *     information and the other domain-specific information, otherwise {@code domainSpecificInformation}, also when an
- *     end is missing from the bundle. Participants don't count. {@code null} for a relation outside any bundle.
+ * @param membership by the {@code membership} of the elements at its two ends: {@code traversalInformation} when both
+ *     are traversal information, {@code joining} when one is traversal information and the other domain-specific
+ *     information, otherwise {@code domainSpecificInformation}, also when an end is missing from the bundle.
+ *     Participants don't count. Never {@code null} for now.
  */
 public record GraphRelationDto(
         String key,

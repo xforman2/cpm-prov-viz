@@ -1,7 +1,8 @@
 package cz.muni.fi.cpmprovviz.provenance.api;
 
-import cz.muni.fi.cpmprovviz.provenance.application.graph.readgraph.UnbuildableCpmViewException;
-import cz.muni.fi.cpmprovviz.provenance.application.ports.UnreadableDocumentException;
+import cz.muni.fi.cpmprovviz.provenance.application.exceptions.NotOneBundleException;
+import cz.muni.fi.cpmprovviz.provenance.application.exceptions.UnbuildableCpmViewException;
+import cz.muni.fi.cpmprovviz.provenance.application.exceptions.UnreadableDocumentException;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -12,8 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 /**
  * Turns a failed read into a 400 problem response, which the frontend shows as its {@code title} followed by its
  * {@code detail}. {@code title} names the step that failed, {@code detail} says why, {@code step} names the step for a
- * program and {@code bundle} the bundle for {@link ReadStep#BUILD_CPM_VIEW}, {@code null} for the statements outside
- * any bundle.
+ * program and {@code bundle} the bundle for {@link ReadStep#BUILD_CPM_VIEW}.
  */
 @RestControllerAdvice
 public class ProblemHandler {
@@ -23,6 +23,14 @@ public class ProblemHandler {
         ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, reason(exception));
         problem.setTitle("Reading the document as PROV-JSON failed.");
         problem.setProperty("step", ReadStep.READ_JSON);
+        return problem;
+    }
+
+    @ExceptionHandler(NotOneBundleException.class)
+    public ProblemDetail notOneBundle(NotOneBundleException exception) {
+        ProblemDetail problem = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        problem.setTitle("The document is not a single bundle.");
+        problem.setProperty("step", ReadStep.CHECK_BUNDLE);
         return problem;
     }
 

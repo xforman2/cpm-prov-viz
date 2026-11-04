@@ -1,7 +1,7 @@
 package cz.muni.fi.cpmprovviz.provenance.infrastructure;
 
+import cz.muni.fi.cpmprovviz.provenance.application.exceptions.UnreadableDocumentException;
 import cz.muni.fi.cpmprovviz.provenance.application.ports.ProvDocumentReader;
-import cz.muni.fi.cpmprovviz.provenance.application.ports.UnreadableDocumentException;
 import java.io.ByteArrayInputStream;
 import org.openprovenance.prov.core.json.serialization.ProvDeserialiser;
 import org.openprovenance.prov.model.Document;

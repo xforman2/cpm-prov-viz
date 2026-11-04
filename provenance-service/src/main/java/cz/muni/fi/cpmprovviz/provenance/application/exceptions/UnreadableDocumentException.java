@@ -1,5 +1,6 @@
-package cz.muni.fi.cpmprovviz.provenance.application.ports;
+package cz.muni.fi.cpmprovviz.provenance.application.exceptions;
 
+import cz.muni.fi.cpmprovviz.provenance.application.ports.ProvDocumentReader;
 import java.io.Serial;
 
 /** Thrown by {@link ProvDocumentReader} when a document can't be read. */

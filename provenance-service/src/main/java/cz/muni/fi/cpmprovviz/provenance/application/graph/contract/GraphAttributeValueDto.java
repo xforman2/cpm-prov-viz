@@ -12,9 +12,8 @@ package cz.muni.fi.cpmprovviz.provenance.application.graph.contract;
  * @param language the language tag, e.g. {@code en}, or {@code null} when the value has none
  * @param iri for a value ProvToolbox reads as a qualified name, the IRI it expands to; otherwise {@code null}. A plain
  *     string that looks like a qualified name is not one.
- * @param element key of the element in the same bundle (or outside any bundle, for a statement outside any bundle)
- *     whose {@code iri} equals {@code iri}, the first one when several do, or {@code null} when there is none or the
- *     value is not a qualified name
+ * @param element key of the element in the same bundle whose {@code iri} equals {@code iri}, the first one when several
+ *     do, or {@code null} when there is none or the value is not a qualified name
  */
 public record GraphAttributeValueDto(
         String value, String datatype, String datatypeIri, String language, String iri, String element) {}

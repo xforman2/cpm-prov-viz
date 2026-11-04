@@ -7,7 +7,10 @@ public enum ReadStep {
     /** Reading the PROV-JSON with ProvToolbox. */
     @JsonProperty("readJson")
     READ_JSON,
-    /** Building the CPM view of a bundle, or of the statements outside any bundle, with CPF-Toolbox. */
+    /** Checking that the document is exactly one bundle. */
+    @JsonProperty("checkBundle")
+    CHECK_BUNDLE,
+    /** Building the CPM view of the document's bundle with CPF-Toolbox. */
     @JsonProperty("buildCpmView")
     BUILD_CPM_VIEW
 }

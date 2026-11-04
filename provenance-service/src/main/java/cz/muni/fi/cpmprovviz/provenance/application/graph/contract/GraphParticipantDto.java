@@ -8,8 +8,8 @@ package cz.muni.fi.cpmprovviz.provenance.application.graph.contract;
  * @param nameIri expanded IRI of {@code name}
  * @param id the identifier the argument names
  * @param iri expanded IRI of {@code id}
- * @param element key of the element in the same bundle (or outside any bundle, for a relation outside any bundle) whose
- *     {@code iri} equals {@code iri}, the first one when several do, or {@code null} when there is none
+ * @param element key of the element in the same bundle whose {@code iri} equals {@code iri}, the first one when several
+ *     do, or {@code null} when there is none
  * @param relation key of the relation in the same place whose {@code iri} equals {@code iri}, as
  *     {@code prov:generation} and {@code prov:usage} name relations; {@code null} when there is none or {@code element}
  *     is set

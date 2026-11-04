@@ -1,5 +1,6 @@
 package cz.muni.fi.cpmprovviz.provenance.application.ports;
 
+import cz.muni.fi.cpmprovviz.provenance.application.exceptions.UnreadableDocumentException;
 import org.openprovenance.prov.model.Document;
 
 /** Reads a serialised PROV document into ProvToolbox's model. */
